@@ -3,8 +3,9 @@
 Hi, its project documentation.
 
 ## Open host for see result:
-crossplatform host: [localhost](url)
-local-developer host: [host](url)
+> crossplatform host: [localhost](url)
+> local-developer host: [host](url)
+
 
 ## How add repository files:
 1) Clone HTTP project link
@@ -20,5 +21,5 @@ Done, you opened project repository on your desktop. Now, you need to create you
 3) Seeing all project branches: `git branch`
 4) Checkout branch: `git checkout meBranch`
 5) Create & checkout your branch: `git checkout -b myBranch`
-------------------------------------------------------------
+---
 6) Update branch: `git pull origin dev`
