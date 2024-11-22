@@ -1,4 +1,4 @@
-# GO Project - frontend
+# GO Project - frontend doc
 ⚠️ Hi, its project documentation ⚠️
 
 ### Open host for see result:
