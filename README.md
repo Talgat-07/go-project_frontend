@@ -1,5 +1,5 @@
 # GO Project - frontend
-Hi, its project documentation.
+⚠️ Hi, its project documentation ⚠️
 
 ### Open host for see result:
 > crossplatform host: [localhost](url)
