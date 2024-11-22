@@ -3,7 +3,8 @@
 
 
 ## Getting started:
-host: `h`
+host: 
+```h```
 localhost: `h`
 
 ## How add repository files:
