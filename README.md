@@ -1,8 +1,9 @@
 # GO Project - frontend introduction
 ⚠️ Hi, its project documentation ⚠️
 
-Our repository name: `go-project-frontend`
-Our HTTP link: `https://gitlab.geeks.kg/go-project/go-project_frontend.git`
+- Our repository name: `go-project-frontend`
+- Our HTTP link: `https://gitlab.geeks.kg/go-project/go-project_frontend.git`
+
 
 ### Open host for see result:
 > testing host: [localhost](url)
