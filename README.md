@@ -1,6 +1,7 @@
 # go project frontend
 
-Hi, its project documentation.
+▶• ılıılıılıılıılıılı.
+ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـHi, its project documentation.ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ
 
 ## Open host for see result:
 > crossplatform host: [localhost](url)
