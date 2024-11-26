@@ -41,8 +41,10 @@ export default [
           caughtErrors: 'all',
           ignoreRestSiblings: false,
           reportUsedIgnorePattern: false,
-          // игнорирвоание неиспользуемых styles импортов
+          //Игнорирвоание неиспользуемых styles импортов
           varsIgnorePattern: '^styles$',
+          //Отключение react/prop-types для типографии
+          'react/prop-types': 'off',
         },
       ],
       'no-var': 'error',
