@@ -19,4 +19,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './tests/runTests.js',
   },
+  // build: {
+  //   rollupOptions: {
+  //     external: ['/src/app/Routing/main.jsx'],
+  //   },
+  // },
 })
