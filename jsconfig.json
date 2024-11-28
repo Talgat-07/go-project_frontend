@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "modules": ["src/modules/*"]
+      "@/*": ["src/*"],
+      "app": ["src/app/*"],
+      "modules": ["src/modules/*"],
+      "pages": ["src/pages/*"],
+      "ui": ["src/ui/*"],
+      "utils": ["src/utils/*"]
     },
     "moduleResolution": "node"
   }

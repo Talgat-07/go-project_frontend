@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const Header = () => {
   return (
-    <nav className={styles.navbar}>
+    <header className={styles.navbar} role='navigation'>
       <div className={styles.logo}>
         {/* <img src={logo} alt='logo' /> */}
         <Link to={'/'}>logo</Link>
@@ -16,6 +16,6 @@ export const Header = () => {
         <li>Доставка товаров из Китая EasyGo</li>
         <Link to={'/another-page'}>О компании</Link>
       </ul>
-    </nav>
+    </header>
   )
 }

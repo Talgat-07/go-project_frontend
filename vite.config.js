@@ -6,8 +6,17 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // '@': '/src',
+      '@': '/src',
+      app: '/src/app',
       modules: '/src/modules',
+      pages: '/src/pages',
+      ui: '/src/ui',
+      utils: '/src/utils',
     },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './tests/runTests.js',
   },
 })
