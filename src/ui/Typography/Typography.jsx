@@ -9,9 +9,12 @@ export const Typography = (props) => {
     truncate = false,
     onClick,
     id,
+    href,
+    target,
   } = props
 
   const Tags = {
+    a: 'a',
     h1: 'h1',
     h2: 'h2',
     h3: 'h3',
@@ -40,7 +43,13 @@ export const Typography = (props) => {
 
   return (
     <>
-      <TagName onClick={onClick} id={id} className={classNamedGenerated}>
+      <TagName
+        onClick={onClick}
+        id={id}
+        className={classNamedGenerated}
+        href={variant === 'a' ? href : null}
+        target={variant === 'a' ? target : null}
+      >
         {!truncate ? children : truncateString(children, truncate)}
       </TagName>
     </>

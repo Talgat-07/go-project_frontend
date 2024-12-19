@@ -6,7 +6,7 @@ export const Layout = () => {
   return (
     <>
       <Header />
-      <section role='main'>
+      <section>
         <Outlet />
       </section>
       <Footer />
