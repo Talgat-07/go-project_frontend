@@ -12,11 +12,7 @@ export const Header = () => {
       <section className={styles.contactsSection}>
         <div className={styles.phoneBlock}>
           <img src={whatsapp} alt='icon' />
-          <Typography
-            variant='a'
-            href='https://wa.me/1234567890'
-            target='_blank'
-          >
+          <Typography variant='a' href='tel:+9960706789678' target='_blank'>
             +996(700)777 777
           </Typography>
         </div>

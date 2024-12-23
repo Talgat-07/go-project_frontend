@@ -12,11 +12,10 @@
   z-index: 9999;
   font-family: 'Montserrat';
   width: 100%;
-  padding: 30px 0 30px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 308px;
+  padding: 11px 117px;
   background: var(--onlyWhite);
   .centerSection {
     display: flex;
@@ -30,6 +29,7 @@
     gap: 12px;
     & a {
       color: var(--onlyBlack);
+      white-space: nowrap;
     }
     .phoneBlock {
       font-family: 'Montserrat';
@@ -41,6 +41,18 @@
         width: 24px;
         height: 24px;
       }
+    }
+  }
+  .navigationList {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    color: var(--onlyBlack);
+    font-weight: 600;
+    font-size: 20px;
+    & a {
+      color: var(--onlyBlack);
+      white-space: nowrap;
     }
   }
   .formBtn {
@@ -60,16 +72,4 @@
   width: 104px;
   height: 68px;
   margin: auto;
-}
-
-.navigationList {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  color: var(--onlyBlack);
-  font-weight: 600;
-  font-size: 20px;
-  & a {
-    color: var(--onlyBlack);
-  }
 }
