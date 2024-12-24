@@ -3,23 +3,20 @@ body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: 'NATS', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #dedede;
+  background: #ffffff;
 }
 
-// @font-face {
-//   font-family: 'Odibee Sans';
-//   src: url(../fonts/OdibeeSans/OdibeeSans-Regular.woff);
-// }
-// @font-face {
-//   font-family: 'NATS';
-//   src: url(../fonts/NATS/NATS.woff);
-// }
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../../ui/Typography/fonts/transfonter.org-20241219-182800/Montserrat-Regular.woff);
+}
 
 button {
   cursor: pointer;

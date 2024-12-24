@@ -1,5 +1,4 @@
 import styles from './Header.module.scss'
-// import logo from ''
 import { Link } from 'react-router-dom'
 import logo from '@/app/assets/icons/logo.svg'
 import whatsapp from '@/app/assets/icons/whatsapp_header_icon.svg'

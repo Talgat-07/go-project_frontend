@@ -1,9 +1,11 @@
+import { Banner } from '@/modules/HomeModules/Banner/Banner'
 import styles from './Home.module.scss'
 
 export const Home = () => {
   return (
-    <main className={styles.homePage}>
-      <div>home</div>
+    <main>
+      <Banner />
+      <section className={styles.homePage}></section>
     </main>
   )
 }
