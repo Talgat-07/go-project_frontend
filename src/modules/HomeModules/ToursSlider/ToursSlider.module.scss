@@ -1,0 +1,27 @@
+.toursSection {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  align-items: center;
+  .title {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--titleColor_1);
+  }
+}
+
+.slider {
+  display: flex !important;
+  gap: 21px;
+  height: 100%;
+  width: 100%;
+  max-width: 1370px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.slide {
+  width: 294px !important;
+  height: 273px;
+  background: #a8e3c7db;
+}
