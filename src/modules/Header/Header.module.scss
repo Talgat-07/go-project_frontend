@@ -5,7 +5,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 .navbar {
   position: fixed;
   top: 0;
@@ -16,20 +15,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 11px 117px;
-  background: var(--onlyWhite);
-  // background: linear-gradient(to bottom, #000, #ffffff00);
+  background: linear-gradient(to bottom, #000, #ffffff00);
   .centerSection {
     display: flex;
     flex-direction: column;
     gap: 34px;
   }
   .contactsSection {
-    color: var(--onlyBlack);
     display: flex;
     flex-direction: column;
     gap: 12px;
     & a {
-      color: var(--onlyBlack);
+      color: var(--onlyWhite);
       white-space: nowrap;
     }
     .phoneBlock {
@@ -48,11 +45,10 @@
     display: flex;
     justify-content: center;
     gap: 40px;
-    color: var(--onlyBlack);
     font-weight: 600;
     font-size: 20px;
     & a {
-      color: var(--onlyBlack);
+      color: var(--onlyWhite);
       white-space: nowrap;
     }
   }
@@ -62,13 +58,13 @@
     max-width: 208px;
     padding: 10px 20px;
     color: var(--onlyWhite);
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
     border: none;
     border-radius: 12px;
     background: var(--mediumOrange);
   }
 }
-
 .logo {
   width: 104px;
   height: 68px;

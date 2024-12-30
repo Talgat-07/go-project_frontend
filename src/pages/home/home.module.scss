@@ -1,8 +1,10 @@
 .homePage {
   width: 100%;
-  max-width: 1240px;
-  height: 92vh;
-  background: grey;
+  max-width: 1440px;
   margin: auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
