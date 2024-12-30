@@ -1,6 +1,7 @@
 import Slider from 'react-slick'
 import styles from './ToursSlider.module.scss'
-// import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick.css'
+import { Typography } from '@/ui/Typography/Typography'
 
 export const ToursSlider = () => {
   const settings = {
@@ -45,27 +46,27 @@ export const ToursSlider = () => {
   }
 
   return (
-    // <section className='slider-container'>
-    <Slider {...settings} className={styles.slider}>
-      <div className={styles.slide}>
-        <h3>1</h3>
-      </div>
-      <div className={styles.slide}>
-        <h3>2</h3>
-        <p>Hello</p>
-      </div>
-      <div className={styles.slide}>
-        <h3>3</h3>
-        <p>See ....</p>
-        <p>Height is adaptive</p>
-      </div>
-      <div className={styles.slide}>
-        <h3>4</h3>
-      </div>
-      <div className={styles.slide}>
-        <h3>5</h3>
-      </div>
-    </Slider>
-    //  </section>
+    <section className={styles.toursSection}>
+      <Typography variant='h2' className={styles.title}>
+        Туры
+      </Typography>
+      <Slider {...settings} className={styles.slider}>
+        <div className={styles.slide}>
+          <h3>1</h3>
+        </div>
+        <div className={styles.slide}>
+          <h3>2</h3>
+        </div>
+        <div className={styles.slide}>
+          <h3>3</h3>
+        </div>
+        <div className={styles.slide}>
+          <h3>4</h3>
+        </div>
+        <div className={styles.slide}>
+          <h3>5</h3>
+        </div>
+      </Slider>
+    </section>
   )
 }
