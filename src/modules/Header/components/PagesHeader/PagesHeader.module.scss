@@ -6,7 +6,7 @@
   font-display: swap;
 }
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 9999;
   font-family: 'Montserrat';
@@ -14,8 +14,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 11px 117px;
-  background: linear-gradient(to bottom, #000, #ffffff00);
+  padding: 26px 103px;
+  background: #fff;
   .centerSection {
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
     flex-direction: column;
     gap: 12px;
     & a {
-      color: var(--onlyWhite);
+      color: var(--onlyBlack);
       white-space: nowrap;
     }
     .phoneBlock {
@@ -48,7 +48,7 @@
     font-weight: 600;
     font-size: 20px;
     & a {
-      color: var(--onlyWhite);
+      color: var(--onlyBlack);
       white-space: nowrap;
     }
   }

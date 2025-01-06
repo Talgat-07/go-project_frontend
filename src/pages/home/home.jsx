@@ -6,10 +6,13 @@ import { VisaSupport } from '@/modules/HomeModules/VisaSupport/VisaSupport'
 import { Delivery } from '@/modules/HomeModules/EASY_GO_delivery/Delivery'
 import { Partners } from '@/modules/HomeModules/Partners/Partners'
 import { ToursSlider } from '@/modules/HomeModules/ToursSlider/ToursSlider'
+import { HomeHeader } from '@/modules/Header/components/HomeHeader/HomeHeader'
+import { Footer } from '@/modules/Footer/Footer'
 
 export const Home = () => {
   return (
     <main>
+      <HomeHeader />
       <Banner />
       <ToursSlider />
       <section className={styles.homePage}>
@@ -19,6 +22,7 @@ export const Home = () => {
         <Delivery />
         <Partners />
       </section>
+      <Footer />
     </main>
   )
 }

@@ -1,3 +1,6 @@
+@import '../../ui/Typography/fonts/transfonter.org-20241219-182800/Montserrat.css';
+@import '../../ui/Typography/fonts/font-post_no_bills_jaffna/PostNoBillsJaffna.css';
+
 html,
 body {
   width: 100%;
@@ -11,11 +14,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url(../../ui/Typography/fonts/transfonter.org-20241219-182800/Montserrat-Regular.woff);
 }
 
 button {

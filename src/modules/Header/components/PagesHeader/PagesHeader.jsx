@@ -1,22 +1,22 @@
-import styles from './Header.module.scss'
+import styles from './PagesHeader.module.scss'
 import { Link } from 'react-router-dom'
 import logo from '@/app/assets/icons/logo.svg'
 import { Typography } from '@/ui/Typography/Typography'
 import { FaWhatsapp } from 'react-icons/fa'
 import { SlLocationPin } from 'react-icons/sl'
 
-export const Header = () => {
+export const PagesHeader = () => {
   return (
     <header className={styles.navbar}>
       <section className={styles.contactsSection}>
         <div className={styles.phoneBlock}>
-          <FaWhatsapp style={{ color: 'white' }} size={'24px'} />
-          <Typography variant='a' href='tel:+9960706789678' target='_blank'>
+          <FaWhatsapp style={{ color: '#000' }} size={'24px'} />
+          <Typography variant='a' href='tel:+9960706789678'>
             +996(700)777 777
           </Typography>
         </div>
         <div className={styles.phoneBlock}>
-          <SlLocationPin style={{ color: 'white' }} size={'24px'} />
+          <SlLocationPin style={{ color: '#000' }} size={'24px'} />
           <Typography
             variant='a'
             href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
