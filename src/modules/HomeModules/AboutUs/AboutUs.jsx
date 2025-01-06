@@ -1,26 +1,32 @@
 import { Typography } from '@/ui/Typography/Typography'
 import styles from './AboutUs.module.scss'
-import img from '@/app/assets/images/temporarily_img.jpeg'
+import { AboutUsAPI } from './api/AboutUsApi'
+import { useEffect } from 'react'
 
 export const AboutUs = () => {
+  const { aboutUsData, fetchRequest } = AboutUsAPI()
+
+  useEffect(() => {
+    fetchRequest()
+  }, [fetchRequest])
+
   return (
-    <section className={styles.aboutUsSection}>
-      <Typography variant='h2' className={styles.title}>
-        О нас
-      </Typography>
-      <div className={styles.container}>
-        <div className={styles.infoImg}>
-          <img src={img} alt='info image' />
-        </div>
-        <Typography variant='h2' className={styles.description}>
-          "Go Project" — ваш проводник в мир бизнес-туризма. Мы создаём
-          авторские и индивидуальные туры для предпринимателей из СНГ,
-          обеспечиваем визовую поддержку по ключевым направлениям (Китай, США,
-          Шенген и Англия) и помогаем находить новые возможности для вашего
-          бизнеса. Наша миссия — создавать туры, которые приносят вдохновение,
-          знания и пользу вашему делу.
-        </Typography>
-      </div>
-    </section>
+    <>
+      {aboutUsData.map((item) => (
+        <section className={styles.aboutUsSection} key={item.id}>
+          <Typography variant='h2' className={styles.title}>
+            {item.title}
+          </Typography>
+          <div className={styles.container}>
+            <div className={styles.infoImg}>
+              <img src={item.image} alt='info image' />
+            </div>
+            <Typography variant='h2' className={styles.description}>
+              {item.description}
+            </Typography>
+          </div>
+        </section>
+      ))}
+    </>
   )
 }

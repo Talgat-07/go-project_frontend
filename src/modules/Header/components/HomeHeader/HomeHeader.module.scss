@@ -1,13 +1,13 @@
 .navbar {
   position: fixed;
-  top: 0 !important;
   z-index: 9999;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 26px 103px;
-  //   background: linear-gradient(to bottom, #000, #ffffff00);
+  transition: 0.2s;
+  background: linear-gradient(to bottom, #000, #ffffff00);
   .centerSection {
     display: flex;
     flex-direction: column;
@@ -18,8 +18,12 @@
     flex-direction: column;
     gap: 12px;
     & a {
-      color: var(--onlyWhite);
+      color: #fff;
       white-space: nowrap;
+      transition: 0.1s;
+      &:hover {
+        color: var(--mediumOrange) !important;
+      }
     }
     .phoneBlock {
       display: flex;
@@ -39,8 +43,12 @@
     font-weight: 600;
     font-size: 20px;
     & a {
-      color: var(--onlyWhite);
+      color: #fff;
       white-space: nowrap;
+      transition: 0.1s;
+      &:hover {
+        color: var(--mediumOrange) !important;
+      }
     }
   }
   .formBtn {
@@ -55,8 +63,13 @@
     background: var(--mediumOrange);
   }
 }
+
 .logo {
   width: 104px;
   height: 68px;
   margin: auto;
+}
+
+.icon {
+  color: #fff;
 }

@@ -1,4 +1,5 @@
 import styles from './Typography.module.scss'
+import parse from 'html-react-parser'
 
 export const Typography = (props) => {
   const {
@@ -39,19 +40,25 @@ export const Typography = (props) => {
     return stroke
   }
 
-  const TagName = Tags[variant in Tags ? variant : 'body']
+  const TagName = Tags[variant in Tags ? variant : 'span']
+
+  const renderChildren = !truncate
+    ? children
+    : truncateString(children, truncate)
+
+  const parsedChildren =
+    typeof renderChildren === 'string' ? parse(renderChildren) : renderChildren
 
   return (
-    <>
-      <TagName
-        onClick={onClick}
-        id={id}
-        className={classNamedGenerated}
-        href={variant === 'a' ? href : null}
-        target={variant === 'a' ? target : null}
-      >
-        {!truncate ? children : truncateString(children, truncate)}
-      </TagName>
-    </>
+    <TagName
+      onClick={onClick}
+      id={id}
+      className={classNamedGenerated}
+      href={variant === 'a' ? href : null}
+      target={variant === 'a' ? target : null}
+      style={{ color }}
+    >
+      {parsedChildren}
+    </TagName>
   )
 }
