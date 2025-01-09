@@ -1,7 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from '../Layout/Layout'
-import Home from '@/pages/home/home'
-import AnotherPage from 'pages/another-page/another-page'
+import Home from '@/pages/Home/Home'
+import { NotFound } from '@/pages/NotFound/NotFound'
+import { Tours } from '@/pages/Tours/Tours'
+import { VisaSupport } from '@/pages/VisaSupport/VisaSupport'
+import { Delivery } from '@/pages/Delivery/Delivery'
 
 const router = createBrowserRouter(
   [
@@ -10,8 +13,10 @@ const router = createBrowserRouter(
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: 'another-page', element: <AnotherPage /> },
-        // { path: "*", element: <PageNotFound /> },
+        { path: 'tours', element: <Tours /> },
+        { path: 'visa-support', element: <VisaSupport /> },
+        { path: 'delivery', element: <Delivery /> },
+        { path: '*', element: <NotFound /> },
       ],
     },
   ],

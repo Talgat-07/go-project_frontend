@@ -1,0 +1,39 @@
+.banner {
+  position: relative;
+  color: var(--onlyWhite);
+  font-family: sans-serif;
+  margin-bottom: 50px;
+  & img {
+    width: 100%;
+  }
+  .frame {
+    position: absolute;
+    left: 95px;
+    bottom: 128px;
+    width: 100%;
+    max-width: 570px;
+    margin: auto;
+    .title {
+      font-size: 56px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .description {
+      text-align: justify;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 19px;
+    }
+    .switchBtn {
+      width: 100%;
+      max-width: 195px;
+      padding: 14px 45px;
+      color: var(--onlyWhite);
+      font-weight: 500;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      background: var(--mediumOrange);
+    }
+  }
+}

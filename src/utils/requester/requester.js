@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { BASE_URL } from 'utils/constants/constants'
 
-export const Requester = axios.create({
+export const requester = axios.create({
   baseURL: BASE_URL,
   //   headers: {
   //     apikey: APIKEY,
@@ -12,8 +12,8 @@ export const Requester = axios.create({
 // В данном примере, добавляются заголовки Accept-Language и apikey в объект конфигурации запроса и затем
 // всё возобновляется с помощью оператора return. Это позволяет axios продолжить обработку запроса с
 // обновленной конфигурацией.
-Requester.interceptors.request.use((config) => {
+requester.interceptors.request.use((config) => {
   config.headers['Accept-Language'] = localStorage.getItem('language')
-  config.headers['apikey'] = APIKEY
+  // config.headers['apikey'] = APIKEY
   return config
 })

@@ -4,8 +4,4 @@ import '@/app/styles/global.scss'
 import '@/app/styles/nullstyles.scss'
 import '@/app/styles/variables.scss'
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <AppRouter />
-  </React.StrictMode>,
-)
+createRoot(document.getElementById('root')).render(<AppRouter />)
