@@ -1,0 +1,11 @@
+.visaSupSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: sans-serif;
+  .title {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--titleColor_1);
+  }
+}

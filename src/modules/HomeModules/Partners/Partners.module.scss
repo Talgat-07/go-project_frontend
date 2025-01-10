@@ -1,0 +1,40 @@
+.partnersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+  font-family: sans-serif;
+  margin-bottom: 50px;
+  .title {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--titleColor_1);
+  }
+  .logos {
+    display: flex;
+    align-items: center;
+    gap: 88px;
+    margin-bottom: 35px;
+    justify-content: center;
+  }
+  .enticementDescription {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 17px;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--mediumOrange);
+  }
+  .switchBtn {
+    width: 100%;
+    max-width: 250px;
+    padding: 11px 14px;
+    color: var(--onlyWhite);
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--mediumOrange);
+  }
+}

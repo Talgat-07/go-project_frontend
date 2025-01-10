@@ -1,0 +1,55 @@
+.notFoundSection {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin: auto;
+  color: var(--onlyWhite);
+  height: 100vh;
+  background: var(--mediumOrange);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .errorCode {
+    font-family: 'Post No Bills Jaffna - ExtraBold';
+    font-size: 328px;
+    font-weight: 800;
+    height: 340px;
+    margin-bottom: 50px;
+    cursor: default;
+  }
+  .errorMessage {
+    font-family: 'Montserrat';
+    font-size: 43px;
+    font-weight: 800;
+    margin-bottom: 31px;
+    cursor: default;
+  }
+  .infoBLock {
+    .info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+
+      .description {
+        font-family: 'Montserrat';
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--onlyWhite);
+      }
+    }
+    .underLine {
+      transition: 0.2s;
+      width: 0%;
+      height: 2px;
+      background: var(--onlyWhite);
+      margin: auto;
+    }
+    &:hover .underLine {
+      width: 92%;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

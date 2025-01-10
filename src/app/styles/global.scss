@@ -1,0 +1,25 @@
+@import '../../ui/Typography/fonts/transfonter.org-20241219-182800/Montserrat.css';
+@import '../../ui/Typography/fonts/font-post_no_bills_jaffna/PostNoBillsJaffna.css';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  // overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+}
+
+button {
+  cursor: pointer;
+}
