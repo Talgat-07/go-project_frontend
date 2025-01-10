@@ -1,24 +1,32 @@
 .factsSection {
   display: flex;
   flex-direction: column;
-  gap: 52px;
-  font-family: sans-serif;
+  align-items: center;
   .title {
     font-size: 40px;
     font-weight: 500;
-    color: var(--titleColor_1);
+    color: var(--mediumOrange);
+    margin-bottom: 20px;
   }
-  .container {
+  .divideLine {
+    margin-bottom: 32px;
+    display: flex;
+    width: 100%;
+    max-width: 991px;
+    .line {
+      background: #e6e6e6;
+    }
+  }
+  .frameSection {
     display: flex;
     gap: 99px;
-    align-items: center;
     .frame {
       display: flex;
       flex-direction: column;
       gap: 25px;
-      text-align: center;
-      .frameCount {
+      .frameTitle {
         font-size: 48px;
+        font-weight: 400;
         color: var(--onlyBlack);
       }
       .frameDescription {
