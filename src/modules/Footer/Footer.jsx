@@ -6,9 +6,15 @@ import icon_2 from '@/app/assets/icons/tg_icon.svg'
 import icon_3 from '@/app/assets/icons/tt_icon.svg'
 import { Typography } from '@/ui/Typography/Typography'
 import { Link } from 'react-router-dom'
+import { ContactsStorage } from '@/app/Storage/Storage'
+import { useEffect } from 'react'
 
 export const Footer = () => {
-  const icons = [icon_1, icon_2, icon_3]
+  const { contactsData, contactsRequest, smData, smRequest } = ContactsStorage()
+
+  useEffect(() => {
+    contactsRequest(), smRequest()
+  }, [contactsRequest, smRequest])
 
   return (
     <footer className={styles.footer}>
@@ -19,42 +25,53 @@ export const Footer = () => {
               <img src={logo} alt='logo' />
             </Link>
           </div>
-          <aside className={styles.navigation}>
+          <section className={styles.navigation}>
             <div className={styles.links}>
               <Link to={'/'}>Туры</Link>
               <Link to={'/'}>Визы</Link>
               <Link to={'/'}>Доставка</Link>
             </div>
-            <div className={styles.links}>
-              <Typography variant='a' href='mailto:goprogect@gmail.com'>
-                E-mail : goprogect@gmail.com
-              </Typography>
-              <Typography
-                variant='a'
-                href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
-                target='_blank'
-              >
-                Адрес : ул. Жукеева - Пудовкина 44/1
-              </Typography>
-              <Typography variant='a' href='tel:+9960706789678'>
-                Телефон : 0706 789 678
-              </Typography>
-            </div>
-          </aside>
-          <div className={styles.qrBlock}>
-            <div>
-              <img src={QR} alt='qr code' />
-            </div>
-            <div className={styles.iconsContainer}>
-              {icons.map((item, id) => (
-                <img src={item} alt='icon' key={id} />
-              ))}
-            </div>
-          </div>
+            {contactsData.map((item) => (
+              <article className={styles.links} key={item.id}>
+                <Typography variant='a' href={`mailto:${item.email}`}>
+                  {item.email}
+                </Typography>
+                <Typography
+                  variant='a'
+                  // add address link from storage
+                  href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
+                  target='_blank'
+                >
+                  {item.company_address}
+                </Typography>
+                <Typography variant='a' href={`tel:${item.phone_number}`}>
+                  {item.phone_number}
+                </Typography>
+              </article>
+            ))}
+          </section>
+          {smData.map((item) => (
+            <article className={styles.qrBlock} key={item.id}>
+              <div>
+                {/* add QR link from storage */}
+                <img src={QR} alt='qr code' />
+              </div>
+              <div className={styles.iconsContainer}>
+                <Link to={item.partners_whatsapp} target='_blank'>
+                  <img src={icon_1} alt='whapp icon' />
+                </Link>
+
+                <Link to={item.telegram_link} target='_blank'>
+                  <img src={icon_2} alt='tgrm icon' />
+                </Link>
+
+                <Link to={item.tiktok_link} target='_blank'>
+                  <img src={icon_3} alt='tt icon' />
+                </Link>
+              </div>
+            </article>
+          ))}
         </section>
-        <Typography variant='p' className={styles.template}>
-          Geeks Pro 7.0 2024 BRIX Templates
-        </Typography>
       </main>
     </footer>
   )

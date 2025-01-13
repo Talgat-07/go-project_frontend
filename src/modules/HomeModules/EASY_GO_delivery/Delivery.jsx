@@ -2,6 +2,7 @@ import { Typography } from '@/ui/Typography/Typography'
 import styles from './Delivery.module.scss'
 import { useEG_Delicery } from './api/HomePageDeliveryApi'
 import { useEffect } from 'react'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 
 export const Delivery = () => {
   const { deliveryData, deliveryRequest } = useEG_Delicery()
@@ -25,7 +26,13 @@ export const Delivery = () => {
             <Typography variant='p' className={styles.frameDescription}>
               {item.description}
             </Typography>
-            <button className={styles.switchBtn}>Подробнее</button>
+            <SwitchButton
+              maxWidth='195px'
+              padding='14px 45px'
+              variant='animation_1'
+            >
+              Подробнее
+            </SwitchButton>
           </div>
         </div>
       ))}

@@ -1,13 +1,17 @@
 import styles from './HomeHeader.module.scss'
 import { Link } from 'react-router-dom'
-import logo from '@/app/assets/icons/logo.svg'
+import logo from '@/app/assets/icons/homeLogo.svg'
 import { Typography } from '@/ui/Typography/Typography'
 import { FaWhatsapp } from 'react-icons/fa'
 import { SlLocationPin } from 'react-icons/sl'
 import React, { useEffect, useState } from 'react'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { ContactsStorage } from '@/app/Storage/Storage'
 
 export const HomeHeader = () => {
-  const [bgColor, setBgColor] = useState('')
+  const [bgColor, setBgColor] = useState(
+    'linear-gradient(to bottom, #000 10%,rgba(0, 0, 0, 0.26) 85%, rgba(0, 0, 0, 0))',
+  )
   const [color, setColor] = useState('')
   const [boxShadow, setBoxShadow] = useState('')
   const [textShadow, setTextShadow] = useState('')
@@ -15,13 +19,15 @@ export const HomeHeader = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 900) {
+      if (window.scrollY > 740) {
         setBgColor('white')
         setColor('black')
         setBoxShadow('0px 0px 6px black')
         setTextShadow('none')
       } else {
-        setBgColor('linear-gradient(to bottom, #000, #ffffff00)')
+        setBgColor(
+          'linear-gradient(to bottom, #000 10%,rgba(0, 0, 0, 0.26) 85%, rgba(0, 0, 0, 0))',
+        )
         setColor('white')
         setBoxShadow('none')
         setTextShadow('2px 3px 3px #000')
@@ -33,38 +39,51 @@ export const HomeHeader = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const { contactsData, contactsRequest } = ContactsStorage()
+
+  useEffect(() => {
+    contactsRequest()
+  }, [contactsRequest])
+
   return (
     <header
       className={styles.navbar}
       style={{ background: bgColor, top: position, boxShadow: boxShadow }}
     >
-      <section className={styles.contactsSection}>
-        <div className={styles.phoneBlock}>
-          <FaWhatsapp
-            style={{ color: color }}
-            size={'24px'}
-            className={styles.icon}
-          />
-          <Typography variant='a' href='tel:+9960706789678' color={color}>
-            +996(700)777 777
-          </Typography>
-        </div>
-        <div className={styles.phoneBlock}>
-          <SlLocationPin
-            style={{ color: color }}
-            size={'24px'}
-            className={styles.icon}
-          />
-          <Typography
-            color={color}
-            variant='a'
-            href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
-            target='_blank'
-          >
-            ул. Жукеева - Пудовкина 44/1
-          </Typography>
-        </div>
-      </section>
+      {contactsData.map((item) => (
+        <section className={styles.contactsSection} key={item.id}>
+          <div className={styles.phoneBlock}>
+            <FaWhatsapp
+              style={{ color: color }}
+              size={'24px'}
+              className={styles.icon}
+            />
+            <Typography
+              variant='a'
+              href={`tel:${item.phone_number}`}
+              color={color}
+            >
+              {item.phone_number}
+            </Typography>
+          </div>
+          <div className={styles.phoneBlock}>
+            <SlLocationPin
+              style={{ color: color }}
+              size={'24px'}
+              className={styles.icon}
+            />
+            <Typography
+              color={color}
+              variant='a'
+              // add address link from storage
+              href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
+              target='_blank'
+            >
+              {item.company_address}
+            </Typography>
+          </div>
+        </section>
+      ))}
       <section className={styles.centerSection}>
         <div className={styles.logo}>
           <Link to={'/'} target='_top'>
@@ -95,9 +114,9 @@ export const HomeHeader = () => {
           </Link>
         </div>
       </section>
-      <Typography variant='button' className={styles.formBtn}>
+      <SwitchButton maxWidth='208px' padding='10px 20px' variant='animation_3'>
         Задать вопрос
-      </Typography>
+      </SwitchButton>
     </header>
   )
 }

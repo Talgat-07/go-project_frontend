@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import { Footer } from '@/modules/Footer/Footer'
+import { Copyright } from '@/modules/Copyright/Copyright'
 
 export const Layout = () => {
   return (
@@ -7,6 +7,7 @@ export const Layout = () => {
       <section>
         <Outlet />
       </section>
+      <Copyright />
     </>
   )
 }

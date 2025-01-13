@@ -1,7 +1,7 @@
 import { Typography } from '@/ui/Typography/Typography'
 import styles from './Partners.module.scss'
-import img from '@/app/assets/images/temporarily_img.jpeg'
 import { FaGooglePay } from 'react-icons/fa'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 
 export const Partners = () => {
   return (
@@ -11,9 +11,6 @@ export const Partners = () => {
       </Typography>
       <div>
         <div className={styles.logos}>
-          {/* <div className={styles.logo}>
-            <img src={img} alt='partner logo' />
-          </div> */}
           <FaGooglePay style={{ color: '#9A00AB' }} size={'85px'} />
           <FaGooglePay style={{ color: '#9A00AB' }} size={'85px'} />
           <FaGooglePay style={{ color: '#9A00AB' }} size={'85px'} />
@@ -25,7 +22,9 @@ export const Partners = () => {
           Хотите стать частью команды наших партнеров? Напишите нам и мы обсудим
           возможности сотрудничества!{' '}
         </Typography>
-        <button className={styles.switchBtn}>Написать на WhatsApp</button>
+        <SwitchButton maxWidth='286px' padding='9px 14px' variant='animation_2'>
+          Написать на WhatsApp
+        </SwitchButton>
       </div>
     </section>
   )

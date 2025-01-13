@@ -1,7 +1,7 @@
 import { requester } from '@/utils/requester/requester'
 import { create } from 'zustand'
 
-const endpoint = 'about_us/'
+const endpoint = 'core/about_us/'
 
 export const AboutUsAPI = create((set) => ({
   aboutUsData: [],

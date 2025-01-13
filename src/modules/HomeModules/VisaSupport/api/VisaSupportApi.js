@@ -1,7 +1,7 @@
 import { requester } from '@/utils/requester/requester'
 import { create } from 'zustand'
 
-const endpoint = 'visa_go/'
+const endpoint = 'visa_go/visa-go/'
 
 export const useVisaSupport = create((set) => ({
   visaData: [],
