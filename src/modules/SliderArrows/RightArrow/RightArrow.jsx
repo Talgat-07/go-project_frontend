@@ -1,5 +1,5 @@
 import { FaCircleArrowLeft } from 'react-icons/fa6'
-import './RightArrow.scss'
+import './RIghtArrow.scss'
 
 export const RightArrow = (props) => {
   const { onClick } = props
