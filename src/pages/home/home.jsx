@@ -1,5 +1,5 @@
 import { Banner } from '@/modules/HomeModules/Banner/Banner'
-import styles from './Home.module.scss'
+import styles from './home.module.scss'
 import { AboutUs } from '@/modules/HomeModules/AboutUs/AboutUs'
 import { VisaSupport } from '@/modules/HomeModules/VisaSupport/VisaSupport'
 import { Delivery } from '@/modules/HomeModules/EASY_GO_delivery/Delivery'
