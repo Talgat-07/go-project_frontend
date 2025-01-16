@@ -1,0 +1,44 @@
+.factsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--mediumOrange);
+    margin-bottom: 20px;
+  }
+}
+.frameSection {
+  display: flex;
+  gap: 99px;
+  .frame {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    .frameTitle {
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--onlyBlack);
+    }
+    .frameDescription {
+      font-size: 24px;
+      color: var(--mediumOrange);
+    }
+  }
+}
+
+.divideLine {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  .line {
+    background: #ececec;
+    width: 100%;
+    max-width: 355px;
+    height: 2px;
+  }
+}

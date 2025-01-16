@@ -1,7 +1,8 @@
-import { Typography } from '@/ui/Typography/Typography'
 import styles from './AboutUs.module.scss'
 import { AboutUsAPI } from './api/AboutUsApi'
 import { useEffect } from 'react'
+import { Info } from './components/Info/Info'
+import { Facts } from './components/Facts/Facts'
 
 export const AboutUs = () => {
   const { aboutUsData, fetchRequest } = AboutUsAPI()
@@ -12,19 +13,10 @@ export const AboutUs = () => {
 
   return (
     <>
-      {aboutUsData.map((item) => (
-        <section className={styles.aboutUsSection} key={item.id}>
-          <Typography variant='h2' className={styles.title}>
-            {item.title}
-          </Typography>
-          <div className={styles.container}>
-            <div className={styles.infoImg}>
-              <img src={item.image} alt='info image' />
-            </div>
-            <Typography variant='h2' className={styles.description}>
-              {item.description}
-            </Typography>
-          </div>
+      {aboutUsData.map((detail) => (
+        <section className={styles.aboutUsSection}>
+          <Info info={detail} />
+          <Facts facts={detail.facts} />
         </section>
       ))}
     </>

@@ -7,7 +7,6 @@
   align-items: center;
   padding: 26px 103px;
   transition: 0.2s;
-  background: linear-gradient(to bottom, #000, #ffffff00);
   .centerSection {
     display: flex;
     flex-direction: column;
@@ -50,17 +49,6 @@
         color: var(--mediumOrange) !important;
       }
     }
-  }
-  .formBtn {
-    width: 100%;
-    max-width: 208px;
-    padding: 10px 20px;
-    color: var(--onlyWhite);
-    font-weight: 500;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    background: var(--mediumOrange);
   }
 }
 

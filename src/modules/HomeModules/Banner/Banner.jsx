@@ -1,20 +1,53 @@
 import { Typography } from '@/ui/Typography/Typography'
 import styles from './Banner.module.scss'
-import banner from '@/app/assets/images/static_banner.jpg'
+import { BannerApi } from './api/BannerApi'
+import { useEffect } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 
 export const Banner = () => {
+  const { bannerData, bannerRequest } = BannerApi()
+
+  useEffect(() => {
+    bannerRequest()
+  }, [bannerRequest])
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    speed: 1200,
+    autoplay: true,
+    autoplaySpeed: 1900,
+    pauseOnHover: true,
+  }
+
   return (
-    <section className={styles.banner}>
-      <img src={banner} alt='background banner' />
-      <div className={styles.frame}>
-        <Typography className={styles.title} variant='h1'>
-          Премиум шоппинг тур в Китай
-        </Typography>
-        <Typography className={styles.description} variant='p'>
-          С Арзубеком Вонама, для предпринимателей по четырём годам.
-        </Typography>
-        <button className={styles.switchBtn}>Подробнее</button>
-      </div>
-    </section>
+    <Slider {...settings} className={styles.slider}>
+      {bannerData.map((item) => (
+        <section className={styles.banner} key={item.id}>
+          <img src={item.image} alt='background banner' />
+          <div className={styles.frame}>
+            <Typography className={styles.title} variant='h1'>
+              {item.title}
+            </Typography>
+            <Typography className={styles.description} variant='p'>
+              {item.description}
+            </Typography>
+            <SwitchButton
+              maxWidth='195px'
+              padding='14px 45px'
+              variant='animation_1'
+            >
+              Подробнее
+            </SwitchButton>
+          </div>
+        </section>
+      ))}
+    </Slider>
   )
 }

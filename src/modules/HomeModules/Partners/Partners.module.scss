@@ -16,6 +16,9 @@
     gap: 88px;
     margin-bottom: 35px;
     justify-content: center;
+    .logo {
+      height: 45px;
+    }
   }
   .enticementDescription {
     text-align: center;
@@ -25,16 +28,5 @@
     font-size: 28px;
     font-weight: 500;
     color: var(--mediumOrange);
-  }
-  .switchBtn {
-    width: 100%;
-    max-width: 250px;
-    padding: 11px 14px;
-    color: var(--onlyWhite);
-    font-weight: 500;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    background: var(--mediumOrange);
   }
 }

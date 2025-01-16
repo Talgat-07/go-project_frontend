@@ -4,28 +4,42 @@ import logo from '@/app/assets/icons/logo.svg'
 import { Typography } from '@/ui/Typography/Typography'
 import { FaWhatsapp } from 'react-icons/fa'
 import { SlLocationPin } from 'react-icons/sl'
+import { ContactsStorage } from '@/app/Storage/Storage'
+import { useEffect } from 'react'
 
 export const PagesHeader = () => {
+  const { contactsData, contactsRequest } = ContactsStorage()
+
+  useEffect(() => {
+    contactsRequest()
+  }, [contactsRequest])
+
   return (
     <header className={styles.navbar}>
-      <section className={styles.contactsSection}>
-        <div className={styles.phoneBlock}>
-          <FaWhatsapp style={{ color: '#000' }} size={'24px'} />
-          <Typography variant='a' href='tel:+9960706789678'>
-            +996(700)777 777
-          </Typography>
-        </div>
-        <div className={styles.phoneBlock}>
-          <SlLocationPin style={{ color: '#000' }} size={'24px'} />
-          <Typography
-            variant='a'
-            href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
-            target='_blank'
-          >
-            ул. Жукеева - Пудовкина 44/1
-          </Typography>
-        </div>
-      </section>
+      {contactsData.map((item) => (
+        <section className={styles.contactsSection} key={item.id}>
+          <div className={styles.phoneBlock}>
+            <FaWhatsapp
+              style={{ color: '#000' }}
+              size={'24px'}
+              className={styles.icon}
+            />
+            <Typography variant='a' href={`tel:${item.phone_number}`}>
+              {item.phone_number}
+            </Typography>
+          </div>
+          <div className={styles.phoneBlock}>
+            <SlLocationPin
+              style={{ color: '#000' }}
+              size={'24px'}
+              className={styles.icon}
+            />
+            <Typography variant='a' href={item.map_link} target='_blank'>
+              {item.company_address}
+            </Typography>
+          </div>
+        </section>
+      ))}
       <section className={styles.centerSection}>
         <div className={styles.logo}>
           <Link to={'/'} target='_top'>

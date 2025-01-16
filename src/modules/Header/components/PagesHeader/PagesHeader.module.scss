@@ -1,15 +1,7 @@
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../../ui/Typography/fonts/transfonter.org-20241219-182800/Montserrat-Regular.woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
 .navbar {
   position: sticky;
   top: 0;
   z-index: 9999;
-  font-family: 'Montserrat';
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -25,12 +17,16 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+
     & a {
+      transition: 0.1s;
       color: var(--onlyBlack);
       white-space: nowrap;
+      &:hover {
+        color: var(--mediumOrange);
+      }
     }
     .phoneBlock {
-      font-family: 'Montserrat';
       display: flex;
       align-items: center;
       justify-content: start;
@@ -47,26 +43,30 @@
     gap: 40px;
     font-weight: 600;
     font-size: 20px;
+
     & a {
+      transition: 0.1s;
       color: var(--onlyBlack);
       white-space: nowrap;
+      &:hover {
+        color: var(--mediumOrange);
+      }
+    }
+    .formBtn {
+      width: 100%;
+      max-width: 208px;
+      padding: 10px 20px;
+      color: var(--onlyWhite);
+      font-weight: 500;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      background: var(--mediumOrange);
     }
   }
-  .formBtn {
-    font-family: 'Montserrat';
-    width: 100%;
-    max-width: 208px;
-    padding: 10px 20px;
-    color: var(--onlyWhite);
-    font-weight: 500;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    background: var(--mediumOrange);
+  .logo {
+    width: 104px;
+    height: 68px;
+    margin: auto;
   }
-}
-.logo {
-  width: 104px;
-  height: 68px;
-  margin: auto;
 }
