@@ -9,7 +9,7 @@ export const RightArrow = (props) => {
       {/* <img src='' alt='' /> */}
       <FaCircleArrowLeft
         onClick={onClick}
-        style={{ color: '#ff7c25' }}
+        style={{ color: '#454545' }}
         size={45}
         className='right'
       />
