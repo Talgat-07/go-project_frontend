@@ -4,20 +4,35 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  position: relative;
   .title {
     font-size: 40px;
     font-weight: 500;
     color: var(--titleColor_1);
   }
+  .switchText {
+    margin-left: 1150px;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--mediumOrange);
+    transition: 0.3s;
+    &:hover {
+      color: #ffb27e;
+    }
+  }
   .slider {
     width: 100%;
-    max-width: 1370px;
+    max-width: 1440px;
     margin: auto;
     margin-bottom: 50px;
+    padding-left: 60px;
     .slide {
-      max-width: 294px;
+      // border-right: 2px solid #ff0909;
+      // border-left: 2px solid #26ff09;
       position: relative;
       width: 100%;
+      max-width: 400px;
+      height: 381px;
       border-radius: 5px;
       overflow: hidden;
       .tourTitle {
@@ -25,7 +40,7 @@
         font-weight: 700;
       }
       .slideBg {
-        width: 294px;
+        width: 400px;
         height: 273px;
         & img {
           width: 100%;

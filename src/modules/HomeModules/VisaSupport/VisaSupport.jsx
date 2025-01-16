@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 import { useVisaSupport } from './api/VisaSupportApi'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
+import { LeftArrow } from '@/modules/SliderArrows/LeftArrow/LeftArrow'
+import { RightArrow } from '@/modules/SliderArrows/RightArrow/RightArrow'
 
 export const VisaSupport = () => {
   const { visaData, visaRequest } = useVisaSupport()
@@ -18,7 +20,8 @@ export const VisaSupport = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 750,
-    // adaptiveHeight: true,
+    nextArrow: <LeftArrow />,
+    prevArrow: <RightArrow />,
     responsive: [
       {
         breakpoint: 1025,

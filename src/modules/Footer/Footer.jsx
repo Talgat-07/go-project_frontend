@@ -36,12 +36,7 @@ export const Footer = () => {
                 <Typography variant='a' href={`mailto:${item.email}`}>
                   {item.email}
                 </Typography>
-                <Typography
-                  variant='a'
-                  // add address link from storage
-                  href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
-                  target='_blank'
-                >
+                <Typography variant='a' href={item.map_link} target='_blank'>
                   {item.company_address}
                 </Typography>
                 <Typography variant='a' href={`tel:${item.phone_number}`}>
@@ -52,10 +47,11 @@ export const Footer = () => {
           </section>
           {smData.map((item) => (
             <article className={styles.qrBlock} key={item.id}>
-              <div>
-                {/* add QR link from storage */}
-                <img src={QR} alt='qr code' />
-              </div>
+              {contactsData.map((item) => (
+                <div className={styles.qrCode}>
+                  <img src={item.pictogram} alt='qr code' />
+                </div>
+              ))}
               <div className={styles.iconsContainer}>
                 <Link to={item.partners_whatsapp} target='_blank'>
                   <img src={icon_1} alt='whapp icon' />

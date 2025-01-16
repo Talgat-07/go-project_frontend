@@ -75,8 +75,7 @@ export const HomeHeader = () => {
             <Typography
               color={color}
               variant='a'
-              // add address link from storage
-              href='https://2gis.kg/bishkek/firm/70000001044298822/tab/services?m=74.613883%2C42.826555%2F16%2Fp%2F0.94%2Fr%2F-0.19'
+              href={item.map_link}
               target='_blank'
             >
               {item.company_address}

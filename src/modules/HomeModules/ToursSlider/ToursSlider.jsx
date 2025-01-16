@@ -6,6 +6,9 @@ import { ToursSliderApi } from './api/ToursSliderApi'
 import { useEffect } from 'react'
 import { DateProp } from './component/DateProp'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { LeftArrow } from '@/modules/SliderArrows/LeftArrow/LeftArrow'
+import { RightArrow } from '@/modules/SliderArrows/RightArrow/RightArrow'
+import { Link } from 'react-router-dom'
 
 export const ToursSlider = () => {
   const { toursData, toursRequest } = ToursSliderApi()
@@ -19,7 +22,8 @@ export const ToursSlider = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // adaptiveHeight: true,
+    nextArrow: <LeftArrow />,
+    prevArrow: <RightArrow />,
     responsive: [
       {
         breakpoint: 1025,
@@ -71,6 +75,11 @@ export const ToursSlider = () => {
     <section className={styles.toursSection}>
       <Typography variant='h2' className={styles.title}>
         Туры
+      </Typography>
+      <Typography variant='p'>
+        <Link to={'/tours'} className={styles.switchText}>
+          Все туры 🡢
+        </Link>
       </Typography>
       <Slider {...settings} className={styles.slider}>
         {toursData.map((item) => (

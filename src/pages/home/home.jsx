@@ -11,6 +11,10 @@ import { Footer } from '@/modules/Footer/Footer'
 export const Home = () => {
   return (
     <main>
+      <>
+        <div className={styles.yellowCircle}>&nbsp;</div>
+        <div className={styles.orangeCircle}>&nbsp;</div>
+      </>
       <HomeHeader />
       <Banner />
       <ToursSlider />

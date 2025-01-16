@@ -7,12 +7,11 @@ export const Facts = ({ facts }) => {
       <Typography variant='h2' className={styles.title}>
         Go project факты о нас
       </Typography>
-      <div className={styles.divideLine}>
-        <div className={styles.line} />
-        <div className={styles.line} />
-        <div className={styles.line} />
-      </div>
-
+      <article className={styles.divideLine}>
+        <div className={styles.line}>&nbsp;</div>
+        <div className={styles.line}>&nbsp;</div>
+        <div className={styles.line}>&nbsp;</div>
+      </article>
       <div className={styles.frameSection}>
         <>
           {facts.map((item) => (

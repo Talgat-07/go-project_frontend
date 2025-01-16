@@ -8,3 +8,27 @@
   align-items: center;
   gap: 50px;
 }
+
+.yellowCircle {
+  width: 1000px;
+  height: 1000px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #face49ad, #fff, #fff);
+  filter: blur(100px);
+  position: absolute;
+  top: 50%;
+  left: -28%;
+  z-index: 0px;
+}
+
+.orangeCircle {
+  width: 1000px;
+  height: 1000px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff56229c, #fff, #fff);
+  filter: blur(100px);
+  position: absolute;
+  top: 95%;
+  right: -26%;
+  z-index: 1px;
+}
