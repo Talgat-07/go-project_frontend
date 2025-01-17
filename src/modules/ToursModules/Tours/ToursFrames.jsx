@@ -1,25 +1,10 @@
 import styles from './ToursFrames.module.scss'
 import { Typography } from '@/ui/Typography/Typography'
-import { useEffect, useState } from 'react'
 import { DateProp } from './component/DateProp'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 import { Link } from 'react-router-dom'
-import { ToursApi } from './api/ToursApi'
 
-export const ToursFrames = () => {
-  const { toursData, toursRequest } = ToursApi()
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    toursRequest()
-
-    if (toursData) {
-      setLoading(false) // Set loading to false once data is fetched
-    }
-  }, [toursRequest, toursData])
-
-  if (loading) return <div>Loading</div>
-
+export const ToursFrames = ({ countries = [] }) => {
   const translateColor = (color) => {
     const colorMap = {
       Оранжевый:
@@ -34,7 +19,7 @@ export const ToursFrames = () => {
 
   return (
     <section className={styles.toursSection}>
-      {toursData.map((item) => (
+      {countries.map((item) => (
         <article className={styles.frame} key={item.id}>
           <div className={styles.frameBg}>
             <img src={item.image} alt='background image' />

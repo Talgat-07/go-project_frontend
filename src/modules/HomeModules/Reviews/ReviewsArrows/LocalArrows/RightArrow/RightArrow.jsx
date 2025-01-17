@@ -11,7 +11,7 @@ export const RightArrow = (props) => {
         onClick={onClick}
         style={{ color: '#404040' }}
         size={45}
-        className='right'
+        className='rightLocalArrow'
       />
     </section>
   )

@@ -1,4 +1,4 @@
-import { FaCircleArrowRight } from 'react-icons/fa6'
+import { BsArrowRightSquareFill } from 'react-icons/bs'
 import './LeftArrow.scss'
 
 export const LeftArrow = (props) => {
@@ -7,9 +7,9 @@ export const LeftArrow = (props) => {
   return (
     <section>
       {/* <img src='' alt='' /> */}
-      <FaCircleArrowRight
+      <BsArrowRightSquareFill
         onClick={onClick}
-        style={{ color: '#454545' }}
+        style={{ color: '#404040' }}
         size={45}
         className='left'
       />

@@ -1,0 +1,32 @@
+.navigationList_home {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-weight: 600;
+  font-size: 20px;
+  & a {
+    color: #fff;
+    white-space: nowrap;
+    transition: 0.1s;
+    &:hover {
+      color: var(--mediumOrange) !important;
+    }
+  }
+}
+
+.navigationList_pages {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-weight: 600;
+  font-size: 20px;
+
+  & a {
+    transition: 0.1s;
+    color: var(--onlyBlack);
+    white-space: nowrap;
+    &:hover {
+      color: var(--mediumOrange);
+    }
+  }
+}

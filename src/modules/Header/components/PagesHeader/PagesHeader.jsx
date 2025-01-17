@@ -6,6 +6,8 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { SlLocationPin } from 'react-icons/sl'
 import { ContactsStorage } from '@/app/Storage/Storage'
 import { useEffect } from 'react'
+import { PagesNavigation } from '../Navigation/Navigation'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 
 export const PagesHeader = () => {
   const { contactsData, contactsRequest } = ContactsStorage()
@@ -46,17 +48,11 @@ export const PagesHeader = () => {
             <img src={logo} alt='logo' />
           </Link>
         </div>
-        <div className={styles.navigationList}>
-          <Link to={'/tours'}>Туры</Link>
-          <Link to={'*'}>О нас</Link>
-          <Link to={'/visa-support'}>Визы</Link>
-          <Link to={'/delivery'}>Доставка товаров</Link>
-          <Link to={'*'}>Отзывы</Link>
-        </div>
+        <PagesNavigation />
       </section>
-      <Typography variant='button' className={styles.formBtn}>
+      <SwitchButton maxWidth='208px' padding='10px 20px' variant='animation_3'>
         Задать вопрос
-      </Typography>
+      </SwitchButton>
     </header>
   )
 }

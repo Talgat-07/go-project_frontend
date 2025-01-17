@@ -22,6 +22,8 @@ export const VisaSupport = () => {
     speed: 750,
     nextArrow: <LeftArrow />,
     prevArrow: <RightArrow />,
+    focusOnSelect: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1025,

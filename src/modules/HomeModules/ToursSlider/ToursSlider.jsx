@@ -24,6 +24,8 @@ export const ToursSlider = () => {
     slidesToScroll: 1,
     nextArrow: <LeftArrow />,
     prevArrow: <RightArrow />,
+    focusOnSelect: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1025,

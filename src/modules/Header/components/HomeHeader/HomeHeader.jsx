@@ -7,6 +7,7 @@ import { SlLocationPin } from 'react-icons/sl'
 import React, { useEffect, useState } from 'react'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 import { ContactsStorage } from '@/app/Storage/Storage'
+import { HomeNavigation } from '../Navigation/Navigation'
 
 export const HomeHeader = () => {
   const [bgColor, setBgColor] = useState(
@@ -89,29 +90,7 @@ export const HomeHeader = () => {
             <img src={logo} alt='logo' />
           </Link>
         </div>
-        <div className={styles.navigationList}>
-          <Link to={'/tours'} style={{ color: color, textShadow: textShadow }}>
-            Туры
-          </Link>
-          <Link to={'*'} style={{ color: color, textShadow: textShadow }}>
-            О нас
-          </Link>
-          <Link
-            to={'/visa-support'}
-            style={{ color: color, textShadow: textShadow }}
-          >
-            Визы
-          </Link>
-          <Link
-            to={'/delivery'}
-            style={{ color: color, textShadow: textShadow }}
-          >
-            Доставка товаров
-          </Link>
-          <Link to={'*'} style={{ color: color, textShadow: textShadow }}>
-            Отзывы
-          </Link>
-        </div>
+        <HomeNavigation color={color} textShadow={textShadow} />
       </section>
       <SwitchButton maxWidth='208px' padding='10px 20px' variant='animation_3'>
         Задать вопрос
