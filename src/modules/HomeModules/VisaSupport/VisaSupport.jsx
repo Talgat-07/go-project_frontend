@@ -4,8 +4,8 @@ import { useEffect } from 'react'
 import { useVisaSupport } from './api/VisaSupportApi'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
-import { LeftArrow } from '@/modules/SliderArrows/LeftArrow/LeftArrow'
-import { RightArrow } from '@/modules/SliderArrows/RightArrow/RightArrow'
+import { LeftArrow } from '@/ui/SliderArrows/LeftArrow/LeftArrow'
+import { RightArrow } from '@/ui/SliderArrows/RightArrow/RightArrow'
 
 export const VisaSupport = () => {
   const { visaData, visaRequest } = useVisaSupport()

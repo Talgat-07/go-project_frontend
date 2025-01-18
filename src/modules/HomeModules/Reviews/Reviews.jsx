@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import { Typography } from '@/ui/Typography/Typography'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
-import { LeftArrow } from './ReviewsArrows/LocalArrows/LeftArrow/LeftArrow'
-import { RightArrow } from './ReviewsArrows/LocalArrows/RightArrow/RightArrow'
+import { LeftArrow } from '@/ui/ReviewsArrows/LocalArrows/LeftArrow/LeftArrow'
+import { RightArrow } from '@/ui/ReviewsArrows/LocalArrows/RightArrow/RightArrow'
 
 export const Reviews = () => {
   const { reviewsData, reviewsRequest } = ReviewsApi()

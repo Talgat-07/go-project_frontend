@@ -6,9 +6,9 @@ import { ToursSliderApi } from './api/ToursSliderApi'
 import { useEffect } from 'react'
 import { DateProp } from './component/DateProp'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { LeftArrow } from '@/modules/SliderArrows/LeftArrow/LeftArrow'
-import { RightArrow } from '@/modules/SliderArrows/RightArrow/RightArrow'
 import { Link } from 'react-router-dom'
+import { LeftArrow } from '@/ui/SliderArrows/LeftArrow/LeftArrow'
+import { RightArrow } from '@/ui/SliderArrows/RightArrow/RightArrow'
 
 export const ToursSlider = () => {
   const { toursData, toursRequest } = ToursSliderApi()
