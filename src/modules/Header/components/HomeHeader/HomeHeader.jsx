@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
 import { ContactsStorage } from '@/app/Storage/Storage'
 import { HomeNavigation } from '../Navigation/Navigation'
+import { useForm } from '@/utils/hooks/useForm'
 
 export const HomeHeader = () => {
   const [bgColor, setBgColor] = useState(
@@ -45,6 +46,8 @@ export const HomeHeader = () => {
   useEffect(() => {
     contactsRequest()
   }, [contactsRequest])
+
+  const { formShow } = useForm()
 
   return (
     <header
@@ -92,7 +95,12 @@ export const HomeHeader = () => {
         </div>
         <HomeNavigation color={color} textShadow={textShadow} />
       </section>
-      <SwitchButton maxWidth='208px' padding='10px 20px' variant='animation_3'>
+      <SwitchButton
+        maxWidth='208px'
+        padding='10px 20px'
+        variant='animation_3'
+        onClick={formShow}
+      >
         Задать вопрос
       </SwitchButton>
     </header>

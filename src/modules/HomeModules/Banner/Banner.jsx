@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { MultiContainer } from '@/ui/MultiContainer/MultiContainer'
 
 export const Banner = () => {
   const { bannerData, bannerRequest } = BannerApi()
@@ -31,21 +32,23 @@ export const Banner = () => {
       {bannerData.map((item) => (
         <section className={styles.banner} key={item.id}>
           <img src={item.image} alt='background banner' />
-          <div className={styles.frame}>
-            <Typography className={styles.title} variant='h1'>
-              {item.title}
-            </Typography>
-            <Typography className={styles.description} variant='p'>
-              {item.description}
-            </Typography>
-            <SwitchButton
-              maxWidth='195px'
-              padding='14px 45px'
-              variant='animation_1'
-            >
-              Подробнее
-            </SwitchButton>
-          </div>
+          <MultiContainer>
+            <div className={styles.frame}>
+              <Typography className={styles.title} variant='h1'>
+                {item.title}
+              </Typography>
+              <Typography className={styles.description} variant='p'>
+                {item.description}
+              </Typography>
+              <SwitchButton
+                maxWidth='195px'
+                padding='14px 45px'
+                variant='animation_1'
+              >
+                Подробнее
+              </SwitchButton>
+            </div>
+          </MultiContainer>
         </section>
       ))}
     </Slider>

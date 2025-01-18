@@ -23,3 +23,20 @@ body {
 button {
   cursor: pointer;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  apperance: none;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+  apperance: none;
+}
+
+input,
+label::selection {
+  background: transparent;
+}

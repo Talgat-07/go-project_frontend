@@ -34,13 +34,13 @@ export const Footer = () => {
             {contactsData.map((item) => (
               <article className={styles.links} key={item.id}>
                 <Typography variant='a' href={`mailto:${item.email}`}>
-                  {item.email}
+                  E-mail: {item.email}
                 </Typography>
                 <Typography variant='a' href={item.map_link} target='_blank'>
-                  {item.company_address}
+                  Адрес: {item.company_address}
                 </Typography>
                 <Typography variant='a' href={`tel:${item.phone_number}`}>
-                  {item.phone_number}
+                  Телефон: {item.phone_number}
                 </Typography>
               </article>
             ))}
