@@ -1,39 +1,27 @@
-import { Link } from 'react-router-dom'
-import styles from './Navigation.module.scss'
+import { Link } from 'react-router-dom';
+import styles from './Navigation.module.scss';
+import { PATH } from '@/utils/constants/constants';
+import { Typography } from '@/ui/Typography/Typography';
 
-export const HomeNavigation = ({ color, textShadow }) => {
-  return (
-    <div className={styles.navigationList_home}>
-      <Link to={'/tours'} style={{ color: color, textShadow: textShadow }}>
-        Туры
-      </Link>
-      <Link to={'*'} style={{ color: color, textShadow: textShadow }}>
-        О нас
-      </Link>
-      <Link
-        to={'/visa-support'}
-        style={{ color: color, textShadow: textShadow }}
-      >
-        Визы
-      </Link>
-      <Link to={'/delivery'} style={{ color: color, textShadow: textShadow }}>
-        Доставка товаров
-      </Link>
-      <Link to={'*'} style={{ color: color, textShadow: textShadow }}>
-        Отзывы
-      </Link>
-    </div>
-  )
-}
+export const Navigation = ({ color }) => {
+  const navigationList = [
+    { path: PATH.tours, label: "Туры" },
+    { path: PATH.visa, label: "Визы" },
+    { path: PATH.delivery, label: "Доставка товаров" },
+    { path: "", label: "О нас" },
+    { path: "", label: "Отзывы" },
+  ];
 
-export const PagesNavigation = () => {
   return (
-    <div className={styles.navigationList_pages}>
-      <Link to={'/tours'}>Туры</Link>
-      <Link to={'*'}>О нас</Link>
-      <Link to={'/visa-support'}>Визы</Link>
-      <Link to={'/delivery'}>Доставка товаров</Link>
-      <Link to={'*'}>Отзывы</Link>
+    <div className={styles.navigation}>
+      {navigationList.map((item, index) => (
+        <Link to={item.path} key={index}>
+          <Typography className={styles.label} color={color}>
+            {item.label}
+          </Typography>
+        </Link>
+      ))}
     </div>
-  )
-}
+  );
+};
+

@@ -7,10 +7,38 @@
 }
 
 a {
+  background: transparent;
   text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  border: none;
+  background: none;
+  font-family: inherit;
 }
 
 ul,
 ol {
   list-style-type: none;
 }
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-white);
+}
+
+html {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+

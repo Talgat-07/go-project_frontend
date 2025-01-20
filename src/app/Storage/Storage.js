@@ -14,6 +14,6 @@ export const ContactsStorage = create((set) => ({
   smData: [],
   smRequest: async () => {
     const smResponse = await requester.get(social_media_endpoint)
-    set({ smData: smResponse.data })
+    set({ smData: smResponse.data})
   },
 }))

@@ -28,8 +28,6 @@ export const Delivery = () => {
             </Typography>
             <SwitchButton
               maxWidth='195px'
-              padding='14px 45px'
-              variant='animation_1'
             >
               Подробнее
             </SwitchButton>
