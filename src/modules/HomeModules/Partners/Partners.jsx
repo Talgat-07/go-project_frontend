@@ -36,7 +36,7 @@ export const Partners = () => {
           Хотите стать частью команды наших партнеров? Напишите нам и мы обсудим
           возможности сотрудничества!
         </Typography>
-        <SwitchButton maxWidth='286px' padding='9px 14px' variant='animation_2'>
+        <SwitchButton maxWidth='286px'>
           Написать на WhatsApp
         </SwitchButton>
       </div>

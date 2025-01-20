@@ -1,11 +1,13 @@
 import styles from './Footer.module.scss'
-import logo from '@/app/assets/icons/logo.svg'
+import { Logo } from '@/app/assets/icons/Logo'
 import { Link } from 'react-router-dom'
 import { ContactsStorage } from '@/app/Storage/Storage'
 import { useEffect } from 'react'
 import { Contacts } from './components/Contacts/Contacts'
 import { Socials } from './components/Socials/Socials'
 import { PageNavigation } from './components/PageNavigation/PageNavigation'
+import { Copyright } from './components/Copyright/Copyright';
+import { PATH } from '@/utils/constants/constants';
 
 export const Footer = () => {
   const { contactsData, contactsRequest, smData, smRequest } = ContactsStorage()
@@ -19,8 +21,8 @@ export const Footer = () => {
       <main className={styles.mainSection}>
         <section className={styles.routesSection}>
           <div>
-            <Link to={'/'} target='_top'>
-              <img src={logo} alt='logo' />
+            <Link to={PATH.home} target='_top'>
+              <Logo />
             </Link>
           </div>
           <section className={styles.navigation}>
@@ -30,6 +32,7 @@ export const Footer = () => {
           <Socials data={smData} />
         </section>
       </main>
+      <Copyright />
     </footer>
   )
 }

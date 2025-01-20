@@ -1,34 +1,32 @@
-import './SwitchButton.scss'
+import styles from './SwitchButton.module.scss';
+import { Typography } from '../Typography/Typography';
 
-export const SwitchButton = (props) => {
+export const SwitchButton = props => {
   const {
+    text,
     children,
-    onClick,
-    variant,
     className,
-    style,
-    disabled = false,
-    maxWidth,
-    padding,
-  } = props
+    onClick,
+    maxWidth = '100%',
+    disabled,
+  } = props;
 
-  const btnClassNames = [
-    'default',
-    variant === 'animation_1' ? 'animation_1' : '',
-    variant === 'animation_2' ? 'animation_2' : '',
-    variant === 'animation_3' ? 'animation_3' : '',
-  ]
-    .filter(Boolean)
-    .join(' ')
+  const classNamedGenerated = [
+    styles.btn,
+    className,
+  ].join(' ')
+    .trim();
 
   return (
     <button
-      className={`${className} ${btnClassNames}`}
-      onClick={!disabled ? onClick : undefined}
-      style={{ ...style, maxWidth, padding }}
+      onClick={onClick}
+      className={`${classNamedGenerated}`}
       disabled={disabled}
+      aria-label="button"
+      style={{ maxWidth: maxWidth }}
     >
-      <p>{children}</p>
+      <Typography>{text}</Typography>
+      {children}
     </button>
-  )
-}
+  );
+};

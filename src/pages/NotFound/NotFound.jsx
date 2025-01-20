@@ -1,7 +1,7 @@
-import { Typography } from '@/ui/Typography/Typography'
-import styles from './NotFound.module.scss'
-import arrow from '@/app/assets/icons/backArrow.svg'
-import { Link } from 'react-router-dom'
+import { Typography } from '@/ui/Typography/Typography';
+import styles from './NotFound.module.scss';
+import { BackArrow } from '@/app/assets/icons/BackArrow';
+import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
   return (
@@ -17,7 +17,7 @@ export const NotFound = () => {
           <Link to={'/'}>
             <div className={styles.info}>
               <div>
-                <img src={arrow} alt='back arrow' />
+                <BackArrow />
               </div>
               <Typography variant='p' className={styles.description}>
                 На главную
@@ -28,5 +28,5 @@ export const NotFound = () => {
         </article>
       </section>
     </main>
-  )
-}
+  );
+};

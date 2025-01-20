@@ -100,8 +100,6 @@ export const ToursSlider = () => {
             </div>
             <SwitchButton
               maxWidth='165px'
-              padding='5px 20px'
-              variant='animation_1'
               className={styles.switchBtn}
             >
               Подробнее

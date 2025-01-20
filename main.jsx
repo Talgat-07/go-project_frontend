@@ -1,7 +1,8 @@
-import { createRoot } from 'react-dom/client'
-import AppRouter from '@/app/Routing/Router/Router'
-import '@/app/styles/global.scss'
-import '@/app/styles/nullstyles.scss'
-import '@/app/styles/variables.scss'
+import { createRoot } from 'react-dom/client';
+import AppRouter from '@/app/Routing/Router/Router';
+import '@/app/styles/global.scss';
+import '@/app/styles/nullstyles.scss';
+import '@/app/styles/variables.scss';
+import '@/app/styles/mixins.scss';
 
-createRoot(document.getElementById('root')).render(<AppRouter />)
+createRoot(document.getElementById('root')).render(<AppRouter />);

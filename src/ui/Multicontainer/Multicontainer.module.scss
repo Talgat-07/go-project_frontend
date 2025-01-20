@@ -1,13 +1,18 @@
+@import "@/app/styles/mixins.scss";
+
 .container {
+  max-width: 1440px;
   width: 100%;
-  width: 1240px;
   margin: 0 auto;
-  position: relative;
-  @media (max-width: 1300px) {
-    // width: 100%;
-    // padding: 0 30px;
+  padding: 0 100px 0 100px;
+
+  @include Tablet {
+    max-width: 768px;
+    padding: 0 20px 0 20px;
   }
-  @media (max-width: 430px) {
-    // padding: 0 20px;
+
+  @include Mobile {
+    max-width: 375px;
+    padding: 0 12px 0 12px;
   }
 }

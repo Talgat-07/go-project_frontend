@@ -1,0 +1,30 @@
+.btn {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  color: var(--onlyWhite);
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: var(--mediumOrange);
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #9E3917;
+  }
+
+  &:active {
+    background: #72321B;
+  }
+
+  &:focus {
+    background: #CF5B16;
+  }
+
+  &:disabled {
+    background: rgba(207, 90, 22, 0.449);
+  }
+}
