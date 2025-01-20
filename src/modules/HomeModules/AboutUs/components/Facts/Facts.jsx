@@ -1,12 +1,11 @@
 import { Typography } from '@/ui/Typography/Typography'
 import styles from './Facts.module.scss'
+import { Heading } from '@/ui/Heading/Heading';
 
 export const Facts = ({ facts }) => {
   return (
     <section className={styles.factsSection}>
-      <Typography variant='h2' className={styles.title}>
-        Go project факты о нас
-      </Typography>
+      <Heading text="Go project факты о нас"/>
       <article className={styles.divideLine}>
         <div className={styles.line}>&nbsp;</div>
         <div className={styles.line}>&nbsp;</div>

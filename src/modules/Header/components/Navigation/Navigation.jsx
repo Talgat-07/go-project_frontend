@@ -16,7 +16,7 @@ export const Navigation = ({ color }) => {
     <div className={styles.navigation}>
       {navigationList.map((item, index) => (
         <Link to={item.path} key={index}>
-          <Typography className={styles.label} color={color}>
+          <Typography weight="fw6" className={styles.label} color={color}>
             {item.label}
           </Typography>
         </Link>

@@ -9,6 +9,7 @@ export const SwitchButton = props => {
     onClick,
     maxWidth = '100%',
     disabled,
+    fontSize = "fs18"
   } = props;
 
   const classNamedGenerated = [
@@ -25,7 +26,7 @@ export const SwitchButton = props => {
       aria-label="button"
       style={{ maxWidth: maxWidth }}
     >
-      <Typography>{text}</Typography>
+      <Typography variant={fontSize}>{text}</Typography>
       {children}
     </button>
   );

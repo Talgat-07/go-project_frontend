@@ -5,6 +5,7 @@ import { NotFound } from '@/pages/NotFound/NotFound';
 import { Suspense } from 'react';
 import { Loader } from '@/ui/Loader/Loader';
 import { Header } from '@/modules/Header/Header';
+import styles from "./Layout.module.scss";
 
 export const Layout = () => {
   let path = useLocation();
@@ -12,14 +13,16 @@ export const Layout = () => {
   if (path.pathname === '/*') return <NotFound />;
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <Header />
-      <Suspense fallback={<Loader />}>
-        <Outlet />
+      <div className={styles.content}>
         <ScrollButton />
-      </Suspense>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 export default Layout;

@@ -1,64 +1,65 @@
-import styles from './Typography.module.scss'
-import parse from 'html-react-parser'
+import styles from './Typography.module.scss';
+import { Fragment } from 'react';
 
-export const Typography = (props) => {
+export const Typography = props => {
   const {
-    variant,
+    variant = 'fs18',
+    weight = 'regular',
     children,
     className,
     color,
     truncate = false,
-    onClick,
-    id,
-    href,
-    target,
-  } = props
+  } = props;
 
   const Tags = {
-    a: 'a',
     h1: 'h1',
     h2: 'h2',
     h3: 'h3',
     h4: 'h4',
     h5: 'h5',
-    h6: 'h6',
-    button: 'button',
-    p: 'p',
-    span: 'span',
-  }
+    fs24: 'p',
+    fs22: 'p',
+    fs20: 'p',
+    fs18: 'p',
+    fs16: 'p',
+    fs14: 'p',
+  };
 
-  const classNamedGenerated = [styles[variant] || '', styles[color], className]
+  const classNamedGenerated = [
+    styles.text,
+    styles[variant],
+    styles[weight],
+    className,
+  ]
     .join(' ')
-    .trim()
+    .trim();
 
-  const truncateString = (stroke, maxNumber) => {
-    if (typeof stroke === 'string') {
-      return stroke.length <= maxNumber
-        ? stroke
-        : stroke.slice(0, maxNumber) + '...'
+  const truncateString = (str, maxNumber) => {
+    if (typeof str === 'string') {
+      return str.length <= maxNumber
+        ? str
+        : str.slice(0, maxNumber) + '...';
     }
-    return stroke
-  }
+    return str;
+  };
 
-  const TagName = Tags[variant in Tags ? variant : 'span']
+  const convertNewlinesToBreaks = text => {
+    if (typeof text === 'string') {
+      return text
+        .split('\r\n')
+        .map((line, index) => <Fragment key={index}>{line}</Fragment>);
+    } else {
+      return text;
+    }
+  };
 
-  const renderChildren = !truncate
-    ? children
-    : truncateString(children, truncate)
-
-  const parsedChildren =
-    typeof renderChildren === 'string' ? parse(renderChildren) : renderChildren
+  const TagName = Tags[variant in Tags ? variant : 'fs18'];
 
   return (
-    <TagName
-      onClick={onClick}
-      id={id}
-      className={classNamedGenerated}
-      href={variant === 'a' ? href : null}
-      target={variant === 'a' ? target : null}
-      style={{ color }}
-    >
-      {parsedChildren}
+    <TagName className={classNamedGenerated} style={{ color: color }}>
+      {!truncate
+        ? convertNewlinesToBreaks(children)
+        : truncateString(children, truncate)}
     </TagName>
-  )
-}
+  );
+};

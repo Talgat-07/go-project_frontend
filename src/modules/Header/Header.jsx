@@ -42,7 +42,9 @@ export const Header = () => {
                 <div key={index} className={styles.block}>
                   {item.icon}
                   <a href={item.link} target="_blank">
-                    <Typography color={textColor}>{item.text}</Typography>
+                    <Typography variant="fs16" color={textColor}>
+                      {item.text}
+                    </Typography>
                   </a>
                 </div>
               ))}
@@ -50,7 +52,7 @@ export const Header = () => {
             <Link
               to={PATH.home}
               className={styles.logo}>
-              <Logo color={textColor}/>
+              <Logo color={textColor} />
             </Link>
             <div className={styles.activeBlock}>
               <SwitchButton
@@ -59,11 +61,11 @@ export const Header = () => {
               >
                 Задать вопрос
               </SwitchButton>
-              <SwitchLanguage color={textColor}/>
+              <SwitchLanguage color={textColor} />
             </div>
           </div>
           <div className={styles.nav}>
-            <Navigation color={textColor}/>
+            <Navigation color={textColor} />
           </div>
         </div>
       </MultiContainer>

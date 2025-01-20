@@ -1,89 +1,30 @@
 .block {
-  width: 57px;
-  position: relative;
-  margin-left: 30px;
-  padding: 3px;
-}
-
-.dropdown {
-  cursor: pointer;
   display: flex;
   align-items: center;
-  border-radius: 4px;
-  width: 100%;
-  gap: 5px;
+  gap: 7px;
+  cursor: pointer;
 
   .label {
-      font-size: 16px;
-      animation: color linear;
-      animation-timeline: scroll(y);
-    }
-    .icon path {
-      animation: color linear;
-      animation-timeline: scroll(y);
-    }
-
-    @keyframes color {
-      10% {
-        color: black;
-        stroke: black;
-      }
-
-      100% {
-        color: black;
-        stroke: black;
-      }
-    }
-}
-
-.changeLang {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  list-style: none;
-  padding: 5px 16px;
-  width: 100%;
-  background: #fff;
-  opacity: 0;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: all 0.3s ease;
-  display: flex;
-  gap: 9px;
-  flex-direction: column;
-}
-
-.changeLang.show {
-  opacity: 1;
-  transform: scaleY(1);
-}
-
-.lang {
-  width: 100%;
-  border: none;
-  background: #fff;
-  text-align: left;
-  cursor: pointer;
-  padding: 0 3px;
-  border-radius: 4px;
-  margin-bottom: 9px;
-
-  &:last-child {
-      margin-bottom: 0;
+    animation: color linear;
+    animation-timeline: scroll(y);
   }
 
-  p {
-      font-size: 18px;
+  .icon path {
+    width: 26px;
+    height: 26px;
+    animation: color linear;
+    animation-timeline: scroll(y);
   }
-}
 
-.arrow {
-  display: inline-block;
-  transition: transform 0.3s ease;
-  transform-origin: center;
-}
+  @keyframes color {
+    10% {
+      color: black;
+      fill: black;
+    }
 
-.up {
-  transform: rotate(180deg);
+    100% {
+      color: black;
+      fill: black;
+    }
+  }
 }

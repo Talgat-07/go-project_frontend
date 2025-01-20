@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import { LeftArrow } from '@/ui/SliderArrows/LeftArrow/LeftArrow'
 import { RightArrow } from '@/ui/SliderArrows/RightArrow/RightArrow'
+import { Heading } from '@/ui/Heading/Heading';
 
 export const VisaSupport = () => {
   const { visaData, visaRequest } = useVisaSupport()
@@ -61,9 +62,7 @@ export const VisaSupport = () => {
 
   return (
     <>
-      <Typography variant='h2' className={styles.title}>
-        Визовая поддержка- Visa Go
-      </Typography>
+    <Heading text="Визовая поддержка- Visa Go"/>
       <Slider {...settings} className={styles.slider}>
         {visaData.map((item) => (
           <article className={styles.visaSupSection} key={item.id}>
