@@ -3,7 +3,7 @@ import styles from './Banner.module.scss'
 import { BannerApi } from './api/BannerApi'
 import { useEffect } from 'react'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { MultiContainer } from '@/ui/MultiContainer/MultiContainer'
+import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
