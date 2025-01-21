@@ -1,7 +1,7 @@
 import { Typography } from '@/ui/Typography/Typography'
 import styles from './Content.module.scss'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { MultiContainer } from '@/ui/MultiContainer/MultiContainer'
+import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
 import { SwiperSlide } from 'swiper/react'
 
 export const Content = ({ item }) => {
