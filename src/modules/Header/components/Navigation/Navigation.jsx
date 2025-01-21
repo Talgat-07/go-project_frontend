@@ -2,14 +2,17 @@ import { Link } from 'react-router-dom';
 import styles from './Navigation.module.scss';
 import { PATH } from '@/utils/constants/constants';
 import { Typography } from '@/ui/Typography/Typography';
+import { useTranslation } from 'react-i18next';
 
 export const Navigation = ({ color }) => {
+  const { t } = useTranslation();
+
   const navigationList = [
-    { path: PATH.tours, label: "Туры" },
-    { path: PATH.visa, label: "Визы" },
-    { path: PATH.delivery, label: "Доставка товаров" },
-    { path: "", label: "О нас" },
-    { path: "", label: "Отзывы" },
+    { path: PATH.tours, label: t("header.tours") },
+    { path: PATH.visa, label: t("header.visas") },
+    { path: PATH.delivery, label: t("header.delivery") },
+    { path: "", label: t("header.aboutUs") },
+    { path: "", label: t("header.reviews") },
   ];
 
   return (
