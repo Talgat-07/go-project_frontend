@@ -8,6 +8,7 @@ export const Heading = ({ text, className }) => {
         weight="fw5"
         variant="h1"
         color="#FF6600"
+        className={styles.label}
       >
         {text}
       </Typography>
