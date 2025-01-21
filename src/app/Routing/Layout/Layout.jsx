@@ -1,16 +1,28 @@
-import { Outlet } from 'react-router-dom'
-import { Copyright } from '@/modules/Copyright/Copyright'
-import { ScrollButton } from '@/ui/ScrollButton/ScrollButton'
+import { Outlet, useLocation } from 'react-router-dom';
+import { ScrollButton } from '@/ui/ScrollButton/ScrollButton';
+import { Footer } from '@/modules/Footer/Footer';
+import { NotFound } from '@/pages/NotFound/NotFound';
+import { Suspense } from 'react';
+import { Loader } from '@/ui/Loader/Loader';
+import { Header } from '@/modules/Header/Header';
+import styles from "./Layout.module.scss";
 
 export const Layout = () => {
+  let path = useLocation();
+
+  if (path.pathname === '/*') return <NotFound />;
+
   return (
-    <>
-      <section>
-        <Outlet />
+    <div className={styles.wrapper}>
+      <Header />
+      <div className={styles.content}>
         <ScrollButton />
-      </section>
-      <Copyright />
-    </>
-  )
-}
-export default Layout
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+export default Layout;

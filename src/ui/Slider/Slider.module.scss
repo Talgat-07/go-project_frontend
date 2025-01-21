@@ -1,0 +1,28 @@
+.sliderContainer {
+  position: relative;
+  width: 100%;
+
+  .swiper {
+    display: flex;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    width: 100%;
+    z-index: 99;
+
+    .prevButton {
+      position: absolute;
+      left: -65px;
+    }
+
+    .nextButton {
+      position: absolute;
+      right: -65px;
+    }
+  }
+}

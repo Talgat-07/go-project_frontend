@@ -1,17 +1,51 @@
-import './ScrollButton.scss'
-import { MdPlayArrow } from 'react-icons/md'
+import { useEffect, useState } from 'react';
+import styles from './ScrollButton.module.scss';
+import { ScrollUp } from '@/app/assets/icons/ScrollUp';
 
 export const ScrollButton = () => {
-  const handlerScroll = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
+    const [isVisible, setIsVisible] = useState(false);
+    const [bottomOffset, setBottomOffset] = useState(50);
 
-  return (
-    <article className='scrollBtn' onClick={handlerScroll}>
-      <MdPlayArrow className='scrollIcon' size={45} />
-    </article>
-  )
-}
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const footer = document.querySelector('footer');
+            const footerRect = footer?.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (footerRect && footerRect.top < windowHeight) {
+                const offset = windowHeight - footerRect.top + 20;
+                setBottomOffset(offset);
+            } else {
+                setBottomOffset(50);
+            }
+
+            if (window.scrollY > 200) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    return (
+        <div
+            onClick={scrollToTop}
+            className={`${styles.mainToUpButton} ${isVisible ? styles.visible : ''}`}
+            style={{ bottom: `${bottomOffset}px` }}
+        >
+            <div className={styles.toUpButton}>
+                <ScrollUp />
+            </div>
+        </div>
+    );
+};

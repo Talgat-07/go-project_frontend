@@ -1,0 +1,22 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  gap: 8.4px;
+
+  .text path {
+    animation: logoText linear;
+    animation-timeline: scroll(y);
+  }
+
+  @keyframes logoText {
+    10% {
+      fill: black;
+    }
+
+    100% {
+      fill: black;
+    }
+  }
+}

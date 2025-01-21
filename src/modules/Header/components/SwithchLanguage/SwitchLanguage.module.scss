@@ -1,0 +1,30 @@
+.block {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+
+  .label {
+    animation: color linear;
+    animation-timeline: scroll(y);
+  }
+
+  .icon path {
+    width: 26px;
+    height: 26px;
+    animation: color linear;
+    animation-timeline: scroll(y);
+  }
+
+  @keyframes color {
+    10% {
+      color: black;
+      fill: black;
+    }
+
+    100% {
+      color: black;
+      fill: black;
+    }
+  }
+}
