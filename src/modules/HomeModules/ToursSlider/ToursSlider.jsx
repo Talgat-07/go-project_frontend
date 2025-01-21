@@ -7,6 +7,7 @@ import { PATH } from '@/utils/constants/constants';
 import { ArrowRight } from '@/app/assets/icons/ArrowRight';
 import { Slider } from '@/ui/Slider/Slider';
 import { TourCard } from '@/ui/TourCard/TourCard';
+import img from "@/app/assets/images/static_banner.jpg"
 
 export const ToursSlider = () => {
 
@@ -16,7 +17,8 @@ export const ToursSlider = () => {
       title: "Бизнес-тур в Китай",
       place: "из Бишкека",
       date: "12 - 20 декабря",
-      price: "от 2190 $"
+      price: "от 2190 $",
+      image: img
     },
     {
       title: "Бизнес-тур в Китай",
