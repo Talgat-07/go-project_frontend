@@ -3,6 +3,7 @@ import styles from './Delivery.module.scss'
 import { useEG_Delicery } from './api/HomePageDeliveryApi'
 import { useEffect } from 'react'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { Heading } from '@/ui/Heading/Heading';
 
 export const Delivery = () => {
   const { deliveryData, deliveryRequest } = useEG_Delicery()
@@ -13,9 +14,7 @@ export const Delivery = () => {
 
   return (
     <section className={styles.deliverySection}>
-      <Typography variant='h2' className={styles.title}>
-        Доставка Easy Go
-      </Typography>
+      <Heading text="Доставка Easy Go" />
       {deliveryData.map((item) => (
         <div className={styles.deliveryBanner} key={item.id}>
           <img src={item.image} alt='background image' />
@@ -23,7 +22,7 @@ export const Delivery = () => {
             <Typography variant='h3' className={styles.frameTitle}>
               {item.title}
             </Typography>
-            <Typography variant='p' className={styles.frameDescription}>
+            <Typography useParser variant='p' className={styles.frameDescription}>
               {item.description}
             </Typography>
             <SwitchButton

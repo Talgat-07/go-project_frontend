@@ -12,7 +12,7 @@ export const Info = ({ info }) => {
           <div className={styles.img}>
             <img src={info.image} alt='info image' />
           </div>
-          <Typography variant='fs24' className={styles.description}>
+          <Typography useParser variant='fs24' className={styles.description}>
             {info.description}
           </Typography>
         </div>
