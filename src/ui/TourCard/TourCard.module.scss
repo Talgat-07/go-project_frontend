@@ -12,7 +12,6 @@
     bottom: 0;
     width: 100%;
     border-radius: 10px 10px 5px 5px;
-    background: linear-gradient(126deg, rgba(216, 133, 48, 0.86) 3%, rgba(189, 99, 46, 0.86) 16%, rgba(0, 0, 0, 0.86) 100%);
     color: #fff;
     padding: 9px 25px 17px;
     display: flex;
@@ -20,9 +19,7 @@
     gap: 10px;
 
     .date {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      max-width: 150px;
     }
 
     .price {

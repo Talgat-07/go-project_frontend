@@ -1,25 +1,27 @@
 import { SwitchButton } from '../SwitchButton/SwitchButton'
 import { Typography } from '../Typography/Typography'
+import { tourCardColors } from '@/utils/constants/constants.js'
 import styles from './TourCard.module.scss'
 
 export const TourCard = ({ item }) => {
   return (
-    <div className={styles.card} style={{ backgroundImage: `url(${item.image})` }}>
-      <div className={styles.cardContent}>
-        <Typography variant='fs24' weight='fw7'>
-          {item.title}
+    <div
+      className={styles.card}
+      style={{ backgroundImage: `url(${item.image})` }}
+    >
+      <div
+        className={styles.cardContent}
+        style={{ background: tourCardColors[item.background_color] }}
+      >
+        <Typography variant='fs24' weight='fw7' useParser>
+          {item.description}
         </Typography>
-        <div className={styles.date}>
-          <Typography weight='fw5'>
-            {item.place}
-          </Typography>
-          <Typography weight='fw5'>
-            {item.date}
-          </Typography>
-        </div>
+        <Typography weight='fw5' className={styles.date}>
+          {item?.mini_info_frames[0].tour_date}
+        </Typography>
         <div className={styles.price}>
           <Typography weight='fw7'>
-            {item.price}
+            {item?.mini_info_frames[0].price}
           </Typography>
           <SwitchButton maxWidth='165px'>
             Подробнее
