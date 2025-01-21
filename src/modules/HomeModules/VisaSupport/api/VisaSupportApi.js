@@ -3,7 +3,7 @@ import { create } from 'zustand'
 
 const endpoint = 'visa_go/visa-go/'
 
-export const useVisaSupport = create((set) => ({
+export const VisaSupportApi = create((set) => ({
   visaData: [],
   visaRequest: async () => {
     const response = await requester.get(endpoint)
