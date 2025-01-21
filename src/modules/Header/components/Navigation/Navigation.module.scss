@@ -1,0 +1,29 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  max-width: 608px;
+  width: 100%;
+
+  & a {
+    color: #000;
+    white-space: nowrap;
+
+    .label {
+      animation: color linear;
+      animation-timeline: scroll(y);
+    }
+
+    @keyframes color {
+      10% {
+        color: #000;
+      }
+
+      100% {
+        color: #000;
+      }
+    }
+  }
+}

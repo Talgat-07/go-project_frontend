@@ -1,10 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from '../Layout/Layout'
-import Home from '@/pages/home/home'
-import { NotFound } from '@/pages/NotFound/NotFound'
-import { Tours } from '@/pages/Tours/Tours'
-import { VisaSupport } from '@/pages/VisaSupport/VisaSupport'
-import { Delivery } from '@/pages/Delivery/Delivery'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from '../Layout/Layout';
+import Home from '@/pages/Home/Home';
+import { NotFound } from '@/pages/NotFound/NotFound';
+import { Tours } from '@/pages/Tours/Tours';
+import { VisaSupport } from '@/pages/VisaSupport/VisaSupport';
+import { Delivery } from '@/pages/Delivery/Delivery';
+import { PATH } from '@/utils/constants/constants';
+import { Loader } from '@/ui/Loader/Loader';
 
 const router = createBrowserRouter(
   [
@@ -13,10 +15,10 @@ const router = createBrowserRouter(
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: 'tours', element: <Tours /> },
-        { path: 'visa-support', element: <VisaSupport /> },
-        { path: 'delivery', element: <Delivery /> },
-        { path: '*', element: <NotFound /> },
+        { path: PATH.tours, element: <Tours /> },
+        { path: PATH.visa, element: <VisaSupport /> },
+        { path: PATH.delivery, element: <Delivery /> },
+        { path: PATH.notFound, element: <NotFound /> },
       ],
     },
   ],
@@ -30,12 +32,16 @@ const router = createBrowserRouter(
       v7_skipActionStatusRevalidation: true,
     },
   },
-)
+);
 
 const AppRouter = () => {
   return (
-    <RouterProvider future={{ v7_startTransition: true }} router={router} />
-  )
-}
+    <RouterProvider
+      fallbackElement={<Loader />}
+      future={{ v7_startTransition: true }}
+      router={router}
+    />
+  );
+};
 
-export default AppRouter
+export default AppRouter;

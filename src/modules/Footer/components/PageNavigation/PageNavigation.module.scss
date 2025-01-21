@@ -1,0 +1,9 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: start;
+  & a {
+    color: var(--onlyBlack);
+  }
+}

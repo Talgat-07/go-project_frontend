@@ -1,0 +1,89 @@
+.text {
+  margin: 0;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/transfonter.org-20241219-182800/Montserrat-Light.woff');
+  src:
+    local('☺'),
+    url('./fonts/transfonter.org-20241219-182800/Montserrat-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/transfonter.org-20241219-182800/Montserrat-Light.woff');
+  src:
+    local('☺'),
+    url('./fonts/transfonter.org-20241219-182800/Montserrat-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.h1 {
+  font-size: 40px;
+}
+
+.h2 {
+  font-size: 36px;
+}
+
+.h3 {
+  font-size: 32px;
+}
+
+.h4 {
+  font-size: 28px;
+}
+
+.h5 {
+  font-size: 26px;
+}
+
+.fs24 {
+  font-size: 24px;
+}
+
+.fs22 {
+  font-size: 22px;
+}
+
+.fs20 {
+  font-size: 20px;
+}
+
+.fs18 {
+  font-size: 18px;
+}
+
+.fs16 {
+  font-size: 16px;
+}
+
+.fs14 {
+  font-size: 14px;
+}
+
+// weight
+.fw3 {
+  font-weight: 300;
+}
+
+.fw4 {
+  font-weight: 400;
+}
+
+.fw5 {
+  font-weight: 500;
+}
+
+.fw6 {
+  font-weight: 600;
+}
+
+.fw7 {
+  font-weight: 700;
+}
