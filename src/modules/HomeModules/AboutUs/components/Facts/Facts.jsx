@@ -1,10 +1,12 @@
 import { Typography } from '@/ui/Typography/Typography'
 import styles from './Facts.module.scss'
 import { Heading } from '@/ui/Heading/Heading';
+import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
 
 export const Facts = ({ facts }) => {
   return (
-    <section className={styles.factsSection}>
+    <MultiContainer>
+      <section className={styles.factsSection}>
       <Heading text="Go project факты о нас"/>
       <article className={styles.divideLine}>
         <div className={styles.line}>&nbsp;</div>
@@ -26,5 +28,6 @@ export const Facts = ({ facts }) => {
         </>
       </div>
     </section>
+    </MultiContainer>
   )
 }
