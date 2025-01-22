@@ -12,6 +12,10 @@ export const Reviews = () => {
     reviewsRequest()
   }, [reviewsRequest])
 
+  if (!reviewsData.length) {
+    return null;
+  }
+
   return (
     <>
       <Heading text={'Отзывы'} />

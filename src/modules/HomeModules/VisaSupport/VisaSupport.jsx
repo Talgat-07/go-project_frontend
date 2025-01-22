@@ -13,6 +13,10 @@ export const VisaSupport = () => {
     visaRequest()
   }, [visaRequest])
 
+  if (!visaData.length) {
+    return null;
+  }
+
   return (
     <>
       <MultiContainer>

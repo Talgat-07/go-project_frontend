@@ -12,6 +12,10 @@ export const Delivery = () => {
     deliveryRequest()
   }, [deliveryRequest])
 
+  if (!deliveryData.length) {
+    return null;
+  }
+
   return (
     <section className={styles.deliverySection}>
       <Heading text="Доставка Easy Go" />

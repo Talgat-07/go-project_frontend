@@ -1,18 +1,18 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { Typography } from '@/ui/Typography/Typography'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { PartnersApi } from './api/PartnersApi'
-import styles from './Partners.module.scss'
+import { Typography } from '@/ui/Typography/Typography';
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
+import { PartnersApi } from './api/PartnersApi';
+import styles from './Partners.module.scss';
+import { Heading } from '@/ui/Heading/Heading';
 
 export const Partners = () => {
-  const { partnersData, partnersRequest } = PartnersApi()
+  const { partnersData, partnersRequest } = PartnersApi();
 
   useEffect(() => {
-    partnersRequest()
-  }, [partnersRequest])
+    partnersRequest();
+  }, [partnersRequest]);
 
   const swiperSettings = {
     slidesPerView: 3,
@@ -24,15 +24,17 @@ export const Partners = () => {
       disableOnInteraction: false,
     },
     modules: [Autoplay],
-    navigation: false ,
+    navigation: false,
     grabCursor: true,
   };
 
+  if (!partnersData.length) {
+    return null;
+  }
+
   return (
     <section className={styles.partnersSection}>
-      <Typography variant='h1' weight='fw5' className={styles.title}>
-        Наши партнеры
-      </Typography>
+      <Heading text='Наши партнеры' />
       <div className={styles.sliderContainer}>
         <Swiper
           {...swiperSettings}
@@ -40,13 +42,13 @@ export const Partners = () => {
         >
           {partnersData.map((item) => (
             <SwiperSlide key={item.id} className={styles.cards}>
-              <Link to={item.link}>
+              <a href={item.link} target='_blank' rel="noopener noreferrer">
                 <img
                   src={item.logo}
                   alt='partner logo'
                   className={styles.logo}
                 />
-              </Link>
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -55,9 +57,11 @@ export const Partners = () => {
         Хотите стать частью команды наших партнеров?<br />
         Напишите нам и мы обсудим возможности сотрудничества!
       </Typography>
-      <SwitchButton maxWidth='250px'>
-        Написать на WhatsApp
-      </SwitchButton>
+      <a href='' target='_blank' rel="noopener noreferrer">
+        <SwitchButton maxWidth='250px'>
+          Написать на WhatsApp
+        </SwitchButton>
+      </a>
     </section>
-  )
-}
+  );
+};

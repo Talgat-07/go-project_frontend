@@ -17,6 +17,10 @@ export const ToursSlider = () => {
     toursRequest()
   }, [toursRequest])
 
+  if (!toursData.length) {
+    return null;
+  }
+
   return (
     <>
       <MultiContainer>
