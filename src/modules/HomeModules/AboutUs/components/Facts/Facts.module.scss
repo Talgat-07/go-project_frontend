@@ -15,11 +15,13 @@
   .frame {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 25px;
     .frameTitle {
       font-size: 48px;
       font-weight: 400;
       color: var(--onlyBlack);
+      text-align: center;
     }
     .frameDescription {
       font-size: 24px;
