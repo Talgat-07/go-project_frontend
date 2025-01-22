@@ -17,7 +17,7 @@ export const Reviews = () => {
   }
 
   return (
-    <>
+    <secton id="reviews">
       <Heading text={'Отзывы'} />
       <Slider
         className={styles.customSlider}
@@ -28,6 +28,6 @@ export const Reviews = () => {
         loop={true}
         spaceBetween={13}
       />
-    </>
+    </secton>
   )
 }

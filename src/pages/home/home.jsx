@@ -16,7 +16,6 @@ export const Home = () => {
       </> */}
       <Banner />
       <ToursSlider />
-
       <AboutUs />
       <VisaSupport />
       <Delivery />

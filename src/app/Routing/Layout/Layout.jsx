@@ -6,6 +6,7 @@ import { Suspense } from 'react';
 import { Loader } from '@/ui/Loader/Loader';
 import { Header } from '@/modules/Header/Header';
 import styles from "./Layout.module.scss";
+import { Breadcrumbs } from '@/ui/Breadcrumbs/Breadcrumbs';
 
 export const Layout = () => {
   let path = useLocation();
@@ -15,6 +16,7 @@ export const Layout = () => {
   return (
     <div className={styles.wrapper}>
       <Header />
+      <Breadcrumbs />
       <div className={styles.content}>
         <ScrollButton />
         <Suspense fallback={<Loader />}>
