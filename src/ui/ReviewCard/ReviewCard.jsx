@@ -10,19 +10,20 @@ export const ReviewCard = ({ item, className }) => {
         <Typography variant='h3' className={styles.title}>
           {item.title}
         </Typography>
-        <Typography variant='p' className={styles.description}>
+        <Typography variant='fs16' color="#3C3C43D9" weight='fw5'>Бизнес тур</Typography>
+        <Typography useParser variant='fs16' className={styles.description}>
           {item.text}
         </Typography>
       </div>
       <div className={styles.imgBlock}>
-        <Link to={item.video} target='_blank'>
+        <a href={item.video} target='_blank'>
           <div className={styles.img}>
             <img src={item.photo} alt='image' />
           </div>
           <div className={styles.playBtn}>
             <MdPlayArrow color='#FF6600' size={75} />
           </div>
-        </Link>
+        </a>
       </div>
     </article>
   )

@@ -6,16 +6,23 @@ import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
 import { PartnersApi } from './api/PartnersApi';
 import styles from './Partners.module.scss';
 import { Heading } from '@/ui/Heading/Heading';
+import { ContactsStorage } from '@/app/Storage/Storage';
 
 export const Partners = () => {
   const { partnersData, partnersRequest } = PartnersApi();
+  const { smData, smRequest } = ContactsStorage()
+  
+    useEffect(() => {
+      smRequest()
+    }, [smRequest])
+    console.log(smData);
 
   useEffect(() => {
     partnersRequest();
   }, [partnersRequest]);
 
   const swiperSettings = {
-    slidesPerView: 3,
+    slidesPerView: 6,
     spaceBetween: 88,
     loop: true,
     speed: 4000,
@@ -27,6 +34,8 @@ export const Partners = () => {
     navigation: false,
     grabCursor: true,
   };
+
+  const whatsappLink = smData[0]?.partners_whatsapp;
 
   if (!partnersData.length) {
     return null;
@@ -57,7 +66,7 @@ export const Partners = () => {
         Хотите стать частью команды наших партнеров?<br />
         Напишите нам и мы обсудим возможности сотрудничества!
       </Typography>
-      <a href='' target='_blank' rel="noopener noreferrer">
+      <a href={whatsappLink} target='_blank' rel="noopener noreferrer">
         <SwitchButton maxWidth='250px'>
           Написать на WhatsApp
         </SwitchButton>

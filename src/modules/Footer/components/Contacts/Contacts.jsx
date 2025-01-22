@@ -1,22 +1,22 @@
-import { Typography } from '@/ui/Typography/Typography'
-import styles from './Contacts.module.scss'
+import { Typography } from '@/ui/Typography/Typography';
+import styles from './Contacts.module.scss';
 
 export const Contacts = ({ data }) => {
   return (
     <>
       {data.map((item) => (
         <article className={styles.links} key={item.id}>
-          <Typography variant='a' href={`mailto:${item.email}`}>
-            E-mail: {item.email}
+          <Typography>
+            E-mail: <a href={`mailto:${item.email}`} target='_blank'>{item.email}</a>
           </Typography>
-          <Typography variant='a' href={item.map_link} target='_blank'>
-            Адрес: {item.company_address}
+          <Typography>
+            Адрес: <a href={item.map_link} target='_blank'>{item.company_address}</a>
           </Typography>
-          <Typography variant='a' href={`tel:${item.phone_number}`}>
-            Телефон: {item.phone_number}
+          <Typography>
+            Телефон: <a href={`tel:${item.phone_number}`} target='_blank'>{item.phone_number}</a>
           </Typography>
         </article>
       ))}
     </>
-  )
-}
+  );
+};

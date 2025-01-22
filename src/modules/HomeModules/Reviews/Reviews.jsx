@@ -21,6 +21,7 @@ export const Reviews = () => {
       <Heading text={'Отзывы'} />
       <Slider
         className={styles.customSlider}
+        centeredSlides={true}
         data={reviewsData}
         renderItem={(item) => (
           <ReviewCard item={item} className={styles.additional} />
