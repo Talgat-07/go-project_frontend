@@ -20,7 +20,7 @@ header {
     );
 
     .content {
-      gap: 76px;
+      gap: 44px;
     }
   }
 
@@ -78,12 +78,12 @@ header {
       @keyframes disappear {
         5% {
           opacity: 0;
-          transform: translateY(-150%);
+          transform: translateY(-200%);
         }
 
         100% {
           opacity: 0;
-          transform: translateY(-150%);
+          transform: translateY(-200%);
         }
       }
 

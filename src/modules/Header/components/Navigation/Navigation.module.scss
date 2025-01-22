@@ -14,6 +14,10 @@
     .label {
       animation: color linear;
       animation-timeline: scroll(y);
+
+      p:hover {
+        color: #FF6600;
+      }
     }
 
     @keyframes color {
