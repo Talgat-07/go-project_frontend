@@ -1,35 +1,28 @@
 .partnersSection {
   display: flex;
   flex-direction: column;
-  gap: 35px;
   align-items: center;
-  font-family: sans-serif;
-  margin-bottom: 50px;
   justify-content: center;
+  margin-bottom: 50px;
 
   .title {
-    font-size: 40px;
-    font-weight: 500;
     color: var(--titleColor_1);
   }
-  .logos {
-    display: flex;
-    align-items: center;
-    gap: 88px;
-    margin-bottom: 35px;
-    justify-content: center;
-    .logo {
-      height: 45px;
-    }
+
+  .sliderWrapper {
+    margin: 40px 0;
+    width: 100%;
   }
-  
+
+  .logo {
+    max-width: 120px;
+    height: auto;
+  }
+
   .enticementDescription {
-    text-align: center;
     width: 100%;
     max-width: 900px;
-    margin-bottom: 17px;
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--mediumOrange);
+    text-align: center;
+    margin-bottom: 25px;
   }
 }

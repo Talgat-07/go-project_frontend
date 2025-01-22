@@ -10,15 +10,14 @@
   & a {
     color: #000;
     white-space: nowrap;
-    transition: 0.1s;
-
-    &:hover {
-      color: var(--mediumOrange) !important;
-    }
 
     .label {
       animation: color linear;
       animation-timeline: scroll(y);
+
+      p:hover {
+        color: #FF6600;
+      }
     }
 
     @keyframes color {

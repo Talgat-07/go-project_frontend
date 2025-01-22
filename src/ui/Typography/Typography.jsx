@@ -1,7 +1,8 @@
-import styles from './Typography.module.scss';
-import { Fragment } from 'react';
+import styles from './Typography.module.scss'
+import { Fragment } from 'react'
+import parse from 'html-react-parser'
 
-export const Typography = props => {
+export const Typography = (props) => {
   const {
     variant = 'fs18',
     weight = 'regular',
@@ -9,7 +10,8 @@ export const Typography = props => {
     className,
     color,
     truncate = false,
-  } = props;
+    useParser = false,
+  } = props
 
   const Tags = {
     h1: 'h1',
@@ -23,7 +25,7 @@ export const Typography = props => {
     fs18: 'p',
     fs16: 'p',
     fs14: 'p',
-  };
+  }
 
   const classNamedGenerated = [
     styles.text,
@@ -32,34 +34,35 @@ export const Typography = props => {
     className,
   ]
     .join(' ')
-    .trim();
+    .trim()
 
   const truncateString = (str, maxNumber) => {
     if (typeof str === 'string') {
-      return str.length <= maxNumber
-        ? str
-        : str.slice(0, maxNumber) + '...';
+      return str.length <= maxNumber ? str : str.slice(0, maxNumber) + '...'
     }
-    return str;
-  };
+    return str
+  }
 
-  const convertNewlinesToBreaks = text => {
+  const convertNewlinesToBreaks = (text) => {
     if (typeof text === 'string') {
       return text
         .split('\r\n')
-        .map((line, index) => <Fragment key={index}>{line}</Fragment>);
+        .map((line, index) => <Fragment key={index}>{line}</Fragment>)
     } else {
-      return text;
+      return text
     }
-  };
+  }
 
-  const TagName = Tags[variant in Tags ? variant : 'fs18'];
+  const TagName = useParser ? 'div' : Tags[variant in Tags ? variant : 'fs18']
+
+  const childrenParsing =
+    useParser && typeof children ? parse(children) : children
 
   return (
     <TagName className={classNamedGenerated} style={{ color: color }}>
       {!truncate
-        ? convertNewlinesToBreaks(children)
+        ? convertNewlinesToBreaks(childrenParsing)
         : truncateString(children, truncate)}
     </TagName>
-  );
-};
+  )
+}

@@ -1,6 +1,31 @@
 .card {
   display: flex;
   flex-direction: column;
-  height: 381px;
-  background: rgb(245, 196, 196);
+  min-height: 381px;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &Content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 10px 10px 5px 5px;
+    color: #fff;
+    padding: 9px 25px 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .date {
+      max-width: 150px;
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }

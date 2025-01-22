@@ -11,20 +11,20 @@
   background: var(--mediumOrange);
   align-items: center;
   justify-content: center;
-
+  transition: 0.1s;
   &:hover {
-    background: #9E3917;
+    background: #ff8838;
   }
 
   &:active {
-    background: #72321B;
+    background: #ff5c3c;
   }
 
   &:focus {
-    background: #CF5B16;
+    background: #ff5c3c;
   }
 
   &:disabled {
-    background: rgba(207, 90, 22, 0.449);
+    background: #ff86363a;
   }
 }
