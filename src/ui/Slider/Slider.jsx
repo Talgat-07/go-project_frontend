@@ -12,6 +12,7 @@ export const Slider = (props) => {
     loop = false,
     renderItem,
     className,
+    centeredSlides = false,
     slidesPerView = 3,
     spaceBetween = 20,
   } = props
@@ -22,7 +23,7 @@ export const Slider = (props) => {
     slidesPerView,
     spaceBetween,
     initialSlide: 1,
-    centeredSlides: true,
+    centeredSlides,
     loop,
     navigation: false,
   }
@@ -58,7 +59,8 @@ export const Slider = (props) => {
   return (
     <MultiContainer>
       <div className={styles.sliderContainer}>
-        <div className={styles.buttons}>
+        {!centeredSlides && (
+          <div className={styles.buttons}>
           <button className={styles.prevButton} onClick={handlePrevClick}>
             <SliderLeft />
           </button>
@@ -66,6 +68,7 @@ export const Slider = (props) => {
             <SliderRight />
           </button>
         </div>
+        )}
         <Swiper
           className={className}
           {...swiperSettings}
