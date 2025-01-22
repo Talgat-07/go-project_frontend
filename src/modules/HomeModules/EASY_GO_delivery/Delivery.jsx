@@ -22,6 +22,7 @@ export const Delivery = () => {
       {deliveryData.map((item) => (
         <div className={styles.deliveryBanner} key={item.id}>
           <img src={item.image} alt='background image' />
+          <div className={styles.overlay} />
           <div className={styles.frame}>
             <Typography variant='h3' className={styles.frameTitle}>
               {item.title}
@@ -31,12 +32,11 @@ export const Delivery = () => {
             </Typography>
             <SwitchButton
               maxWidth='195px'
-              padding='14px 45px'
             >
               Подробнее
             </SwitchButton>
           </div>
-        </div>
+          </div>
       ))}
     </section>
   )

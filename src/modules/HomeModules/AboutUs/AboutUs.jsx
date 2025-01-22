@@ -14,7 +14,7 @@ export const AboutUs = () => {
   return (
     <>
       {aboutUsData.map((detail) => (
-        <section className={styles.aboutUsSection}>
+        <section id="about-us" className={styles.aboutUsSection}>
           <Info info={detail} />
           <Facts facts={detail.facts} />
         </section>

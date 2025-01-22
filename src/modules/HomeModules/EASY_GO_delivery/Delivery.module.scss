@@ -22,6 +22,15 @@
       max-width: 1240px;
       object-fit: cover;
     }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(270.99deg, rgba(217, 217, 217, 0.0084) 0.96%, rgba(0, 0, 0, 0.230835) 13.75%, rgba(0, 0, 0, 0.440537) 25.82%, rgba(0, 0, 0, 0.587503) 56.49%, rgba(29, 28, 28, 0.84) 96.3%);
+      z-index: 2;
+    }
     .frame {
       position: absolute;
       left: 34px;
@@ -30,6 +39,8 @@
       max-width: 596px;
       text-align: left;
       color: var(--onlyWhite);
+      z-index: 3;
+
       .frameTitle {
         font-size: 36px;
         font-weight: 500;
