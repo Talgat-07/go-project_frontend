@@ -10,17 +10,17 @@ import styles from './home.module.scss'
 export const Home = () => {
   return (
     <main className={styles.main}>
-      {/* <>
+      <>
         <div className={styles.yellowCircle}>&nbsp;</div>
         <div className={styles.orangeCircle}>&nbsp;</div>
-      </> */}
+      </>
       <Banner />
       <ToursSlider />
-
       <AboutUs />
       <VisaSupport />
       <Delivery />
       <Reviews />
+      {/* <hr /> */}
       <Partners />
     </main>
   )

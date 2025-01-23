@@ -1,25 +1,24 @@
-import styles from './VisaSupport.module.scss'
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
-import { Heading } from '@/ui/Heading/Heading'
-import { Slider } from '@/ui/Slider/Slider'
-import { VisaCard } from '../VisaSupport/ui/VisaCard/VisaCard'
-import { useEffect } from 'react'
-import { VisaSupportApi } from './api/VisaSupportApi'
+import styles from './VisaSupport.module.scss';
+import { Heading } from '@/ui/Heading/Heading';
+import { Slider } from '@/ui/Slider/Slider';
+import { VisaCard } from '../VisaSupport/ui/VisaCard/VisaCard';
+import { useEffect } from 'react';
+import { VisaSupportApi } from './api/VisaSupportApi';
 
 export const VisaSupport = () => {
-  const { visaData, visaRequest } = VisaSupportApi()
+  const { visaData, visaRequest } = VisaSupportApi();
 
   useEffect(() => {
-    visaRequest()
-  }, [visaRequest])
+    visaRequest();
+  }, [visaRequest]);
+
+  if (!visaData.length) {
+    return null;
+  }
 
   return (
-    <>
-      <MultiContainer>
-        <div className={styles.headpart}>
-          <Heading text='Визовая поддержка- Visa Go' />
-        </div>
-      </MultiContainer>
+    <div>
+      <Heading text='Визовая поддержка - Visa Go' />
       <div className={styles.cards}>
         <Slider
           data={visaData}
@@ -28,6 +27,6 @@ export const VisaSupport = () => {
           loop={true}
         />
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};

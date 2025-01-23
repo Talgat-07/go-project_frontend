@@ -7,11 +7,13 @@
   max-width: 608px;
   width: 100%;
 
-  & a {
+  span, 
+  a {
     color: #000;
     white-space: nowrap;
 
     .label {
+      cursor: pointer;
       animation: color linear;
       animation-timeline: scroll(y);
     }

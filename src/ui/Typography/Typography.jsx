@@ -10,7 +10,6 @@ export const Typography = (props) => {
     className,
     color,
     truncate = false,
-    replaceP = false,
     useParser = false,
   } = props
 
@@ -54,7 +53,7 @@ export const Typography = (props) => {
     }
   }
 
-  const TagName = replaceP ? 'div' : Tags[variant in Tags ? variant : 'fs18']
+  const TagName = useParser ? 'div' : Tags[variant in Tags ? variant : 'fs18']
 
   const childrenParsing =
     useParser && typeof children ? parse(children) : children
