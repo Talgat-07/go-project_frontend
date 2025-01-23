@@ -1,16 +1,10 @@
-.headpart {
+.moreLink {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  .moreLink {
-    display: flex;
-    gap: 5px;
-    margin-top: -12.5px;
-    justify-self: right;
-    justify-content: flex-end;
-    margin-bottom: 30px;
-  }
+  gap: 5px;
+  margin-top: -12.5px;
+  margin-bottom: 22px;
+  justify-self: right;
+  justify-content: flex-end;
 }
 
 .cards {

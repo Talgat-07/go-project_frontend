@@ -2,26 +2,33 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+
+  hr {
+    filter: blur(2px);
+    background-color: #F3F5F666;
+  }
 }
 
 .yellowCircle {
-  width: 1000px;
-  height: 1000px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, #face49ad, #fff, #fff);
-  filter: blur(100px);
+  background: rgba(250, 205, 73, 1);
   position: absolute;
-  top: 50%;
-  left: -28%;
+  top: 70%;
+  left: -15%;
+  opacity: 0.5;
+  filter: blur(200px);
 }
 
 .orangeCircle {
-  width: 1000px;
-  height: 1000px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ff56229c, #fff, #fff);
-  filter: blur(100px);
+  background: rgba(255, 87, 34, 1);
   position: absolute;
-  top: 95%;
-  right: -26%;
+  top: 125%;
+  left: 90%;
+  opacity: 0.5;
+  filter: blur(200px);
 }

@@ -1,78 +1,76 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import { Typography } from '@/ui/Typography/Typography'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { PartnersApi } from './api/PartnersApi'
-import styles from './Partners.module.scss'
+import { useEffect } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { Typography } from '@/ui/Typography/Typography';
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
+import { PartnersApi } from './api/PartnersApi';
+import styles from './Partners.module.scss';
+import { Heading } from '@/ui/Heading/Heading';
+import { ContactsStorage } from '@/app/Storage/Storage';
 
 export const Partners = () => {
-  const { partnersData, partnersRequest } = PartnersApi()
+  const { partnersData, partnersRequest } = PartnersApi();
+  const { smData, smRequest } = ContactsStorage()
+  
+    useEffect(() => {
+      smRequest()
+    }, [smRequest])
+    console.log(smData);
 
   useEffect(() => {
-    partnersRequest()
-  }, [partnersRequest])
+    partnersRequest();
+  }, [partnersRequest]);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 5000,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: 'linear',
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
+  const swiperSettings = {
+    slidesPerView: 6,
+    spaceBetween: 88,
+    loop: true,
+    speed: 4000,
+    autoplay: {
+      delay: 100,
+      disableOnInteraction: false,
+    },
+    modules: [Autoplay],
+    navigation: false,
+    grabCursor: true,
+  };
+
+  const whatsappLink = smData[0]?.partners_whatsapp;
+
+  if (!partnersData.length) {
+    return null;
   }
 
   return (
     <section className={styles.partnersSection}>
-      <Typography variant='h1' weight='fw5' className={styles.title}>
-        Наши партнеры
-      </Typography>
-      <div className={styles.sliderWrapper}>
-        <Slider {...settings}>
+      <Heading text='Наши партнеры' />
+      <div className={styles.sliderContainer}>
+        <Swiper
+          {...swiperSettings}
+          className={styles.swiper}
+        >
           {partnersData.map((item) => (
-            <div key={item.id}>
-              <Link to={item.link}>
+            <SwiperSlide key={item.id} className={styles.cards}>
+              <a href={item.link} target='_blank' rel="noopener noreferrer">
                 <img
                   src={item.logo}
                   alt='partner logo'
                   className={styles.logo}
                 />
-              </Link>
-            </div>
+              </a>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
       <Typography variant='h4' weight='fw5' className={styles.enticementDescription}>
         Хотите стать частью команды наших партнеров?<br />
         Напишите нам и мы обсудим возможности сотрудничества!
       </Typography>
-      <SwitchButton maxWidth='250px'>
-        Написать на WhatsApp
-      </SwitchButton>
+      <a href={whatsappLink} target='_blank' rel="noopener noreferrer">
+        <SwitchButton maxWidth='250px'>
+          Написать на WhatsApp
+        </SwitchButton>
+      </a>
     </section>
-  )
-}
+  );
+};

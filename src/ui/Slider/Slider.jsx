@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import "swiper/css";
-import styles from './Slider.module.scss';
-import { SliderLeft } from '@/app/assets/icons/SliderLeft';
-import { SliderRight } from '@/app/assets/icons/SliderRight';
-import { MultiContainer } from '../Multicontainer/Multicontainer';
+import React, { useRef, useEffect } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import styles from './Slider.module.scss'
+import { SliderLeft } from '@/app/assets/icons/SliderLeft'
+import { SliderRight } from '@/app/assets/icons/SliderRight'
+import { MultiContainer } from '../Multicontainer/Multicontainer'
 
 export const Slider = (props) => {
   const {
@@ -12,51 +12,55 @@ export const Slider = (props) => {
     loop = false,
     renderItem,
     className,
+    centeredSlides = false,
     slidesPerView = 3,
-    spaceBetween = 20
-  } = props;
+    spaceBetween = 20,
+  } = props
 
-  const swiperRef = useRef(null);
+  const swiperRef = useRef(null)
 
   const swiperSettings = {
     slidesPerView,
     spaceBetween,
+    initialSlide: 1,
+    centeredSlides,
     loop,
     navigation: false,
-  };
+  }
 
   const handlePrevClick = () => {
-    if (swiperRef.current) swiperRef.current.slidePrev();
-  };
+    if (swiperRef.current) swiperRef.current.slidePrev()
+  }
 
   const handleNextClick = () => {
-    if (swiperRef.current) swiperRef.current.slideNext();
-  };
+    if (swiperRef.current) swiperRef.current.slideNext()
+  }
 
   const handleKeyDown = (event) => {
-    if (event.key === "ArrowLeft") {
-      handlePrevClick();
-    } else if (event.key === "ArrowRight") {
-      handleNextClick();
+    if (event.key === 'ArrowLeft') {
+      handlePrevClick()
+    } else if (event.key === 'ArrowRight') {
+      handleNextClick()
     }
-  };
+  }
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   if (!data || data.length === 0) {
-    return <div>No items to display</div>;
+    return <div>No items to display</div>
   }
 
   return (
     <MultiContainer>
       <div className={styles.sliderContainer}>
-        <div className={styles.buttons}>
+        {!centeredSlides && (
+          <div className={styles.buttons}>
           <button className={styles.prevButton} onClick={handlePrevClick}>
             <SliderLeft />
           </button>
@@ -64,11 +68,12 @@ export const Slider = (props) => {
             <SliderRight />
           </button>
         </div>
+        )}
         <Swiper
-        className={className}
+          className={className}
           {...swiperSettings}
           onSwiper={(swiper) => {
-            swiperRef.current = swiper;
+            swiperRef.current = swiper
           }}
         >
           {data.map((item, index) => (
@@ -79,6 +84,5 @@ export const Slider = (props) => {
         </Swiper>
       </div>
     </MultiContainer>
-  );
-};
-
+  )
+}

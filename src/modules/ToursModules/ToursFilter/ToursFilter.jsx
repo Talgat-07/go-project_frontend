@@ -6,22 +6,19 @@ import { ToursApi } from '../Tours/api/ToursApi'
 import { useEffect, useState } from 'react'
 
 export const ToursFilter = () => {
-  const { data_1, request_1, data_2, request_2 } = CountryAndCitiesFIlter() // Get country and city data from filter API
-  const { toursData, toursRequest } = ToursApi() // Get tours data
-  const [filteredTours, setFilteredTours] = useState([]) // Store filtered tours
-  const [selectedCountry, setSelectedCountry] = useState('') // Store selected country
-  const [selectedCity, setSelectedCity] = useState('') // Store selected city
-  const [selectedType, setSelectedType] = useState('') // Store selected country
-  const [selectedCategory, setSelectedCategory] = useState('') // Store selected city
+  const { data_1, request_1, data_2, request_2 } = CountryAndCitiesFIlter()
+  const { toursData, toursRequest } = ToursApi()
+  const [filteredTours, setFilteredTours] = useState([])
+  const [selectedCountry, setSelectedCountry] = useState('')
+  const [selectedCity, setSelectedCity] = useState('')
+  const [selectedType, setSelectedType] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
 
   // Fetch data
   useEffect(() => {
-    request_1()
-    request_2()
-    toursRequest()
+    request_1(), request_2(), toursRequest()
   }, [request_1, request_2, toursRequest])
 
-  // Filter tours based on selected country and city
   useEffect(() => {
     let filtered = toursData
 
@@ -32,7 +29,6 @@ export const ToursFilter = () => {
       )
     }
 
-    // If city is selected, filter by city
     if (selectedCity) {
       filtered = filtered.filter((tour) =>
         tour.country.cities.some((city) => city.name === selectedCity),
@@ -54,23 +50,13 @@ export const ToursFilter = () => {
     setFilteredTours(filtered)
   }, [toursData, selectedCountry, selectedCity, selectedType, selectedCategory])
 
-  // Handle country change
-  const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value)
-  }
+  const handleCountryChange = (e) => setSelectedCountry(e.target.value)
 
-  // Handle city change
-  const handleCityChange = (e) => {
-    setSelectedCity(e.target.value)
-  }
+  const handleCityChange = (e) => setSelectedCity(e.target.value)
 
-  const handleTypeChange = (e) => {
-    setSelectedType(e.target.value)
-  }
+  const handleTypeChange = (e) => setSelectedType(e.target.value)
 
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value)
-  }
+  const handleCategoryChange = (e) => setSelectedCategory(e.target.value)
 
   return (
     <section className={styles.filterSection}>
@@ -128,7 +114,7 @@ export const ToursFilter = () => {
         <select
           name='Города'
           className={styles.dropdownBtn}
-          onChange={handleCityChange}
+          onChange={handleCategoryChange}
         >
           <option value=''>Все категории</option>
           {data_1.map((category) =>
@@ -136,7 +122,7 @@ export const ToursFilter = () => {
               <option
                 key={key.id}
                 value={key.name}
-                onClick={() => handleCityClick(key.name)}
+                onClick={() => handleCategoryChange(key.name)}
                 className={styles.dropdownList}
               >
                 {key.name}

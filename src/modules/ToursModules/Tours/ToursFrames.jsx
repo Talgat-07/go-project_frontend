@@ -28,15 +28,16 @@ export const ToursFrames = ({ countries = [] }) => {
             className={styles.tourInfo}
             style={{ background: translateColor(item.background_color) }}
           >
-            <Typography variant='h3' className={styles.tourTitle}>
+            <Typography
+              variant='h3'
+              className={styles.tourTitle}
+              useParser='true'
+            >
               {item.description}
             </Typography>
             <DateProp dateProp={item} />
           </div>
-          <SwitchButton
-            maxWidth='165px'
-            className={styles.switchBtn}
-          >
+          <SwitchButton maxWidth='165px' className={styles.switchBtn}>
             Подробнее
           </SwitchButton>
         </article>
