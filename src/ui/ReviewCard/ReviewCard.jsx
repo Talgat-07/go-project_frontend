@@ -1,16 +1,17 @@
-import { Link } from 'react-router-dom'
 import { Typography } from '../Typography/Typography'
 import { MdPlayArrow } from 'react-icons/md'
 import styles from './ReviewCard.module.scss'
 
-export const ReviewCard = ({ item, className }) => {
+export const ReviewCard = ({ item }) => {
   return (
-    <article className={`${styles.reviewFrame} ${className && className}`}>
+    <article className={styles.reviewFrame}>
       <div className={styles.info}>
         <Typography variant='h3' className={styles.title}>
           {item.title}
         </Typography>
-        <Typography variant='fs16' color="#3C3C43D9" weight='fw5'>Бизнес тур</Typography>
+        <Typography variant='fs16' color='#3C3C43D9' weight='fw5'>
+          Бизнес тур
+        </Typography>
         <Typography useParser variant='fs16' className={styles.description}>
           {item.text}
         </Typography>
