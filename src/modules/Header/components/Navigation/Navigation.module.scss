@@ -16,13 +16,17 @@
       color: #fff;
     }
 
+    .isActive {
+      color: #FF6600 !important;
+    }
+
     .label {
       cursor: pointer;
       animation: color linear;
       animation-timeline: scroll(y);
 
       &:hover {
-        color: #FF6600;
+        color: #FF6600 !important;
       }
     }
 
