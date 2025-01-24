@@ -3,6 +3,7 @@ export const BASE_URL = import.meta.env.VITE_API_URL;
 export const PATH = {
   home: '/',
   tours: '/tours',
+  tourDetail: '/tours/:id',
   visa: '/visa-support',
   delivery: '/delivery',
   notFound: '*',
