@@ -1,12 +1,10 @@
 import styles from './Tours.module.scss'
-import { ToursFrames } from '@/modules/ToursModules/Tours/ToursFrames'
-import { ToursFilter } from '@/modules/ToursModules/ToursFilter/ToursFilter'
+import { AllTours } from '@/modules/ToursModules/Tours/AllTours.jsx'
 
 export const Tours = () => {
   return (
     <main className={styles.toursPage}>
-      <ToursFilter />
-      <ToursFrames />
+      <AllTours />
     </main>
   )
 }

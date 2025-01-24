@@ -1,41 +1,45 @@
 .filterContainer {
-  width: 1241px;
+  width: 100%;
   display: flex;
   gap: 32px;
+  margin-bottom: 45px;
 }
 
 .filterSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
   .title {
     font-size: 40px;
     font-weight: 500;
     color: var(--mediumOrange);
   }
-  .dropdownBtn {
-    width: 100%;
-    max-width: 286px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px #00000081;
-    color: var(--onlyBlack);
-    cursor: pointer;
-  }
+
   .dropdownList {
     display: flex;
     flex-direction: column;
     border: 1px solid #0000000e;
+
     .dropdownContent {
       width: 100%;
       max-width: 286px;
       padding: 8px 16px;
       background: var(--onlyWhite);
+
       &:hover {
         background: #d4e4fa;
       }
     }
   }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.toursSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
