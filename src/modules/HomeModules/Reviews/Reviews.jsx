@@ -56,7 +56,7 @@ export const Reviews = () => {
 
   return (
     <MultiContainer>
-      <secton id='reviews'>
+      <section id='reviews'>
         <Heading text={'Отзывы'} />
         <Swiper className={stylesCard.customSlider} {...swiperSettings}>
           {reviewsData.map((item, index) => (
@@ -65,7 +65,7 @@ export const Reviews = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </secton>
+      </section>
     </MultiContainer>
   )
 }

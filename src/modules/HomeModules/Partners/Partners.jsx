@@ -15,7 +15,6 @@ export const Partners = () => {
     useEffect(() => {
       smRequest()
     }, [smRequest])
-    console.log(smData);
 
   useEffect(() => {
     partnersRequest();
@@ -44,6 +43,10 @@ export const Partners = () => {
   return (
     <section className={styles.partnersSection}>
       <Heading text='Наши партнеры' />
+      <Typography variant='h4' weight='fw5' className={styles.enticementDescription}>
+        Хотите стать частью команды наших партнеров?<br />
+        Напишите нам и мы обсудим возможности сотрудничества!
+      </Typography>
       <div className={styles.sliderContainer}>
         <Swiper
           {...swiperSettings}
@@ -62,10 +65,6 @@ export const Partners = () => {
           ))}
         </Swiper>
       </div>
-      <Typography variant='h4' weight='fw5' className={styles.enticementDescription}>
-        Хотите стать частью команды наших партнеров?<br />
-        Напишите нам и мы обсудим возможности сотрудничества!
-      </Typography>
       <a href={whatsappLink} target='_blank' rel="noopener noreferrer">
         <SwitchButton maxWidth='250px'>
           Написать на WhatsApp

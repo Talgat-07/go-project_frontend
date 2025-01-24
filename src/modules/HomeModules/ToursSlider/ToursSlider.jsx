@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
 import { Heading } from '@/ui/Heading/Heading';
 import { PATH } from '@/utils/constants/constants';
-import { ArrowRight } from '@/app/assets/icons/ArrowRight';
 import { Slider } from '@/ui/Slider/Slider';
 import { TourCard } from '@/ui/TourCard/TourCard';
 import { ToursSliderApi } from './api/ToursSliderApi';
 import { useEffect } from 'react';
+import { Airplane } from '@/app/assets/icons/Airplane';
 
 export const ToursSlider = () => {
   const { toursData, toursRequest } = ToursSliderApi();
@@ -16,8 +16,9 @@ export const ToursSlider = () => {
   useEffect(() => {
     toursRequest();
   }, [toursRequest]);
+  console.log(toursData.length);
 
-  if (!toursData.length) {
+  if (!toursData || !toursData.length) {
     return null;
   }
 
@@ -26,12 +27,12 @@ export const ToursSlider = () => {
       <MultiContainer>
         <Heading text='Туры' />
         <div className={styles.moreLink}>
-        <Link to={PATH.tours}>
-          <Typography variant='fs24' weight="fw6" color='#FA7335'>
-            Все туры
-          </Typography>
-          <ArrowRight />
-        </Link>
+          <Link to={PATH.tours}>
+            <Typography variant='fs24' weight="fw6" color='#FA7335'>
+              Все туры
+            </Typography>
+            <Airplane className={styles.airplane} />
+          </Link>
         </div>
       </MultiContainer>
       <div className={styles.cards}>
