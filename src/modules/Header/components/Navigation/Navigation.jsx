@@ -11,22 +11,21 @@ export const Navigation = () => {
   const isHomePage = location.pathname === PATH.home;
 
   const handleScrollToSection = (sectionId) => {
-    navigate("/");
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const sectionRect = section.getBoundingClientRect();
-        const offset = window.innerHeight / 2 - sectionRect.height / 2;
-        const top = sectionRect.top + window.scrollY - offset;
-  
-        window.scrollTo({
-          top,
-          behavior: "smooth",
-        });
-      }
-    }, 0);
-  };
-  
+  navigate("/");
+  setTimeout(() => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const sectionRect = section.getBoundingClientRect();
+      const offset = window.innerHeight / 2 - sectionRect.height / 2;
+      const top = sectionRect.top + window.scrollY - offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+  }, 100);
+};
 
   const navigationList = [
     { path: PATH.tours, label: t("header.tours") },
@@ -63,7 +62,10 @@ export const Navigation = () => {
             key={index}
             className={styles.navItem}
           >
-            <Typography weight="fw6" className={`${styles.label} ${isHomePage && styles.homeLabel}`}>
+            <Typography weight="fw6" className={
+              `${styles.label} 
+              ${isHomePage && styles.homeLabel}
+              ${location.pathname === item.path && styles.isActive}`}>
               {item.label}
             </Typography>
           </Link>

@@ -1,17 +1,17 @@
 import { Typography } from '@/ui/Typography/Typography';
-import styles from './NotFound.module.scss';
+import styles from './ServerError.module.scss';
 import { BackArrow } from '@/app/assets/icons/BackArrow';
 import { Link } from 'react-router-dom';
 import { PATH } from '@/utils/constants/constants';
 
-export const NotFound = () => {
+export const ServerError = () => {
   return (
     <section className={styles.notFoundSection}>
       <Typography variant='h1' className={styles.errorCode} color="#fff">
-        404
+      OOPS
       </Typography>
       <Typography variant='h2' className={styles.errorMessage} color="#fff">
-        Ой! Кажется, мы не можем найти эту страницу.
+      У нас временные технические неполадки.
       </Typography>
       <Link to={PATH.home}>
         <BackArrow />
