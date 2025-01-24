@@ -1,18 +1,10 @@
-import { Typography } from '@/ui/Typography/Typography'
 import styles from './Banner.module.scss'
 import { BannerApi } from './api/BannerApi'
 import { useEffect } from 'react'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { MultiContainer } from '@/ui/MultiContainer/MultiContainer'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
-
-// import required modules
-import { Pagination } from 'swiper/modules'
+import { Autoplay, Pagination, Zoom } from 'swiper/modules'
 import { Content } from './ui/Content'
 
 export const Banner = () => {
@@ -25,16 +17,26 @@ export const Banner = () => {
   return (
     <Swiper
       className={styles.slider}
+      modules={[Pagination, Autoplay, Zoom]}
       pagination={{
-        dynamicBullets: true,
+        clickable: true,
       }}
-      modules={[Pagination]}
+      fadeEffect={{
+        crossFade: true,
+      }}
+      loop={true}
+      speed={1000}
+      easing={'ease-in-out'}
+      autoplay={{
+        delay: 13000,
+        disableOnInteraction: false,
+      }}
     >
-      <SwiperSlide>
-        {bannerData.map((item) => (
-          <Content item={item} />
-        ))}
-      </SwiperSlide>
+      {bannerData.map((item) => (
+        <SwiperSlide key={item.id}>
+          <Content slide={item} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   )
 }

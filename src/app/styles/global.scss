@@ -40,3 +40,15 @@ input,
 label::selection {
   background: transparent;
 }
+
+.swiper-pagination-bullet {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background: #c3bebe;
+  opacity: 0.72;
+}
+.swiper-pagination-bullet-active {
+  background: #fff;
+  opacity: 1;
+}
