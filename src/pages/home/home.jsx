@@ -3,7 +3,7 @@ import { AboutUs } from '@/modules/HomeModules/AboutUs/AboutUs'
 import { VisaSupport } from '@/modules/HomeModules/VisaSupport/VisaSupport'
 import { Delivery } from '@/modules/HomeModules/EASY_GO_delivery/Delivery'
 import { Partners } from '@/modules/HomeModules/Partners/Partners'
-import { ToursSlider } from '@/modules/HomeModules/ToursSlider/ToursSlider'
+// import { ToursSlider } from '@/modules/HomeModules/ToursSlider/ToursSlider'
 import { Reviews } from '@/modules/HomeModules/Reviews/Reviews'
 import styles from './home.module.scss'
 
@@ -15,7 +15,7 @@ export const Home = () => {
         <div className={styles.orangeCircle}>&nbsp;</div>
       </>
       <Banner />
-      <ToursSlider />
+      {/* <ToursSlider /> */}
       <AboutUs />
       <VisaSupport />
       <Delivery />
