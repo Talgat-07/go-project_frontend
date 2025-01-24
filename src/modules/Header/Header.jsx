@@ -65,7 +65,7 @@ export const Header = () => {
             </div>
           </div>
           <div className={styles.nav}>
-            <Navigation color={textColor} />
+            <Navigation />
           </div>
         </div>
       </MultiContainer>

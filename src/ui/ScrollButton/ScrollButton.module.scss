@@ -19,5 +19,11 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+
+      &:hover {
+        .icon {
+            filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.3));
+          }
+      }
   }
 }

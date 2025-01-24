@@ -72,6 +72,17 @@ header {
           display: flex;
           align-items: center;
           gap: 8px;
+
+          a {
+            p {
+              text-decoration: underline;
+              color: #fff;
+
+              &:hover {
+                color: #f9934f;
+              }
+            }
+          }
         }
       }
 

@@ -1,36 +1,46 @@
-import { Link, useNavigate } from 'react-router-dom';
-import styles from './Navigation.module.scss';
-import { PATH } from '@/utils/constants/constants';
-import { Typography } from '@/ui/Typography/Typography';
-import { useTranslation } from 'react-i18next';
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import styles from "./Navigation.module.scss";
+import { PATH } from "@/utils/constants/constants";
+import { Typography } from "@/ui/Typography/Typography";
+import { useTranslation } from "react-i18next";
 
-export const Navigation = ({ color }) => {
+export const Navigation = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === PATH.home;
 
   const handleScrollToSection = (sectionId) => {
-    navigate('/');
+    navigate("/");
     setTimeout(() => {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        const sectionRect = section.getBoundingClientRect();
+        const offset = window.innerHeight / 2 - sectionRect.height / 2;
+        const top = sectionRect.top + window.scrollY - offset;
+  
+        window.scrollTo({
+          top,
+          behavior: "smooth",
+        });
       }
     }, 0);
   };
+  
 
   const navigationList = [
-    { path: PATH.tours, label: t('header.tours') },
-    { path: PATH.visa, label: t('header.visas') },
-    { path: PATH.delivery, label: t('header.delivery') },
+    { path: PATH.tours, label: t("header.tours") },
+    { path: PATH.visa, label: t("header.visas") },
+    { path: PATH.delivery, label: t("header.delivery") },
     {
-      path: '',
-      label: t('header.aboutUs'),
-      onClick: () => handleScrollToSection('about-us'),
+      path: "",
+      label: t("header.aboutUs"),
+      onClick: () => handleScrollToSection("about-us"),
     },
     {
-      path: '',
-      label: t('header.reviews'),
-      onClick: () => handleScrollToSection('reviews'),
+      path: "",
+      label: t("header.reviews"),
+      onClick: () => handleScrollToSection("reviews"),
     },
   ];
 
@@ -41,14 +51,19 @@ export const Navigation = ({ color }) => {
           <span
             key={index}
             onClick={item.onClick}
+            className={styles.navItem}
           >
-            <Typography weight="fw6" className={styles.label} color={color}>
+            <Typography weight="fw6" className={`${styles.label} ${isHomePage && styles.homeLabel}`}>
               {item.label}
             </Typography>
           </span>
         ) : (
-          <Link to={item.path} key={index}>
-            <Typography weight="fw6" className={styles.label} color={color}>
+          <Link
+            to={item.path}
+            key={index}
+            className={styles.navItem}
+          >
+            <Typography weight="fw6" className={`${styles.label} ${isHomePage && styles.homeLabel}`}>
               {item.label}
             </Typography>
           </Link>

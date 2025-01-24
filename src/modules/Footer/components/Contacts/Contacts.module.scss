@@ -3,4 +3,14 @@
   flex-direction: column;
   gap: 25px;
   justify-content: start;
+
+  p {
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: #FF6600;
+      }
+    }
+  }
 }

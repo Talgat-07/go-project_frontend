@@ -7,15 +7,23 @@
   max-width: 608px;
   width: 100%;
 
-  span, 
+  span,
   a {
     color: #000;
     white-space: nowrap;
+
+    .homeLabel {
+      color: #fff;
+    }
 
     .label {
       cursor: pointer;
       animation: color linear;
       animation-timeline: scroll(y);
+
+      &:hover {
+        color: #FF6600;
+      }
     }
 
     @keyframes color {

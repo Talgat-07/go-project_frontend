@@ -1,12 +1,21 @@
 .moreLink {
   display: flex;
-  gap: 5px;
-  margin-top: -12.5px;
   margin-bottom: 22px;
-  justify-self: right;
+  margin-top: -12.5px;
   justify-content: flex-end;
+
+  a {
+    display: flex;
+    gap: 5px;
+    width: fit-content;
+  }
 }
 
-.cards {
-  margin-bottom: 50px;
+.individualTour {
+  margin-top: 30px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid #FF6600;
+  width: fit-content;
+  padding-bottom: 6px;
+  cursor: pointer;
 }

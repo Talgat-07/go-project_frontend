@@ -13,18 +13,16 @@
   justify-content: center;
   transition: 0.1s;
   &:hover {
-    background: #ff8838;
+    background: #9E3917;
   }
 
   &:active {
-    background: #ff5c3c;
-  }
-
-  &:focus {
-    background: #ff5c3c;
+    background: #72321B;
   }
 
   &:disabled {
-    background: #ff86363a;
+    background: rgba(207, 91, 22, 1);
+    opacity: 0.25;
+    cursor: not-allowed;
   }
 }

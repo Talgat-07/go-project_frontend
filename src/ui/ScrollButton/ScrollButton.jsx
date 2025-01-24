@@ -44,7 +44,7 @@ export const ScrollButton = () => {
             style={{ bottom: `${bottomOffset}px` }}
         >
             <div className={styles.toUpButton}>
-                <ScrollUp />
+                <ScrollUp className={styles.icon}/>
             </div>
         </div>
     );

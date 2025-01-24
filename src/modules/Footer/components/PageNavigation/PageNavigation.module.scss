@@ -3,4 +3,12 @@
   flex-direction: column;
   gap: 25px;
   justify-content: start;
+
+  a {
+    p {
+      &:hover {
+        color: #FF6600;
+      }
+    }
+  }
 }

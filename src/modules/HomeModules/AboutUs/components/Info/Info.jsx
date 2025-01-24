@@ -6,7 +6,7 @@ import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
 export const Info = ({ info }) => {
   return (
     <MultiContainer>
-      <div className={styles.main}>
+      <div className={styles.main} id="about-us">
         <Heading text={info.title} />
         <div className={styles.content}>
           <div className={styles.img}>
