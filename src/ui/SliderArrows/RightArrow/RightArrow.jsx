@@ -1,5 +1,5 @@
 import { BsArrowLeftSquareFill } from 'react-icons/bs'
-import './RightArrow.scss'
+import './RIghtArrow.scss'
 
 export const RightArrow = (props) => {
   const { onClick } = props

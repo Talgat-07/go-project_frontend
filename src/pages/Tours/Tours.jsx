@@ -1,6 +1,6 @@
 import styles from './Tours.module.scss'
 import { ToursFrames } from '@/modules/ToursModules/Tours/ToursFrames'
-import { ToursFilter } from '@/modules/ToursModules/ToursFilter/ToursFIlter'
+import { ToursFilter } from '@/modules/ToursModules/ToursFilter/ToursFilter'
 
 export const Tours = () => {
   return (
