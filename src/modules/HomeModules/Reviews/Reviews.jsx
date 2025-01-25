@@ -9,37 +9,11 @@ import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
 import { ReviewCard } from '@/ui/ReviewCard/ReviewCard'
 
 export const Reviews = () => {
-  // const { reviewsData, reviewsRequest } = ReviewsApi()
-  const reviewsData = [
-    {
-      title: 'Some review',
-      text: 'Some text',
-      photo:
-        'https://www.figma.com/file/jfFkx2qL8YAwGaxIj8Z7GK/image/054dca4a21ae14f00a66fd13c10370475012dd0b',
-    },
-    {
-      title: 'Some review',
-      text: 'Some text',
-      photo:
-        'https://www.figma.com/file/jfFkx2qL8YAwGaxIj8Z7GK/image/054dca4a21ae14f00a66fd13c10370475012dd0b',
-    },
-    {
-      title: 'Some review',
-      text: 'Some text',
-      photo:
-        'https://www.figma.com/file/jfFkx2qL8YAwGaxIj8Z7GK/image/054dca4a21ae14f00a66fd13c10370475012dd0b',
-    },
-    {
-      title: 'Some review',
-      text: 'Some text',
-      photo:
-        'https://www.figma.com/file/jfFkx2qL8YAwGaxIj8Z7GK/image/054dca4a21ae14f00a66fd13c10370475012dd0b',
-    },
-  ]
+  const { reviewsData, reviewsRequest } = ReviewsApi()
 
-  // useEffect(() => {
-  //   reviewsRequest()
-  // }, [reviewsRequest])
+  useEffect(() => {
+    reviewsRequest()
+  }, [reviewsRequest])
 
   const swiperSettings = {
     slidesPerView: 3,
