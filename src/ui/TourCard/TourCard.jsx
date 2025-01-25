@@ -17,15 +17,15 @@ export const TourCard = ({ item }) => {
         <Typography variant='fs24' weight='fw7' useParser>
           {item.description}
         </Typography>
-        {/* <Typography weight='fw5' className={styles.date}>
-          {item?.mini_info_frames.tour_date}
-        </Typography> */}
+        <Typography weight='fw5' className={styles.date}>
+          {item?.mini_info_frames[0]?.tour_date}
+        </Typography>
         <div className={styles.price}>
-          {/* <Typography weight='fw7'>
-            {item?.mini_info_frames.price}
-          </Typography> */}
+          <Typography weight='fw7'>
+            {item?.mini_info_frames[0]?.price}
+          </Typography>
           <Link to={`/tours/${item.id}`}>
-            <SwitchButton maxWidth='165px'>
+            <SwitchButton maxWidth='165px' className={styles.btn}>
               Подробнее
             </SwitchButton>
           </Link>
