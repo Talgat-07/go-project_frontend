@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { MultiContainer } from '@/ui/Multicontainer/Multicontainer.jsx'
 import { TourCard } from '@/ui/TourCard/TourCard.jsx'
 import { Heading } from '@/ui/Heading/Heading.jsx'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton.jsx'
 import { Filter } from '../Filter/Filter.jsx'
 import { useAllTours } from './api/ToursApi.js'
 import styles from './AllTours.module.scss'
@@ -22,6 +23,8 @@ export const AllTours = () => {
     category: '',
   })
   const [filteredTours, setFilteredTours] = useState([])
+  const displayToursCount = 18
+  const [displayTours, setDisplayTours] = useState(displayToursCount)
 
   useEffect(() => {
     fetchCountries()
@@ -37,10 +40,15 @@ export const AllTours = () => {
       .filter(tour => !filters.category || tour.tour_type.categories.some(category => category.name === filters.category))
 
     setFilteredTours(filtered)
+    setDisplayTours(displayToursCount)
   }, [toursData, filters])
 
   const handleFilterChange = (field, value) => {
     setFilters(prevFilters => ({ ...prevFilters, [field]: value }))
+  }
+
+  const handleShowMore = () => {
+    setDisplayTours((prevVisible) => prevVisible + displayToursCount)
   }
 
   return (
@@ -77,11 +85,18 @@ export const AllTours = () => {
         />
       </div>
       {filteredTours.length > 0 ? (
-        <div className={styles.tours}>
-          {filteredTours.map((item) => (
-            <TourCard item={item} />
-          ))}
-        </div>
+        <>
+          <div className={styles.tours}>
+            {filteredTours.slice(0, displayTours).map((item) => (
+              <TourCard key={item.id} item={item} />
+            ))}
+          </div>
+          {displayTours < filteredTours.length && (
+            <SwitchButton maxWidth='230px' className={styles.btn} onClick={handleShowMore}>
+              Показать еще
+            </SwitchButton>
+          )}
+        </>
       ) : (
         <div>No tours available</div>
       )}
