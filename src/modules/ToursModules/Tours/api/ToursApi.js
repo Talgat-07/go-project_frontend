@@ -1,12 +1,27 @@
-import { requester } from '@/utils/requester/requester'
 import { create } from 'zustand'
+import { requester } from '@/utils/requester/requester'
 
-const endpoint = 'tours/all-tours/'
+const endpoints = {
+  countries: 'tours/countries/',
+  tourTypes: 'tours/tour-types/',
+  allTours: 'tours/all-tours/',
+}
 
-export const ToursApi = create((set) => ({
+export const useAllTours = create((set) => ({
+  countriesData: [],
+  tourTypesData: [],
   toursData: [],
-  toursRequest: async () => {
-    const response = await requester.get(endpoint)
+
+  fetchCountries: async () => {
+    const response = await requester.get(endpoints.countries)
+    set({ countriesData: response.data })
+  },
+  fetchTourTypes: async () => {
+    const response = await requester.get(endpoints.tourTypes)
+    set({ tourTypesData: response.data })
+  },
+  fetchAllTours: async () => {
+    const response = await requester.get(endpoints.allTours)
     set({ toursData: response.data })
   },
 }))
