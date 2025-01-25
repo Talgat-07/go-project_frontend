@@ -1,0 +1,22 @@
+.textList {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  .smallCard {
+    max-width: 911px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18.5px;
+    .subtitle {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+    .desc {
+      text-align: center;
+      font-weight: 500;
+    }
+  }
+}
