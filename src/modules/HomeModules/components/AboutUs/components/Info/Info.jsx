@@ -6,7 +6,7 @@ import { MultiContainer } from '@/ui';
 export const Info = ({ info }) => {
   return (
     <MultiContainer>
-      <div className={styles.main} id="about-us">
+      <div className={styles.main} id='about-us'>
         <Heading text={info.title} />
         <div className={styles.content}>
           <div className={styles.img}>
@@ -18,5 +18,5 @@ export const Info = ({ info }) => {
         </div>
       </div>
     </MultiContainer>
-  );
-};
+  )
+}
