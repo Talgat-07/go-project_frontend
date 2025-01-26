@@ -16,7 +16,7 @@
     padding: 9px 25px 17px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 
     .date {
       max-width: 150px;
@@ -26,6 +26,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .btn {
+      height: 35px;
+      gap: 0;
+      border-radius: 6px;
+      padding: 7px 20px;
+    }
+
+    .btnLink {
+      margin-left: auto;
     }
   }
 }

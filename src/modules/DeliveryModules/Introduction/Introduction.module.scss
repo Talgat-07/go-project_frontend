@@ -1,0 +1,85 @@
+.introSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .cloud {
+    position: absolute;
+    top: 57px;
+    left: -50px;
+  }
+  .path {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 250px;
+  }
+  .airplane {
+    position: absolute;
+    z-index: -1;
+    left: 120px;
+    bottom: 455px;
+    transform: rotate(-30deg);
+  }
+  .RightAirplane {
+    position: absolute;
+    z-index: -1;
+    transform: rotate(130deg);
+    bottom: 46%;
+    right: 33px;
+  }
+  .RightPath {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 50%;
+  }
+  .linkerZone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    .airplanes {
+      top: -100px;
+      position: absolute;
+      z-index: -1;
+    }
+    .description {
+      text-align: center;
+    }
+    .button {
+      padding: 9px;
+      background-color: #186ade;
+      &:hover {
+        background: #3078dd;
+      }
+
+      &:active {
+        background: #3078dd;
+      }
+
+      &:disabled {
+        background: #6f97cf;
+      }
+    }
+    .airIcon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  .slider {
+    margin: 30px 0px 49px 0px;
+
+    .image {
+      max-width: 192px;
+      height: 234px;
+      & img {
+        width: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+        height: 234px;
+      }
+    }
+  }
+}

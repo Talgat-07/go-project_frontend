@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from '../Layout/Layout'
-import Home from '@/pages/Home/Home'
+import Home from '@/pages/home/home'
 import { NotFound } from '@/pages/NotFound/NotFound'
 import { Tours } from '@/pages/Tours/Tours'
+import { TourDetail } from '@/pages/TourDetail/TourDetail'
 import { VisaSupport } from '@/pages/VisaSupport/VisaSupport'
 import { Delivery } from '@/pages/Delivery/Delivery'
 import { PATH } from '@/utils/constants/constants'
@@ -18,7 +19,8 @@ const router = createBrowserRouter(
       children: [
         { index: true, element: <Home /> },
         { path: PATH.tours, element: <Tours /> },
-        { path: PATH.visa_current, element: <VisaSupport /> },
+        { path: PATH.tourDetail, element: <TourDetail /> },
+        { path: PATH.visaSupport, element: <VisaSupport /> },
         { path: PATH.delivery, element: <Delivery /> },
       ],
     },

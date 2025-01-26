@@ -1,0 +1,84 @@
+.costProcSection {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  .yellowCircle {
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    width: 883px;
+    height: 810px;
+    background-color: #ff660052;
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(200px);
+  }
+  .cloud,
+  .secondCloud {
+    position: absolute;
+    z-index: -1;
+  }
+  .cloud {
+    top: 50%;
+    left: -50px;
+  }
+  .secondCloud {
+    top: 20px;
+    right: -50px;
+  }
+  .heading {
+    * {
+      font-weight: 500;
+    }
+  }
+  .additionList {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+    .infoFiled {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      * {
+        font-weight: 500;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        li {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+          &::before {
+            content: '•';
+            color: #454545;
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+  .questionZone {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    * {
+      text-align: center;
+    }
+    .smallTitle {
+      font-weight: 500;
+    }
+    &:last-child {
+      font-weight: 600;
+      max-width: 902px;
+    }
+  }
+}

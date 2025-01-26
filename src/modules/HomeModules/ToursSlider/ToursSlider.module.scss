@@ -6,8 +6,20 @@
 
   a {
     display: flex;
-    gap: 5px;
+    gap: 24px;
     width: fit-content;
+    padding-right: 5px;
+
+    .airplane {
+      transition: transform 1s ease, opacity 0.7s ease;
+    }
+
+    &:hover {
+      .airplane {
+        transform: translateX(70px);
+        opacity: 0;
+      }
+    }
   }
 }
 

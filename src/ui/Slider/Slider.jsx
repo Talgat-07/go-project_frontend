@@ -8,7 +8,7 @@ import { MultiContainer } from '../Multicontainer/Multicontainer'
 
 export const Slider = (props) => {
   const {
-    data,
+    data = [],
     loop = false,
     renderItem,
     className,
