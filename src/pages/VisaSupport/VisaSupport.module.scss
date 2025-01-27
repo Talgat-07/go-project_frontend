@@ -1,0 +1,9 @@
+.visaPage {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-align: center;
+  h1 {
+    color: var(--mediumOrange);
+  }
+}
