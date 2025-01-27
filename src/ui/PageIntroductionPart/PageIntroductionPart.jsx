@@ -11,6 +11,7 @@ import { AirplanePath } from '@/app/assets/icons/AirplanePath'
 import { Airplane } from '@/app/assets/icons/Airplane'
 import { RightAirPath } from '@/app/assets/icons/RightAirPath'
 import { SharedTextList } from '@/ui/SharedTextList/SharedTextList'
+import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck'
 
 export const PageIntroductionPart = ({ data }) => {
   if (!data.length) {
@@ -49,14 +50,22 @@ export const PageIntroductionPart = ({ data }) => {
             {data[0]?.description}
           </Typography>
           <AirplaneGroup className={styles.airplanes} />
-          <SwitchButton
-            fontSize={'fs16'}
-            maxWidth={250}
-            text={'Переходи на Easy Go'}
-            className={styles.button}
-          >
-            <DeliveryAirplane color={'#FFFFFF'} className={styles.airIcon} />
-          </SwitchButton>
+          {data[0]?.easy_go_url && (
+            <a
+              href={data[0]?.easy_go_url}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <SwitchButton
+                fontSize={'fs16'}
+                maxWidth={250}
+                text={'Переходи на Easy Go'}
+                className={styles.button}
+              >
+                <InsideBtnTruck className={styles.airIcon} />
+              </SwitchButton>
+            </a>
+          )}
         </div>
       </section>
     </MultiContainer>
