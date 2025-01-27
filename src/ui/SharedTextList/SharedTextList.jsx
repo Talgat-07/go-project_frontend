@@ -1,9 +1,9 @@
 import { DeliveryAirplane } from '@/app/assets/icons/DeliveryAirplane'
 import { DeliveryCar } from '@/app/assets/icons/DeliveryCar'
 import { Typography } from '@/ui/Typography/Typography'
-import styles from './TextList.module.scss'
+import styles from './SharedTextList.module.scss'
 
-export const TextList = ({ data }) => {
+export const SharedTextList = ({ data }) => {
   return (
     <div className={styles.textList}>
       <div className={styles.smallCard}>

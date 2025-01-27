@@ -1,12 +1,10 @@
-import { Introduction } from '@/modules/DeliveryModules/Introduction/Introduction'
 import styles from './Delivery.module.scss'
-import { CostBlock } from '@/ui/ProcessAndCost/CostBlock'
+import DeliveryModule from '@/modules/DeliveryModules/DeliveryModule'
 
 export const Delivery = () => {
   return (
     <main className={styles.deliveryPage}>
-      <Introduction />
-      <CostBlock />
+      <DeliveryModule />
     </main>
   )
 }
