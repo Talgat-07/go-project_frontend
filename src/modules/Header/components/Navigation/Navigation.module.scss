@@ -14,6 +14,7 @@
 
     .homeLabel {
       color: #fff;
+      line-height: 18px;
     }
 
     .isActive {
@@ -24,6 +25,7 @@
       cursor: pointer;
       animation: color linear;
       animation-timeline: scroll(y);
+      line-height: 18px;
 
       &:hover {
         color: #FF6600 !important;

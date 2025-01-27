@@ -15,7 +15,7 @@ export const VisaCard = ({ item }) => {
           <Typography variant='fs20' weight='fw6' className={styles.title}>
             {item.title}
           </Typography>
-          <Typography useParser='true' className={styles.description}>
+          <Typography className={styles.description}>
             {item.description}
           </Typography>
           <SwitchButton maxWidth='165px'>

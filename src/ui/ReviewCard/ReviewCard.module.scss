@@ -2,20 +2,25 @@
   :global(.swiper-slide-active) {
     max-width: 447px !important;
     width: 100% !important;
+
     .reviewFrame {
       height: 270px;
       padding: 16px 13px 21px 26px;
+
       .imgBlock {
         max-width: 172px !important;
         height: 228px !important;
       }
     }
   }
+
   :global(.swiper-slide-prev) {
     max-width: 388px;
+
     .reviewFrame {
       position: relative;
       z-index: 1;
+
       &::before {
         content: '';
         position: absolute;
@@ -28,11 +33,14 @@
       }
     }
   }
+
   :global(.swiper-slide-next) {
     max-width: 388px;
+
     .reviewFrame {
       position: relative;
       z-index: 1;
+
       &::before {
         content: '';
         position: absolute;
@@ -59,6 +67,7 @@
   gap: 9px;
   height: 220px;
   margin: 60px 0px;
+
   .info {
     display: flex;
     flex-direction: column;
@@ -66,17 +75,23 @@
     text-align: left;
     width: 100%;
     max-width: 227px;
+
     .title {
       font-weight: 500;
       font-size: 24px;
       color: var(--mediumOrange);
     }
+
     .description {
-      font-weight: 400;
-      font-size: 16px;
       line-height: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
+
   .imgBlock {
     max-width: 135px;
     height: 178px;
@@ -84,12 +99,14 @@
     border-radius: 5px 0px 0px 5px;
     position: relative;
     overflow: hidden;
+
     & img {
       width: 172px;
       height: 228px;
       object-fit: cover;
     }
   }
+
   .playBtn {
     position: absolute;
     top: 0;
@@ -99,16 +116,20 @@
     align-items: center;
     justify-content: center;
     transition: 0.2s;
+
     & svg {
       display: none;
+
       &:active {
         transition: 0.1s;
         margin-right: -20px;
       }
     }
+
     &:hover {
       background: #000000b2;
     }
+
     &:hover svg {
       display: block;
     }

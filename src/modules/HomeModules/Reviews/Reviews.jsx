@@ -31,6 +31,7 @@ export const Reviews = () => {
   return (
     <MultiContainer>
       <section id='reviews'>
+        <div className={styles.bgElem} />
         <Heading text={'Отзывы'} />
         <Swiper className={stylesCard.customSlider} {...swiperSettings}>
           {reviewsData.map((item, index) => (

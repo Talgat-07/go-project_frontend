@@ -4,18 +4,21 @@
   background: rgb(245, 196, 196);
   height: 294px;
   border-radius: 5px;
+
   .mgImg {
     width: 100%;
     height: 294px;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
+
     & img {
       width: 100%;
       height: 294px;
       object-fit: cover;
     }
   }
+
   .content {
     position: absolute;
     left: 0;
@@ -26,14 +29,22 @@
     border-radius: 5px;
     display: flex;
     background: linear-gradient(to top, #000, #00000098, #00000000);
+
     .contentPosition {
       margin-top: auto;
       color: var(--onlyWhite);
+
       .title {
         margin-bottom: 1px;
       }
+
       .description {
         margin-bottom: 11px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }

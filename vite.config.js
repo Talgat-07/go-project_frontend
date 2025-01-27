@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import liveReload from 'vite-plugin-live-reload'
+// import liveReload from 'vite-plugin-live-reload'
 
 export default defineConfig({
-  plugins: [react(), liveReload(['src/**/*'])],
+  plugins: [react()],
   resolve: {
     alias: {
       '@': '/src',
@@ -14,10 +14,10 @@ export default defineConfig({
       utils: '/src/utils',
     },
   },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './tests/runTests.js',
-  },
-  server: { hmr: true },
+  // test: {
+  //   globals: true,
+  //   environment: 'jsdom',
+  //   setupFiles: './tests/runTests.js',
+  // },
+  // server: { hmr: true },
 })
