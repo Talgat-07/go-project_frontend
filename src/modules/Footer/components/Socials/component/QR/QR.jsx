@@ -12,7 +12,7 @@ export const QR = () => {
   return (
     <>
       {contactsData.map((item) => (
-        <div className={styles.qrCode}>
+        <div className={styles.qrCode} key={item.id}>
           <img src={item.pictogram} alt='qr code' />
         </div>
       ))}
