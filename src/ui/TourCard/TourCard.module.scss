@@ -18,6 +18,14 @@
     flex-direction: column;
     gap: 6px;
 
+    .title {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .date {
       max-width: 150px;
     }

@@ -1,0 +1,14 @@
+.visa {
+  position: relative;
+
+  .background {
+    position: absolute;
+    display: flex;
+    top: -25px;
+    left: 25%;
+
+    img {
+      justify-self: center;
+    }
+  }
+}

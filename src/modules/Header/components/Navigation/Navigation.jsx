@@ -62,7 +62,7 @@ export const Navigation = () => {
             key={index}
             className={styles.navItem}
           >
-            <Typography weight="fw6" className={
+            <Typography variant="fs20" weight="fw6" className={
               `${styles.label} 
               ${isHomePage && styles.homeLabel}
               ${location.pathname === item.path && styles.isActive}`}>

@@ -1,16 +1,16 @@
-import { Typography } from '@/ui/Typography/Typography'
-import styles from './Delivery.module.scss'
-import { useEG_Delicery } from './api/HomePageDeliveryApi'
-import { useEffect } from 'react'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { Typography } from '@/ui/Typography/Typography';
+import styles from './Delivery.module.scss';
+import { useEG_Delicery } from './api/HomePageDeliveryApi';
+import { useEffect } from 'react';
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
 import { Heading } from '@/ui/Heading/Heading';
 
 export const Delivery = () => {
-  const { deliveryData, deliveryRequest } = useEG_Delicery()
+  const { deliveryData, deliveryRequest } = useEG_Delicery();
 
   useEffect(() => {
-    deliveryRequest()
-  }, [deliveryRequest])
+    deliveryRequest();
+  }, [deliveryRequest]);
 
   if (!deliveryData.length) {
     return null;
@@ -21,13 +21,15 @@ export const Delivery = () => {
       <Heading text="Доставка Easy Go" />
       {deliveryData.map((item) => (
         <div className={styles.deliveryBanner} key={item.id}>
-          <img src={item.image} alt='background image' />
-          <div className={styles.overlay} />
+          <div className={styles.img}>
+            <img src={item.image} alt='background image' />
+            <div className={styles.overlay} />
+          </div>
           <div className={styles.frame}>
-            <Typography variant='h3' className={styles.frameTitle}>
+            <Typography variant='h2' weight='fw5' className={styles.title}>
               {item.title}
             </Typography>
-            <Typography useParser variant='p' className={styles.frameDescription}>
+            <Typography variant='h3' weight='fw4' className={styles.desc}>
               {item.description}
             </Typography>
             <SwitchButton
@@ -36,8 +38,8 @@ export const Delivery = () => {
               Подробнее
             </SwitchButton>
           </div>
-          </div>
+        </div>
       ))}
     </section>
-  )
-}
+  );
+};

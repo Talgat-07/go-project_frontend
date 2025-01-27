@@ -42,6 +42,7 @@ export const Partners = () => {
 
   return (
     <section className={styles.partnersSection}>
+      <div className={styles.bgElem} />
       <Heading text='Наши партнеры' />
       <Typography variant='h4' weight='fw5' className={styles.enticementDescription}>
         Хотите стать частью команды наших партнеров?<br />

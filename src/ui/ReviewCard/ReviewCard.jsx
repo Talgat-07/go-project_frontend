@@ -12,7 +12,7 @@ export const ReviewCard = ({ item }) => {
         <Typography variant='fs16' color='#3C3C43D9' weight='fw5'>
           Бизнес тур
         </Typography>
-        <Typography useParser variant='fs16' className={styles.description}>
+        <Typography variant='fs16' className={styles.description}>
           {item.text}
         </Typography>
       </div>
