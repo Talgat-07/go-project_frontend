@@ -3,7 +3,10 @@ import styles from './VisaSupport.module.scss'
 import { VisaSupportApi } from '@/modules/HomeModules/VisaSupport/api/VisaSupportApi'
 import { useEffect } from 'react'
 import { Typography } from '@/ui/Typography/Typography'
-import { InfoFrame } from './component/InfoFrame'
+import { InfoFrame } from './components/InfoFrame/InfoFrame'
+import { CheckBlock } from './components/CheckBlock/CheckBlock'
+import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
+import { EndSection } from './components/EndSection/EndSection'
 
 export const VisaSupport = () => {
   const { id } = useParams()
@@ -11,46 +14,26 @@ export const VisaSupport = () => {
 
   useEffect(() => {
     visaRequest()
-    // если поместить visaData то будет зациклинное повторение лога
   }, [visaRequest])
 
   const visa = visaData.find((currentVisa) => currentVisa.id === Number(id))
 
-  console.log('its visaData:', visaData)
-
   if (!visa) return <div>Loading...</div>
 
   return (
-    <main>
-      <Typography variant='h1'>{visa.title}</Typography>
-      {/* In here need block info */}
-      <InfoFrame moreInfo={visa} />
+    <main className={styles.visaPage}>
+      <MultiContainer>
+        <Typography variant='h1'>{visa.title}</Typography>
+      </MultiContainer>
+      <MultiContainer>
+        <CheckBlock />
+      </MultiContainer>
+      <MultiContainer>
+        <InfoFrame moreInfo={visa} />
+      </MultiContainer>
+      <MultiContainer>
+        <EndSection />
+      </MultiContainer>
     </main>
   )
 }
-
-// return (
-//   <script>
-//     {JSON.stringify({
-//       id: 1,
-//       title: 'Виза в Китай',
-//       icon: 'https://goproject.site/back_media/visago/1ca52cc4-c444-43a2-a763-d06003f66fb0.webp',
-//       description: 'Описание визы в Китай',
-//       page_title: 'Страница визы в Китай',
-//       page_description: 'Описание страницы',
-//       images: [
-//         {
-//           id: 1,
-//           image: 'https://goproject.site/back_media/visagoimages/1315219.jpeg',
-//           description: '<p>Описание изображения</p>',
-//         },
-//         {
-//           id: 2,
-//           image:
-//             'https://goproject.site/back_media/visagoimages/bc5162ffa190b927c7262820fa35a066b20b07ec24a9b886473bec2299ce9062.jpg',
-//           description: '<p>Описание изображения&nbsp;</p>',
-//         },
-//       ],
-//     })}
-//   </script>
-// )

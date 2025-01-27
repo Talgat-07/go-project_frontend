@@ -1,0 +1,11 @@
+.endSection {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  align-items: center;
+  .title {
+    text-align: center;
+    line-height: 35px;
+    color: var(--mediumOrange);
+  }
+}

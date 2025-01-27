@@ -1,0 +1,26 @@
+.checkSection {
+  background: var(--onlyWhite);
+  border-radius: 10px;
+  border: 2px solid #ffd5b9;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1240px;
+  padding: 24px 110px 70px 110px;
+  .title {
+    margin-bottom: 30px;
+  }
+  .checkFrameContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .checkFrame {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+}
