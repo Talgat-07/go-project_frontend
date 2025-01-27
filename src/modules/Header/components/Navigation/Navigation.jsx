@@ -29,7 +29,7 @@ export const Navigation = () => {
 
   const navigationList = [
     { path: PATH.tours, label: t("header.tours") },
-    { path: PATH.visa, label: t("header.visas") },
+    { path: PATH.visaSupport, label: t("header.visas") },
     { path: PATH.delivery, label: t("header.delivery") },
     {
       path: "",
