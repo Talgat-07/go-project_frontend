@@ -13,7 +13,7 @@ export const InfoFrame = ({ moreInfo }) => {
     articles.forEach((article, index) => {
       gsap.fromTo(
         article,
-        { x: index % 2 === 0 ? '100%' : '-150%', opacity: 0 },
+        { x: index % 2 === 0 ? '14%' : '-40%', opacity: 0 },
         {
           x: 0,
           opacity: 1,
@@ -22,8 +22,8 @@ export const InfoFrame = ({ moreInfo }) => {
           delay: index * 0.3,
           scrollTrigger: {
             trigger: article,
-            start: 'top 220%',
-            // end: 'bottom 20%',
+            start: 'top 90%',
+            end: 'bottom 50%',
             scrub: 2.5,
           },
         },

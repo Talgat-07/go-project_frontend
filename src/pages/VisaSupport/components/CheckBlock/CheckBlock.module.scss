@@ -1,3 +1,8 @@
+.checkBlock {
+  position: relative;
+  margin-top: 170px;
+}
+
 .checkSection {
   background: var(--onlyWhite);
   border-radius: 10px;
@@ -10,8 +15,10 @@
   width: 100%;
   max-width: 1240px;
   padding: 24px 110px 70px 110px;
+  position: relative;
   .title {
     margin-bottom: 30px;
+    font-weight: 500;
   }
   .checkFrameContainer {
     display: flex;
@@ -22,5 +29,41 @@
       align-items: center;
       gap: 40px;
     }
+  }
+}
+
+.parallaxSection {
+  position: absolute;
+  bottom: 310px;
+  left: 23%;
+  .world {
+    position: relative;
+  }
+
+  .leftLine {
+    position: absolute;
+    top: 0;
+    right: 476px;
+  }
+  .topLine {
+    position: absolute;
+    top: -10px;
+    left: 211px;
+    transform: rotate(9deg);
+  }
+  .rightLine {
+    position: absolute;
+    top: 0;
+    left: 598px;
+  }
+  .rightPlane {
+    position: absolute;
+    top: -24px;
+    right: 65px;
+  }
+  .leftPlane {
+    position: absolute;
+    top: -31px;
+    left: 55px;
   }
 }

@@ -7,6 +7,7 @@ import { InfoFrame } from './components/InfoFrame/InfoFrame'
 import { CheckBlock } from './components/CheckBlock/CheckBlock'
 import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
 import { EndSection } from './components/EndSection/EndSection'
+import { Breadcrumbs } from '@/ui/Breadcrumbs/Breadcrumbs'
 
 export const VisaSupport = () => {
   const { id } = useParams()
@@ -22,6 +23,9 @@ export const VisaSupport = () => {
 
   return (
     <main className={styles.visaPage}>
+      {/* <MultiContainer>
+        <Breadcrumbs />
+      </MultiContainer> */}
       <MultiContainer>
         <Typography variant='h1'>{visa.title}</Typography>
       </MultiContainer>

@@ -1,19 +1,19 @@
-import styles from './VisaSupport.module.scss';
-import { Heading } from '@/ui/Heading/Heading';
-import { Slider } from '@/ui/Slider/Slider';
-import { VisaCard } from '../VisaSupport/ui/VisaCard/VisaCard';
-import { useEffect } from 'react';
-import { VisaSupportApi } from './api/VisaSupportApi';
+import styles from './VisaSupport.module.scss'
+import { Heading } from '@/ui/Heading/Heading'
+import { Slider } from '@/ui/Slider/Slider'
+import { VisaCard } from '../VisaSupport/ui/VisaCard/VisaCard'
+import { useEffect } from 'react'
+import { VisaSupportApi } from './api/VisaSupportApi'
 
 export const VisaSupport = () => {
-  const { visaData, visaRequest } = VisaSupportApi();
+  const { visaData, visaRequest } = VisaSupportApi()
 
   useEffect(() => {
-    visaRequest();
-  }, [visaRequest]);
+    visaRequest()
+  }, [visaRequest])
 
   if (!visaData.length) {
-    return null;
+    return null
   }
 
   return (
@@ -28,5 +28,5 @@ export const VisaSupport = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
