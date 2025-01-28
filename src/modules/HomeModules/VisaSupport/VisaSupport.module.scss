@@ -2,13 +2,28 @@
   position: relative;
 
   .background {
-    position: absolute;
+    position: relative;
     display: flex;
-    top: -25px;
-    left: 25%;
+    justify-content: center;
 
-    img {
-      justify-self: center;
+    .globe {
+      position: absolute;
+      display: flex;
+      top: -25px;
+      justify-content: center;
+    }
+
+    .airplanes {
+      display: flex;
+      position: absolute;
+      justify-content: space-between;
+      max-width: 1440px;
+      width: 100%;
+      top: -35px;
+
+      .center {
+        margin-top: -20px;
+      }
     }
   }
 }
