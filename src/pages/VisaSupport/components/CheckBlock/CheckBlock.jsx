@@ -31,36 +31,42 @@ export const CheckBlock = () => {
   ]
 
   useEffect(() => {
-    // Анимация для элементов в parallaxSection
-    gsap.fromTo(
-      `.${styles.leftPlane}`,
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1 },
-    )
+    // parallax animation
     gsap.fromTo(
       `.${styles.world}`,
-      { opacity: 0, y: -50 },
+      { opacity: 0, y: 100 },
       { opacity: 1, y: 0, duration: 1 },
     )
     gsap.fromTo(
+      `.${styles.leftPlane}`,
+      { opacity: 0, x: -60, y: 100 },
+      { opacity: 1, x: 0, duration: 1, y: 0 },
+    )
+
+    gsap.fromTo(
       `.${styles.leftLine}`,
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1 },
+      { opacity: 0, x: -60, y: 100 },
+      { opacity: 1, x: 0, duration: 1, y: 0 },
     )
     gsap.fromTo(
       `.${styles.topLine}`,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1 },
+      { opacity: 0, y: 150, rotation: -15, x: -150 },
+      { opacity: 1, y: 0, duration: 1, rotation: 9, x: 0 },
     )
     gsap.fromTo(
       `.${styles.rightLine}`,
-      { opacity: 0, x: 50 },
-      { opacity: 1, x: 0, duration: 1 },
+      { opacity: 0, x: 60, y: 100 },
+      { opacity: 1, x: 0, duration: 1, y: 0 },
     )
     gsap.fromTo(
       `.${styles.rightPlane}`,
-      { opacity: 0, x: 50 },
-      { opacity: 1, x: 0, duration: 1 },
+      { opacity: 0, x: 60, y: 100 },
+      { opacity: 1, x: 0, duration: 1, y: 0 },
+    )
+    gsap.fromTo(
+      `.${styles.orangeIcon}`,
+      { opacity: 0 },
+      { opacity: 1, duration: 2 },
     )
   }, [])
 
@@ -81,7 +87,11 @@ export const CheckBlock = () => {
         <div className={styles.checkFrameContainer}>
           {data.map((item) => (
             <div className={styles.checkFrame} key={item.id}>
-              <BiSolidCheckCircle color='#FF6600' size={50} />
+              <BiSolidCheckCircle
+                className={styles.orangeIcon}
+                color='#FF6600'
+                size={50}
+              />
               <Typography variant='fs24' useParser={true}>
                 {item.title}
               </Typography>
