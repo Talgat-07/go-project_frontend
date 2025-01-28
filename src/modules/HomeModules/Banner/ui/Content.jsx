@@ -11,7 +11,7 @@ export const Content = ({ slide }) => {
         <div className={styles.overlay} />
       </div>
       <MultiContainer className={styles.frame}>
-        <Typography className={styles.title} variant='h1' weight='fw6' truncate={50}>
+        <Typography className={styles.title} variant='h1' weight='fw6'>
         {slide.description}
         </Typography>
         <Typography className={styles.description} truncate={100}>
