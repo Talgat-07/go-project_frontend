@@ -24,6 +24,9 @@
 }
 
 .individualTour {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   margin-top: 30px;
   margin-bottom: 22px;
   border-bottom: 1px solid #FF6600;
