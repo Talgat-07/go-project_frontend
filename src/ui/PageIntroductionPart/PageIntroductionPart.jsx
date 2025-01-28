@@ -1,9 +1,6 @@
 import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
-import styles from './Introduction.module.scss'
+import styles from './PageIntroductionPart.module.scss'
 import { Heading } from '@/ui/Heading/Heading'
-import { DeliveryApi } from './api/DeliveryApi'
-import { useEffect } from 'react'
-import { TextList } from './components/TextList/TextList'
 import { Slider } from '@/ui/Slider/Slider'
 import { Typography } from '@/ui/Typography/Typography'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
@@ -13,15 +10,11 @@ import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup'
 import { AirplanePath } from '@/app/assets/icons/AirplanePath'
 import { Airplane } from '@/app/assets/icons/Airplane'
 import { RightAirPath } from '@/app/assets/icons/RightAirPath'
+import { SharedTextList } from '@/ui/SharedTextList/SharedTextList'
+import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck'
 
-export const Introduction = () => {
-  const { deliveryData, deliveryRequest } = DeliveryApi()
-
-  useEffect(() => {
-    deliveryRequest()
-  }, [deliveryRequest])
-
-  if (!deliveryData.length) {
+export const PageIntroductionPart = ({ data }) => {
+  if (!data.length) {
     return null
   }
 
@@ -33,11 +26,11 @@ export const Introduction = () => {
         <Airplane className={styles.airplane} color={'#FF572233'} />
         <RightAirPath className={styles.RightPath} />
         <Airplane className={styles.RightAirplane} color={'#FF572233'} />
-        <Heading text={deliveryData[0]?.title} />
-        <TextList data={deliveryData} />
+        <Heading text={data[0]?.title} />
+        <SharedTextList data={data} />
         <Slider
           className={styles.slider}
-          data={deliveryData[0]?.images}
+          data={data[0]?.images}
           slidesPerView={5}
           loop={true}
           spaceBetween={20}
@@ -54,17 +47,25 @@ export const Introduction = () => {
             color={'#000000'}
             className={styles.description}
           >
-            {deliveryData[0]?.description}
+            {data[0]?.description}
           </Typography>
           <AirplaneGroup className={styles.airplanes} />
-          <SwitchButton
-            fontSize={'fs16'}
-            maxWidth={250}
-            text={'Переходи на Easy Go'}
-            className={styles.button}
-          >
-            <DeliveryAirplane color={'#FFFFFF'} className={styles.airIcon} />
-          </SwitchButton>
+          {data[0]?.easy_go_url && (
+            <a
+              href={data[0]?.easy_go_url}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <SwitchButton
+                fontSize={'fs16'}
+                maxWidth={250}
+                text={'Переходи на Easy Go'}
+                className={styles.button}
+              >
+                <InsideBtnTruck className={styles.airIcon} />
+              </SwitchButton>
+            </a>
+          )}
         </div>
       </section>
     </MultiContainer>
