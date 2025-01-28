@@ -10,10 +10,17 @@ import { SwitchLanguage } from "./components/SwithchLanguage/SwitchLanguage";
 import { PATH } from "@/utils/constants/constants";
 import { Link, useLocation } from "react-router-dom";
 import { useForm } from '@/utils/hooks/useForm';
+import { ContactsStorage } from "@/app/Storage/Storage";
+import { useEffect } from "react";
 
 export const Header = () => {
   const location = useLocation();
   const isHomePage = location.pathname === PATH.home;
+  const { contactsData, contactsRequest } = ContactsStorage();
+
+  useEffect(() => {
+    contactsRequest();
+  }, [contactsRequest]);
 
   const { formShow } = useForm();
 
@@ -22,13 +29,13 @@ export const Header = () => {
   const contacts = [
     {
       icon: <FaWhatsapp size={"24px"} style={{ color: textColor }} />,
-      text: "+996(700)777 777",
-      link: `tel:+996(700)777 777`,
+      text: contactsData[0]?.phone_number || "+996(700)777 777",
+      link: `tel: ${contactsData[0]?.phone_number || "+996(700)777 777"}`,
     },
     {
       icon: <SlLocationPin size={"24px"} style={{ color: textColor }} />,
-      text: "ул. Жукеева - Пудовкина 44/1",
-      link: "#",
+      text: contactsData[0]?.company_address || "ул. Жукеева - Пудовкина 44/1",
+      link: contactsData[0]?.map_link || "",
     },
   ];
 

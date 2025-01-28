@@ -19,12 +19,16 @@ export const Slider = (props) => {
 
   const swiperRef = useRef(null)
 
+  const isLoopEnabled = loop && data.length > slidesPerView // Disable loop if slides are fewer than slidesPerView
+  const isCenteredEnabled = centeredSlides && data.length > slidesPerView // Disable centered slides in the same case
+  const areButtonsDisabled = data.length <= slidesPerView
+
   const swiperSettings = {
     slidesPerView,
     spaceBetween,
     initialSlide: 1,
-    centeredSlides,
-    loop,
+    centeredSlides: isCenteredEnabled,
+    loop: isLoopEnabled,
     navigation: false,
   }
 
@@ -59,15 +63,15 @@ export const Slider = (props) => {
   return (
     <MultiContainer>
       <div className={styles.sliderContainer}>
-        {!centeredSlides && (
+        {!isCenteredEnabled && (
           <div className={styles.buttons}>
-          <button className={styles.prevButton} onClick={handlePrevClick}>
-            <SliderLeft />
-          </button>
-          <button className={styles.nextButton} onClick={handleNextClick}>
-            <SliderRight />
-          </button>
-        </div>
+            <button disabled={areButtonsDisabled} className={styles.prevButton} onClick={handlePrevClick}>
+              <SliderLeft color={areButtonsDisabled ? "#FFCDA5" : "#FF6600"} />
+            </button>
+            <button disabled={areButtonsDisabled} className={styles.nextButton} onClick={handleNextClick}>
+              <SliderRight color={areButtonsDisabled ? "#FFCDA5" : "#FF6600"}/>
+            </button>
+          </div>
         )}
         <Swiper
           className={className}
