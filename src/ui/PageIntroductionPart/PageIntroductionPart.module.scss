@@ -11,14 +11,14 @@
   .path {
     position: absolute;
     z-index: -1;
-    left: 0;
-    bottom: 250px;
+    left: -30px;
+    bottom: 360px;
   }
   .airplane {
     position: absolute;
     z-index: -1;
-    left: 120px;
-    bottom: 455px;
+    left: 90px;
+    bottom: 565px;
     transform: rotate(-30deg);
   }
   .RightAirplane {
@@ -26,12 +26,12 @@
     z-index: -1;
     transform: rotate(130deg);
     bottom: 46%;
-    right: 33px;
+    right: -25px;
   }
   .RightPath {
     position: absolute;
     z-index: -1;
-    right: 0;
+    right: -60px;
     bottom: 50%;
   }
   .linkerZone {

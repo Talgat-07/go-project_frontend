@@ -7,6 +7,7 @@ import { InfoFrame } from './components/InfoFrame/InfoFrame'
 import { CheckBlock } from './components/CheckBlock/CheckBlock'
 import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
 import { EndSection } from './components/EndSection/EndSection'
+import { PulseLoader } from 'react-spinners'
 
 export const VisaSupport = () => {
   const { id } = useParams()
@@ -18,7 +19,17 @@ export const VisaSupport = () => {
 
   const visa = visaData.find((currentVisa) => currentVisa.id === Number(id))
 
-  if (!visa) return <div>Loading...</div>
+  if (!visa)
+    return (
+      <MultiContainer className={styles.loaderContainer}>
+        <PulseLoader
+          color='#FF6600'
+          size={25}
+          aria-label='Loading Spinner'
+          data-testid='loader'
+        />
+      </MultiContainer>
+    )
 
   return (
     <main className={styles.visaPage}>

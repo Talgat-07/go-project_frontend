@@ -15,6 +15,12 @@
     width: 100%;
     z-index: 99;
 
+    button {
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
     .prevButton {
       position: absolute;
       left: -65px;

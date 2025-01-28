@@ -16,10 +16,6 @@ header {
         rgba(102, 102, 102, 0));
     animation: headBg linear;
     animation-timeline: scroll(y);
-
-    .content {
-      gap: 44px;
-    }
   }
 
   .content {
@@ -47,13 +43,13 @@ header {
 
       @keyframes move {
         10% {
-          transform: translate(-600%, -5px);
+          transform: translate(-520%, -5px);
           width: 95px;
           height: 60px;
         }
 
         100% {
-          transform: translate(-600%, -5px);
+          transform: translate(-520%, -5px);
           width: 95px;
           height: 60px;
         }
@@ -70,6 +66,7 @@ header {
           display: flex;
           align-items: center;
           gap: 8px;
+          width: fit-content;
 
           a {
             p {
@@ -102,6 +99,10 @@ header {
         gap: 30px;
         animation: activeBlock linear;
         animation-timeline: scroll(y);
+
+        button {
+          width: 208px;
+        }
       }
 
       @keyframes activeBlock {

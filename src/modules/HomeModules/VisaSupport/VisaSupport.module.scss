@@ -1,0 +1,29 @@
+.visa {
+  position: relative;
+
+  .background {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .globe {
+      position: absolute;
+      display: flex;
+      top: -25px;
+      justify-content: center;
+    }
+
+    .airplanes {
+      display: flex;
+      position: absolute;
+      justify-content: space-between;
+      max-width: 1440px;
+      width: 100%;
+      top: -35px;
+
+      .center {
+        margin-top: -20px;
+      }
+    }
+  }
+}

@@ -3,11 +3,7 @@
   flex-direction: column;
   align-items: center;
   font-family: sans-serif;
-  .title {
-    font-size: 40px;
-    font-weight: 500;
-    color: var(--titleColor_1);
-  }
+
   .deliveryBanner {
     position: relative;
     width: 100%;
@@ -16,20 +12,25 @@
     border-radius: 35px;
     overflow: hidden;
     box-shadow: 0px 10px 150px #face493f;
-    & img {
-      width: 100%;
-      max-width: 1240px;
-      object-fit: cover;
+
+    .img {
+      & img {
+        width: 100%;
+        max-width: 1240px;
+        object-fit: cover;
+      }
+  
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(270.99deg, rgba(217, 217, 217, 0.0084) 0.96%, rgba(0, 0, 0, 0.230835) 13.75%, rgba(0, 0, 0, 0.440537) 25.82%, rgba(0, 0, 0, 0.587503) 56.49%, rgba(29, 28, 28, 0.84) 96.3%);
+        z-index: 2;
+      }
     }
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(270.99deg, rgba(217, 217, 217, 0.0084) 0.96%, rgba(0, 0, 0, 0.230835) 13.75%, rgba(0, 0, 0, 0.440537) 25.82%, rgba(0, 0, 0, 0.587503) 56.49%, rgba(29, 28, 28, 0.84) 96.3%);
-      z-index: 2;
-    }
+
     .frame {
       position: absolute;
       left: 34px;
@@ -40,14 +41,18 @@
       color: var(--onlyWhite);
       z-index: 3;
 
-      .frameTitle {
-        font-size: 36px;
-        font-weight: 500;
+      .title {
         margin-bottom: 14px;
       }
-      .frameDescription {
-        font-size: 32px;
+
+      .desc {
         margin-bottom: 33px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }

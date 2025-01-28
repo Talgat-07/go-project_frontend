@@ -35,7 +35,7 @@ export default [
                 'warn',
                 { allowConstantExport: true },
             ],
-            semi: ['error', 'always'],
+            semi: ['error', 'none'],
             quotes: ['error', 'single'],
             'no-console': 'error',
             'no-warning-comments': 'error',

@@ -18,11 +18,11 @@ export const InfoFrame = ({ moreInfo }) => {
           x: 0,
           opacity: 1,
           duration: 1,
-          // Задержка между анимациями
+          // animation delay
           delay: index * 0.3,
           scrollTrigger: {
             trigger: article,
-            start: 'top 90%',
+            start: 'top 80%',
             end: 'bottom 50%',
             scrub: 2.5,
           },
@@ -36,7 +36,7 @@ export const InfoFrame = ({ moreInfo }) => {
       {moreInfo.images.slice(0, 1).map((item) => (
         <article key={item.id} className={styles.infoBlocks}>
           <div className={styles.img}>
-            <img src={item.image} alt='bg image' />
+            <img src={item.image} loading='lazy' alt='bg image' />
           </div>
           <div>
             <Typography
@@ -46,7 +46,6 @@ export const InfoFrame = ({ moreInfo }) => {
             >
               {item.description}
             </Typography>
-            {/* <Typography>{moreInfo.}</Typography> */}
           </div>
         </article>
       ))}
@@ -60,7 +59,6 @@ export const InfoFrame = ({ moreInfo }) => {
             >
               {item.description}
             </Typography>
-            {/* <Typography>{moreInfo.}</Typography> */}
           </div>
           <div className={styles.img}>
             <img src={item.image} alt='bg image' />
@@ -80,7 +78,6 @@ export const InfoFrame = ({ moreInfo }) => {
             >
               {item.description}
             </Typography>
-            {/* <Typography>{moreInfo.}</Typography> */}
           </div>
         </article>
       ))}

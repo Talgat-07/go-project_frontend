@@ -2,3 +2,19 @@
   display: flex;
   align-items: center;
 }
+
+section {
+  position: relative;
+
+  .bgElem {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(250, 205, 73, 1);
+    position: absolute;
+    top: -200px;
+    right: -20%;
+    opacity: 0.5;
+    filter: blur(200px);
+  }
+}

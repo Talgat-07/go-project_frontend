@@ -1,30 +1,49 @@
 .banner {
+  position: relative;
   color: var(--onlyWhite);
-  font-family: sans-serif;
   width: 100%;
   height: 100%;
 
-  & img {
-    width: 100%;
-    height: 100%;
-  }
-  .frame {
-    position: relative;
-    bottom: 280px;
-    left: -26.2vw;
-    width: 100%;
-    max-width: 570px;
-    margin: auto;
-    .title {
-      font-size: 56px;
-      font-weight: 600;
-      margin-bottom: 16px;
+  .img {
+    & img {
+      width: 100%;
+      height: 100%;
     }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .frame {
+    position: absolute;
+    left: 0;
+    bottom: 153px;
+
+    .title {
+      max-width: 576px;
+      width: 100%;
+      margin-bottom: 18px;
+      line-height: 66px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .description {
-      text-align: justify;
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 19px;
+      display: flex;
+      max-width: 576px;
+      width: 100%;
+      margin-bottom: 22px;
+      line-height: 30px;
     }
   }
 }

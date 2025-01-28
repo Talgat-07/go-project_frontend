@@ -14,10 +14,10 @@ export default defineConfig({
       utils: '/src/utils',
     },
   },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './tests/runTests.js',
-  },
-  server: { hmr: true },
+  // test: {
+  //   globals: true,
+  //   environment: 'jsdom',
+  //   setupFiles: './tests/runTests.js',
+  // },
+  // server: { hmr: true },
 })

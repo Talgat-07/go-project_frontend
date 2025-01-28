@@ -9,6 +9,7 @@ import { TourCard } from '@/ui/TourCard/TourCard';
 import { ToursSliderApi } from './api/ToursSliderApi';
 import { useEffect } from 'react';
 import { Airplane } from '@/app/assets/icons/Airplane';
+import { Wallet } from '@/app/assets/icons/Wallet';
 
 export const ToursSlider = () => {
   const { toursData, toursRequest } = ToursSliderApi();
@@ -45,6 +46,7 @@ export const ToursSlider = () => {
       </div>
       <MultiContainer>
         <div className={styles.individualTour}>
+          <Wallet />
           <Typography color="#FF6600" weight="fw5" variant="fs20" >
             Рассчитать индивидуальный тур
           </Typography>
