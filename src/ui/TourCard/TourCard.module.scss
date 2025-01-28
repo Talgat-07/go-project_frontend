@@ -7,6 +7,57 @@
   background-position: center;
   position: relative;
 
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 0 10px;
+  }
+
+  .tagNew {
+    width: 55px;
+    height: 22px;
+    background: #200CB4;
+    border-radius: 16px;
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .tagDiscount {
+    width: 53px;
+    height: 18px;
+    background: #fff;
+    border-radius: 8px;
+  }
+
+  .tagFire {
+    position: absolute;
+    right: 0;
+    min-width: 190px;
+    height: 44px;
+    background: #FF0000;
+    border-radius: 11px;
+    gap: 7px;
+  }
+
+  .tagThumb {
+    position: absolute;
+    right: 0;
+    min-width: 232px;
+    height: 38px;
+    background: #AF4DFD;
+    border-radius: 9px;
+    gap: 7px;
+  }
+
+  .tagSale {
+    position: absolute;
+    right: 0;
+    margin: -20px;
+  }
+
   &Content {
     position: absolute;
     bottom: 0;
