@@ -5,6 +5,9 @@ import { VisaCard } from '../VisaSupport/ui/VisaCard/VisaCard';
 import { useEffect } from 'react';
 import { VisaSupportApi } from './api/VisaSupportApi';
 import globe from '../../../app/assets/images/visaSupBg.png';
+import left from '../../../app/assets/images/leftAirplane.png';
+import right from '../../../app/assets/images/rightAirplane.png';
+import center from '../../../app/assets/images/centerAirplane.png';
 
 export const VisaSupport = () => {
   const { visaData, visaRequest } = VisaSupportApi();
@@ -20,19 +23,21 @@ export const VisaSupport = () => {
   return (
     <div className={styles.visa}>
       <div className={styles.background}>
-          <div className={styles.globe}>
-            <img src={globe} alt="globe" />
-          </div>
-          {/* <div className={styles.left}>
-            <img src="" alt="left elem" />
+        <div className={styles.globe}>
+          <img src={globe} alt="globe" />
+        </div>
+        <div className={styles.airplanes}>
+          <div className={styles.left}>
+            <img src={left} alt="left elem" />
           </div>
           <div className={styles.center}>
-            <img src="" alt="center elem" />
+            <img src={center} alt="center elem" />
           </div>
           <div className={styles.right}>
-            <img src="" alt="right elem" />
-          </div> */}
+            <img src={right} alt="right elem" />
+          </div>
         </div>
+      </div>
       <Heading text='Визовая поддержка - Visa Go' />
       <div className={styles.cards}>
         <Slider
