@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import styles from './VisaSupport.module.scss'
-import { VisaSupportApi } from '@/modules/HomeModules/VisaSupport/api/VisaSupportApi'
+import { VisaSupportApi } from '@/modules/VisaSupModules/VisaSupport/api/VisaSupportApi'
 import { useEffect } from 'react'
 import { Typography } from '@/ui/Typography/Typography'
 import { InfoFrame } from './components/InfoFrame/InfoFrame'
