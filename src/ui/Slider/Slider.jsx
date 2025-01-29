@@ -57,7 +57,7 @@ export const Slider = (props) => {
   }, [])
 
   if (!data || data.length === 0) {
-    return <div>No items to display</div>
+    return;
   }
 
   return (

@@ -8,6 +8,7 @@ header {
   justify-content: center;
   background: var(--onlyWhite);
   width: 100%;
+  box-shadow: 0px 0px 9px 3px rgba(206, 204, 204, 0.25);
 
   &.isHomePage {
     position: fixed;
