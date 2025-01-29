@@ -1,0 +1,20 @@
+.cardsBlock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  .card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #FFF1E6;
+    padding: 30px 40px;
+    border-radius: 15px;
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
