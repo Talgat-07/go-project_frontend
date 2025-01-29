@@ -1,39 +1,9 @@
-import { useParams } from 'react-router-dom'
-import styles from './VisaSupport.module.scss'
-import { VisaSupportApi } from '@/modules/HomeModules/VisaSupport/api/VisaSupportApi'
-import { useEffect } from 'react'
-import { Typography } from '@/ui/Typography/Typography'
-import { InfoFrame } from './components/InfoFrame/InfoFrame'
-import { CheckBlock } from './components/CheckBlock/CheckBlock'
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
-import { EndSection } from './components/EndSection/EndSection'
+import { CurrentVIsa } from '@/modules/VisaSupModules/CurrentVisa/CurrentVIsa'
 
 export const VisaSupport = () => {
-  const { id } = useParams()
-  const { visaData, visaRequest } = VisaSupportApi()
-
-  useEffect(() => {
-    visaRequest()
-  }, [visaRequest])
-
-  const visa = visaData.find((currentVisa) => currentVisa.id === Number(id))
-
-  if (!visa) return <div>Loading...</div>
-
   return (
-    <main className={styles.visaPage}>
-      <MultiContainer>
-        <Typography variant='h1'>{visa.title}</Typography>
-      </MultiContainer>
-      <MultiContainer>
-        <CheckBlock />
-      </MultiContainer>
-      <MultiContainer>
-        <InfoFrame moreInfo={visa} />
-      </MultiContainer>
-      <MultiContainer>
-        <EndSection />
-      </MultiContainer>
+    <main>
+      <CurrentVIsa />
     </main>
   )
 }

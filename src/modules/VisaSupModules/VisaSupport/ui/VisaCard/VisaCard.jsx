@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 export const VisaCard = ({ item }) => {
   return (
     <SwiperSlide className={styles.block}>
-      <div className={styles.mgImg}>
+      <div className={styles.bgImg}>
         <img src={item.icon} alt={item.title} />
       </div>
       <article className={styles.content}>
@@ -18,8 +18,10 @@ export const VisaCard = ({ item }) => {
           <Typography className={styles.description}>
             {item.description}
           </Typography>
-          <SwitchButton maxWidth='165px'>
-            <Link to={`/visa-support/${item.id}`}>Подробнее</Link>
+          <SwitchButton maxWidth='auto'>
+            <Link to={`/visa-support/${item.id}`} target='_top'>
+              Подробнее
+            </Link>
           </SwitchButton>
         </div>
       </article>

@@ -1,25 +1,25 @@
-import { Link, useLocation } from "react-router-dom";
-import styles from "./Breadcrumbs.module.scss";
-import { Typography } from "../Typography/Typography";
-import { useTranslation } from "react-i18next";
-import { BreadcrumbsArrow } from "@/app/assets/icons/BreadcrumbsArrow";
-import { PATH } from "@/utils/constants/constants";
-import { MultiContainer } from "../Multicontainer/Multicontainer";
+import { Link, useLocation } from 'react-router-dom'
+import styles from './Breadcrumbs.module.scss'
+import { Typography } from '../Typography/Typography'
+import { useTranslation } from 'react-i18next'
+import { BreadcrumbsArrow } from '@/app/assets/icons/BreadcrumbsArrow'
+import { PATH } from '@/utils/constants/constants'
+import { MultiContainer } from '../Multicontainer/Multicontainer'
 
 const data = {
-  "home": 'home',
-  "tours": 'header.tours',
+  home: 'home',
+  tours: 'header.tours',
   'visa-support': 'header.visas',
-  "delivery": 'header.delivery',
-};
+  delivery: 'header.delivery',
+}
 
 export const Breadcrumbs = () => {
-  const location = useLocation();
-  const { t } = useTranslation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
+  const location = useLocation()
+  const { t } = useTranslation()
+  const pathnames = location.pathname.split('/').filter((x) => x)
 
   if (pathnames.length === 0 || !(pathnames[pathnames.length - 1] in data)) {
-    return null;
+    return null
   }
 
   return (
@@ -28,7 +28,7 @@ export const Breadcrumbs = () => {
         {pathnames.length >= 1 && (
           <div className={styles.content}>
             <Link to={PATH.home}>
-              <Typography variant="fs16" weight="fw5">
+              <Typography variant='fs16' weight='fw5'>
                 {t(data.home)}
               </Typography>
             </Link>
@@ -36,18 +36,22 @@ export const Breadcrumbs = () => {
           </div>
         )}
         {pathnames.map((pathname, index) => {
-          const translatedPathname = t(data[pathname]) || pathname;
-          const isLast = index === pathnames.length - 1;
+          const translatedPathname = t(data[pathname]) || pathname
+          const isLast = index === pathnames.length - 1
           return (
             <span className={styles.breadcrumbs} key={index}>
               {isLast ? (
-                <Typography variant="fs16" weight="fw5" className={styles.text}>
+                <Typography variant='fs16' weight='fw5' className={styles.text}>
                   {translatedPathname}
                 </Typography>
               ) : (
                 <div className={styles.content}>
-                  <Link to={`/${pathnames.slice(0, index + 1).join("/")}`}>
-                    <Typography variant="fs16" weight="fw5" className={styles.text}>
+                  <Link to={`/${pathnames.slice(0, index + 1).join('/')}`}>
+                    <Typography
+                      variant='fs16'
+                      weight='fw5'
+                      className={styles.text}
+                    >
                       {translatedPathname}
                     </Typography>
                   </Link>
@@ -55,9 +59,9 @@ export const Breadcrumbs = () => {
                 </div>
               )}
             </span>
-          );
+          )
         })}
       </div>
     </MultiContainer>
-  );
-};
+  )
+}
