@@ -21,7 +21,7 @@ export const VisaSupport = () => {
   }
 
   return (
-    <div className={styles.visa}>
+    <div className={styles.visa} id='visas'>
       <div className={styles.background}>
         <div className={styles.globe}>
           <img src={globe} alt='globe' />
