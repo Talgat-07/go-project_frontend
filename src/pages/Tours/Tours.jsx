@@ -1,5 +1,6 @@
 import { AllTours } from '@/modules/ToursModules/AllTours.jsx'
 import { Helmet, HelmetProvider } from "react-helmet-async"
+import { Breadcrumbs } from '@/ui'
 
 export const Tours = () => {
   return (
@@ -14,6 +15,7 @@ export const Tours = () => {
         </Helmet>
       </HelmetProvider>
       <main>
+        <Breadcrumbs breadcrumbKey="tours" />
         <AllTours />
       </main>
     </>

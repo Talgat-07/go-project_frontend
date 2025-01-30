@@ -1,7 +1,9 @@
-import { TourDetailComponent } from "@/modules/TourDetailsModule/TourDetailComponent";
+import { TourDetailComponent } from "@/modules/TourDetailsModule/TourDetailComponent"
 
 export const TourDetail = () => {
   return (
-    <TourDetailComponent />
+    <main>
+      <TourDetailComponent />
+    </main>
   )
 }
