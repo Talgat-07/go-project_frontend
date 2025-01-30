@@ -1,4 +1,4 @@
-import { AllTours } from '@/modules/ToursModules/Tours/AllTours.jsx'
+import { AllTours } from '@/modules/ToursModules/AllTours.jsx'
 import { Helmet, HelmetProvider } from "react-helmet-async"
 
 export const Tours = () => {
