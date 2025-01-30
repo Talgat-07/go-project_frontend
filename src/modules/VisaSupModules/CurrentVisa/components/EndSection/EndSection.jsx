@@ -1,6 +1,6 @@
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { SwitchButton } from '@/ui'
 import styles from './End.module.scss'
-import { Typography } from '@/ui/Typography/Typography'
+import { Typography } from '@/ui'
 
 export const EndSection = () => {
   return (

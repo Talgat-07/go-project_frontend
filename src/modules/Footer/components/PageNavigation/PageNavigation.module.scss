@@ -4,10 +4,11 @@
   gap: 25px;
   justify-content: start;
 
-  a {
+  .navItem {
     p {
       &:hover {
         color: #FF6600;
+        cursor: pointer;
       }
     }
   }

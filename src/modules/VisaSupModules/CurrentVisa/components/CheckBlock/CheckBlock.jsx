@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography/Typography'
+import { Typography } from '@/ui'
 import styles from './CheckBlock.module.scss'
 import { BiSolidCheckCircle } from 'react-icons/bi'
 import { World } from '@/app/assets/icons/worldMapPlaneDesign/World'

@@ -3,7 +3,7 @@ import { AboutUsAPI } from './api/AboutUsApi'
 import { useEffect } from 'react'
 import { Info } from './components/Info/Info'
 import { Facts } from './components/Facts/Facts'
-import bg from '../../../app/assets/images/aboutUsBg.png'
+import bg from '@/app/assets/images/aboutUsBg.png'
 
 export const AboutUs = () => {
   const { aboutUsData, fetchRequest } = AboutUsAPI()
@@ -14,8 +14,8 @@ export const AboutUs = () => {
 
   return (
     <>
-      {aboutUsData.map((detail) => (
-        <section className={styles.aboutUsSection}>
+      {aboutUsData.map((detail, index) => (
+        <section className={styles.aboutUsSection} key={index}>
           <div className={styles.bg}>
             <img src={bg} alt='background image' />
           </div>

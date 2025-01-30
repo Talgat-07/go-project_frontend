@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography/Typography'
+import { Typography } from '@/ui'
 import styles from './DateProp.module.scss'
 
 export const DateProp = ({ dateProp }) => {

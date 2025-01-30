@@ -1,6 +1,6 @@
 import { Date } from "@/app/assets/icons/tourData/Date";
 import styles from "./Cards.module.scss";
-import { Typography } from "@/ui/Typography/Typography";
+import { Typography } from "@/ui";
 
 export const Cards = ({ item }) => {
 

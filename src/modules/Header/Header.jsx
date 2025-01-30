@@ -1,30 +1,30 @@
-import { Logo } from "@/ui/Logo/Logo";
-import { Navigation } from "./components/Navigation/Navigation";
-import { FaWhatsapp } from "react-icons/fa";
-import { SlLocationPin } from "react-icons/sl";
-import { Typography } from "@/ui/Typography/Typography";
-import styles from "./Header.module.scss";
-import { SwitchButton } from "@/ui/SwitchButton/SwitchButton";
-import { MultiContainer } from "@/ui/Multicontainer/Multicontainer";
-import { SwitchLanguage } from "./components/SwithchLanguage/SwitchLanguage";
-import { PATH } from "@/utils/constants/constants";
-import { Link, useLocation } from "react-router-dom";
-import { useForm } from '@/utils/hooks/useForm';
-import { ContactsStorage } from "@/app/Storage/Storage";
-import { useEffect } from "react";
+import { Logo } from "@/ui"
+import { Navigation } from "./components/Navigation/Navigation"
+import { FaWhatsapp } from "react-icons/fa"
+import { SlLocationPin } from "react-icons/sl"
+import { Typography } from "@/ui"
+import styles from "./Header.module.scss"
+import { SwitchButton } from "@/ui"
+import { MultiContainer } from "@/ui"
+import { SwitchLanguage } from "./components/SwithchLanguage/SwitchLanguage"
+import { PATH } from "@/utils/constants/constants"
+import { Link, useLocation } from "react-router-dom"
+import { useForm } from '@/utils/hooks/useForm'
+import { ContactsStorage } from "@/app/Storage/Storage"
+import { useEffect } from "react"
 
 export const Header = () => {
-  const location = useLocation();
-  const isHomePage = location.pathname === PATH.home;
-  const { contactsData, contactsRequest } = ContactsStorage();
+  const location = useLocation()
+  const isHomePage = location.pathname === PATH.home
+  const { contactsData, contactsRequest } = ContactsStorage()
 
   useEffect(() => {
-    contactsRequest();
-  }, [contactsRequest]);
+    contactsRequest()
+  }, [contactsRequest])
 
-  const { formShow } = useForm();
+  const { formShow } = useForm()
 
-  const textColor = isHomePage ? "#fff" : "#000";
+  const textColor = isHomePage ? "#fff" : "#000"
 
   const contacts = [
     {
@@ -37,7 +37,7 @@ export const Header = () => {
       text: contactsData[0]?.company_address || "ул. Жукеева - Пудовкина 44/1",
       link: contactsData[0]?.map_link || "",
     },
-  ];
+  ]
 
   return (
     <header className={`${styles.header} ${isHomePage && styles.isHomePage}`}>
@@ -58,7 +58,9 @@ export const Header = () => {
             </div>
             <Link
               to={PATH.home}
-              className={styles.logo}>
+              target="_top"
+              className={styles.logo}
+            >
               <Logo color={textColor} />
             </Link>
             <div className={styles.activeBlock}>
@@ -77,5 +79,5 @@ export const Header = () => {
         </div>
       </MultiContainer>
     </header>
-  );
-};
+  )
+}

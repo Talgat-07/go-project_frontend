@@ -1,31 +1,18 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Navigation.module.scss'
 import { PATH } from '@/utils/constants/constants'
-import { Typography } from '@/ui/Typography/Typography'
+import { Typography } from '@/ui'
 import { useTranslation } from 'react-i18next'
+import { scrollToTop } from '@/utils/helpers/helpers'
+import { scrollToSection } from '@/utils/helpers/helpers'
 
 export const Navigation = () => {
   const { t } = useTranslation()
-  const navigate = useNavigate()
   const location = useLocation()
+  const navigate = useNavigate()
   const isHomePage = location.pathname === PATH.home
 
-  const handleScrollToSection = (sectionId) => {
-    navigate('/')
-    setTimeout(() => {
-      const section = document.getElementById(sectionId)
-      if (section) {
-        const sectionRect = section.getBoundingClientRect()
-        const offset = window.innerHeight / 2 - sectionRect.height / 2
-        const top = sectionRect.top + window.scrollY - offset
-
-        window.scrollTo({
-          top,
-          behavior: 'smooth',
-        })
-      }
-    }, 100)
-  }
+  const handleScrollToSection = (sectionId) => scrollToSection(navigate, sectionId)
 
   const navigationList = [
     { path: PATH.tours, label: t('header.tours') },
@@ -55,13 +42,19 @@ export const Navigation = () => {
           <span key={index} onClick={item.onClick} className={styles.navItem}>
             <Typography
               weight='fw6'
+              variant='fs20'
               className={`${styles.label} ${isHomePage && styles.homeLabel}`}
             >
               {item.label}
             </Typography>
           </span>
         ) : (
-          <Link to={item.path} key={index} className={styles.navItem}>
+          <Link
+            to={item.path}
+            key={index}
+            className={styles.navItem}
+            onClick={() => scrollToTop()}
+          >
             <Typography
               variant='fs20'
               weight='fw6'

@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { ReviewsApi } from './api/ReviewsApi'
-import { Heading } from '@/ui/Heading/Heading'
+import { Heading } from '@/ui'
 import styles from './Reviews.module.scss'
 import stylesCard from '@/ui/ReviewCard/ReviewCard.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
-import { ReviewCard } from '@/ui/ReviewCard/ReviewCard'
+import { MultiContainer } from '@/ui'
+import { ReviewCard } from '@/ui'
 
 export const Reviews = () => {
   const { reviewsData, reviewsRequest } = ReviewsApi()
