@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { MultiContainer, TourCard, Heading, SwitchButton } from '@/ui'
 import { Filter } from './components/Filter/Filter.jsx'
 import { useAllTours } from './api/ToursApi.js'
+import { ToursPlane } from '@/app/assets/icons/ToursPlane.jsx'
 import styles from './AllTours.module.scss'
 
 export const AllTours = () => {
@@ -65,8 +66,10 @@ export const AllTours = () => {
   }
 
   return (
-    <MultiContainer>
+    <MultiContainer className={styles.allTours}>
       <Heading text='Все туры' />
+      <ToursPlane className={styles.plane} />
+      <ToursPlane className={styles.plane} />
       <div className={styles.filters}>
         <Filter
           label='Страна'
