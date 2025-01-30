@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useOutsideClick } from '@/utils/hooks/useOutsideClick.js'
+import { FilterArrow } from '@/app/assets/icons/FilterArrow.jsx'
 import styles from './Filter.module.scss'
 
 export const Filter = (props) => {
@@ -63,6 +64,7 @@ export const Filter = (props) => {
         onClick={toggleDropdown}
       >
         {filterText()}
+        <FilterArrow className={`${styles.arrow} ${isOpen ? styles.rotate : ''}`} />
       </button>
       {isOpen && (
         <div className={styles.dropdownMenu}>
