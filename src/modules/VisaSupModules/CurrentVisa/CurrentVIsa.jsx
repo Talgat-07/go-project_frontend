@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom'
 import { CheckBlock } from './components/CheckBlock/CheckBlock'
 import { InfoFrame } from './components/InfoFrame/InfoFrame'
 import { EndSection } from './components/EndSection/EndSection'
-import { ContentLoader } from '@/ui/ContentLoader/ContentLoader'
 import { useEffect } from 'react'
 
 export const CurrentVIsa = () => {
@@ -19,7 +18,7 @@ export const CurrentVIsa = () => {
 
   const visa = visaData.find((currentVisa) => currentVisa.id === Number(id))
 
-  if (!visa) return <ContentLoader />
+  if (!visa) return <div>Loading...</div>
 
   return (
     <section className={styles.visaPage}>
