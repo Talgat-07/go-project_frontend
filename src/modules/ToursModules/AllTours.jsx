@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
-import { MultiContainer } from '@/ui'
-import { TourCard } from '@/ui'
-import { Heading } from '@/ui'
-import { SwitchButton } from '@/ui'
-import { Filter } from '../Filter/Filter.jsx'
+import { MultiContainer, TourCard, Heading, SwitchButton } from '@/ui'
+import { Filter } from './components/Filter/Filter.jsx'
 import { useAllTours } from './api/ToursApi.js'
 import styles from './AllTours.module.scss'
 
@@ -18,9 +15,9 @@ export const AllTours = () => {
   } = useAllTours()
   const [filters, setFilters] = useState({
     country: '',
-    city: '',
+    city: [],
     type: '',
-    category: '',
+    category: [],
   })
   const [filteredTours, setFilteredTours] = useState([])
   const displayToursCount = 18
@@ -34,10 +31,26 @@ export const AllTours = () => {
 
   useEffect(() => {
     const filtered = toursData
-      .filter(tour => filters.country ? tour.country.name === filters.country : true)
-      .filter(tour => !filters.city || tour.country.cities.some(city => city.name === filters.city))
-      .filter(tour => !filters.type || tour.tour_type.name === filters.type)
-      .filter(tour => !filters.category || tour.tour_type.categories.some(category => category.name === filters.category))
+      .filter(tour => {
+        if (!filters.country) return true
+        return tour.country.name === filters.country
+      })
+      .filter(tour => {
+        if (!filters.city.length) return true
+        return tour.country.cities.some(city =>
+          filters.city.includes(city.name),
+        )
+      })
+      .filter(tour => {
+        if (!filters.type) return true
+        return tour.tour_type.name === filters.type
+      })
+      .filter(tour => {
+        if (!filters.category.length) return true
+        return tour.tour_type.categories.some(category =>
+          filters.category.includes(category.name),
+        )
+      })
 
     setFilteredTours(filtered)
     setDisplayTours(displayToursCount)
@@ -56,18 +69,19 @@ export const AllTours = () => {
       <Heading text='Все туры' />
       <div className={styles.filters}>
         <Filter
-          label='Страны'
+          label='Страна'
           options={countriesData}
           field='country'
           value={filters.country}
           onChange={handleFilterChange}
         />
         <Filter
-          label='Города'
+          label='Город'
           options={countriesData.flatMap(country => country.cities)}
           field='city'
           value={filters.city}
           onChange={handleFilterChange}
+          multiple
         />
         <Filter
           label='Тип'
@@ -77,11 +91,12 @@ export const AllTours = () => {
           onChange={handleFilterChange}
         />
         <Filter
-          label='Категории'
+          label='Категория'
           options={tourTypesData.flatMap(type => type.categories)}
           field='category'
           value={filters.category}
           onChange={handleFilterChange}
+          multiple
         />
       </div>
       {filteredTours.length > 0 ? (

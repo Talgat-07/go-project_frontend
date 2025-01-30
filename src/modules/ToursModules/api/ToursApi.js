@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { requester } from '@/utils/requester/requester'
+import { requester } from '@/utils/requester/requester.js'
 
 const endpoints = {
   countries: 'tours/countries/',
