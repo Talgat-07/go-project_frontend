@@ -1,6 +1,6 @@
-import styles from './Delivery.module.scss';
-import DeliveryModule from '@/modules/DeliveryModules/DeliveryModule';
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import DeliveryModule from '@/modules/DeliveryModules/DeliveryModule'
+import { Helmet, HelmetProvider } from "react-helmet-async"
+import { Breadcrumbs } from '@/ui'
 
 export const Delivery = () => {
   return (
@@ -14,8 +14,9 @@ export const Delivery = () => {
           <meta property="og:description" content="Доставка товаров" />
         </Helmet>
       </HelmetProvider>
-      <main className={styles.deliveryPage}>
+      <main>
+        <Breadcrumbs breadcrumbKey="delivery" />
         <DeliveryModule />
       </main></>
-  );
-};
+  )
+}

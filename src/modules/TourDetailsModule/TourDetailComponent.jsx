@@ -1,36 +1,38 @@
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { TourDetailApi } from './api/TourDetailApi';
-import { Loader } from '@/ui';
-import { MultiContainer } from '@/ui';
-import styles from './TourDetailComponent.module.scss';
-import { Cards, SwitchTables } from './components';
-import { Slider } from '@/ui';
-import { InfoBlock } from './components';
-import { Hero } from './components';
-import { Heading } from '@/ui';
-import { SwitchButton } from '@/ui';
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { TourDetailApi } from './api/TourDetailApi'
+import { Loader } from '@/ui'
+import { MultiContainer } from '@/ui'
+import styles from './TourDetailComponent.module.scss'
+import { Cards, SwitchTables } from './components'
+import { Slider } from '@/ui'
+import { InfoBlock } from './components'
+import { Hero } from './components'
+import { Heading } from '@/ui'
+import { SwitchButton } from '@/ui'
+import { Breadcrumbs } from '@/ui'
 
 export const TourDetailComponent = () => {
-  const { id } = useParams();
-  const { tourDetailData, tourDetailRequest, isLoading } = TourDetailApi();
+  const { id } = useParams()
+  const { tourDetailData, tourDetailRequest, isLoading } = TourDetailApi()
 
   useEffect(() => {
     if (id) {
-      tourDetailRequest(id);
+      tourDetailRequest(id)
     }
-  }, [id, tourDetailRequest]);
+  }, [id, tourDetailRequest])
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader />
   }
 
-  const cardData = tourDetailData?.mini_info_frames[0];
-  const infoData = tourDetailData?.why_visit_frame[0];
-  const heroData = tourDetailData?.tour_banner[0];
+  const cardData = tourDetailData?.mini_info_frames[0]
+  const infoData = tourDetailData?.why_visit_frame[0]
+  const heroData = tourDetailData?.tour_banner[0]
 
   return (
     <>
+      <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={heroData?.title} />
       <MultiContainer className={styles.container}>
         <Hero item={heroData} />
         <Cards item={cardData} />
@@ -54,5 +56,5 @@ export const TourDetailComponent = () => {
         />
       </div>
     </>
-  );
-};
+  )
+}

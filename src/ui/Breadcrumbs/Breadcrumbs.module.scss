@@ -1,19 +1,23 @@
-.block {
+.breadcrumbsContainer {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 20px;
 
-  .content {
+  .breadcrumb,
+  .breadcrumbActive {
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
 
-  .text {
-    margin-left: 8px;
-    color: #FF6600;
+    svg {
+      margin-left: 4px;
+    }
   }
+}
 
+.link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }

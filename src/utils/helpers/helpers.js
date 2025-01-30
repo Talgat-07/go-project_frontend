@@ -1,16 +1,17 @@
-import React from "react";
+import React from "react"
+import { breadcrumbs } from "@/utils/constants/constants"
 
 export const loadComponent = (path, componentName) => {
   return React.lazy(() =>
-    path().then(module => ({ default: module[componentName] })));
-};
+    path().then(module => ({ default: module[componentName] })))
+}
 
 export const scrollToTop = (behavior = "smooth") => {
   window.scrollTo({
     top: 0,
     behavior,
-  });
-};
+  })
+}
 
 export const scrollToSection = (navigate, sectionId) => {
   navigate('/')
@@ -28,4 +29,30 @@ export const scrollToSection = (navigate, sectionId) => {
       })
     }
   }, 200)
+}
+
+export const generateBreadcrumbs = (key, thirdElement = null, t) => {
+  const breadcrumbItem = breadcrumbs.find((item) => item.key === key)
+  if (!breadcrumbItem) return []
+
+  const baseBreadcrumbs = [
+    {
+      text: t("home"),
+      route: "/",
+    },
+  ]
+
+  baseBreadcrumbs.push({
+    text: t(breadcrumbItem.label),
+    route: breadcrumbItem.route || null,
+  })
+
+  if (thirdElement) {
+    baseBreadcrumbs.push({
+      text: thirdElement,
+      route: null,
+    })
+  }
+
+  return baseBreadcrumbs
 }

@@ -1,5 +1,9 @@
+import styles from './Loader.module.scss'
+
 export const Loader = () => {
   return (
-    <div>Loader...</div>
+    <div className={styles.block}>
+      <div className={styles.loader}></div>
+    </div>
   )
 }
