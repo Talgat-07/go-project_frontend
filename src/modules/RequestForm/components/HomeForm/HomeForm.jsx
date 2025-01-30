@@ -1,8 +1,8 @@
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { SwitchButton } from '@/ui'
 import styles from './HomeForm.module.scss'
 import { useForm } from '@/utils/hooks/useForm'
 import { RxCross2 } from 'react-icons/rx'
-import { Typography } from '@/ui/Typography/Typography'
+import { Typography } from '@/ui'
 
 export const HomeForm = () => {
   const { form, formHide, formShow } = useForm()
@@ -43,7 +43,7 @@ export const HomeForm = () => {
                 Я принимаю условия пользовательского соглашения
               </label>
             </article>
-            <SwitchButton className={styles.sendBtn}></SwitchButton>
+            <SwitchButton className={styles.sendBtn}>Отправить</SwitchButton>
           </form>
         </section>
       )}

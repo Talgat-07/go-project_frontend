@@ -1,18 +1,14 @@
-import { Outlet, useLocation } from 'react-router-dom'
-import { ScrollButton } from '@/ui/ScrollButton/ScrollButton'
+import { Outlet } from 'react-router-dom'
+import { ScrollButton } from '@/ui'
 import { Footer } from '@/modules/Footer/Footer'
-import { NotFound } from '@/pages/NotFound/NotFound'
 import { Suspense } from 'react'
-import { Loader } from '@/ui/Loader/Loader'
+import { Loader } from '@/ui'
 import { Header } from '@/modules/Header/Header'
 import styles from './Layout.module.scss'
-import { Breadcrumbs } from '@/ui/Breadcrumbs/Breadcrumbs'
+import { Breadcrumbs } from '@/ui'
 import { RequestForm } from '@/modules/RequestForm/RequestForm'
 
 export const Layout = () => {
-  let path = useLocation()
-
-  if (path.pathname === '/*') return <NotFound />
 
   return (
     <div className={styles.wrapper}>
@@ -29,4 +25,3 @@ export const Layout = () => {
     </div>
   )
 }
-export default Layout

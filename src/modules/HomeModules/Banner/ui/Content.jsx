@@ -1,7 +1,7 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './Content.module.scss';
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
-import { MultiContainer } from '@/ui/MultiContainer/MultiContainer';
+import { SwitchButton } from '@/ui';
+import { MultiContainer } from '@/ui';
 
 export const Content = ({ slide }) => {
   return (

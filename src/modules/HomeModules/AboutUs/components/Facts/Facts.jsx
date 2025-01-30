@@ -1,7 +1,7 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './Facts.module.scss';
-import { Heading } from '@/ui/Heading/Heading';
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
+import { Heading } from '@/ui';
+import { MultiContainer } from '@/ui';
 
 export const Facts = ({ facts }) => {
   return (

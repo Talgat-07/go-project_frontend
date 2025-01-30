@@ -1,5 +1,4 @@
 import styles from './Socials.module.scss';
-import { Link } from 'react-router-dom';
 import { QR } from './component/QR/QR';
 import { WhappIcon } from '@/app/assets/icons/WhappIcon';
 import { TgIcon } from '@/app/assets/icons/TgIcon';

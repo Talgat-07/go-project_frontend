@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './Hero.module.scss';
 
 export const Hero = ({ item }) => {

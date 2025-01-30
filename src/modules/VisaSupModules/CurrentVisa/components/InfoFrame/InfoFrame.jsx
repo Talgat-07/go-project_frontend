@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography/Typography'
+import { Typography } from '@/ui'
 import styles from './InfoFrame.module.scss'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

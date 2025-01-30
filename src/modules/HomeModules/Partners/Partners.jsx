@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
-import { Typography } from '@/ui/Typography/Typography'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { Typography } from '@/ui'
+import { SwitchButton } from '@/ui'
 import { PartnersApi } from './api/PartnersApi'
 import styles from './Partners.module.scss'
-import { Heading } from '@/ui/Heading/Heading'
+import { Heading } from '@/ui'
 import { ContactsStorage } from '@/app/Storage/Storage'
 
 export const Partners = () => {

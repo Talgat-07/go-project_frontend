@@ -1,7 +1,6 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './Copyright.module.scss';
 import { GeeksLogo } from '@/app/assets/icons/GeeksLogo';
-import { Link } from 'react-router-dom';
 import { geeksLink } from '@/utils/constants/constants';
 
 export const Copyright = () => {

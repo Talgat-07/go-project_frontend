@@ -1,4 +1,4 @@
-import { Typography } from "@/ui/Typography/Typography";
+import { Typography } from "@/ui";
 import styles from "./InfoBlock.module.scss";
 // import parse from "html-react-parser";
 
