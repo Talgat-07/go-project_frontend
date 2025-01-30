@@ -4,7 +4,7 @@ import { TourDetailApi } from './api/TourDetailApi'
 import { Loader } from '@/ui'
 import { MultiContainer } from '@/ui'
 import styles from './TourDetailComponent.module.scss'
-import { Cards, SwitchTables } from './components'
+import { Cards, TabBar } from './components'
 import { Slider } from '@/ui'
 import { InfoBlock } from './components'
 import { Hero } from './components'
@@ -38,7 +38,7 @@ export const TourDetailComponent = () => {
         <Cards item={cardData} />
         <InfoBlock item={infoData} />
         <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
-        <SwitchTables />
+        <TabBar />
       </MultiContainer>
       <div className={styles.sliderBlock}>
         <Heading text="Фото отчет с прошлых туров" />
