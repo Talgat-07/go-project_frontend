@@ -1,13 +1,13 @@
 import styles from './VisaSupport.module.scss'
-import { Heading } from '@/ui/Heading/Heading'
-import { Slider } from '@/ui/Slider/Slider'
+import { Heading } from '@/ui'
+import { Slider } from '@/ui'
 import { VisaCard } from '../VisaSupport/ui/VisaCard/VisaCard'
 import { useEffect } from 'react'
 import { VisaSupportApi } from './api/VisaSupportApi'
-import globe from '../../../app/assets/images/visaSupBg.png'
-import left from '../../../app/assets/images/leftAirplane.png'
-import right from '../../../app/assets/images/rightAirplane.png'
-import center from '../../../app/assets/images/centerAirplane.png'
+import globe from '@/app/assets/images/visaSupBg.png'
+import left from '@/app/assets/images/leftAirplane.png'
+import right from '@/app/assets/images/rightAirplane.png'
+import center from '@/app/assets/images/centerAirplane.png'
 
 export const VisaSupport = () => {
   const { visaData, visaRequest } = VisaSupportApi()

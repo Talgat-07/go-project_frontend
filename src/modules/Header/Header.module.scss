@@ -44,13 +44,13 @@ header {
 
       @keyframes move {
         10% {
-          transform: translate(-520%, -5px);
+          transform: translate(-590%, -5px);
           width: 95px;
           height: 60px;
         }
 
         100% {
-          transform: translate(-520%, -5px);
+          transform: translate(-590%, -5px);
           width: 95px;
           height: 60px;
         }
@@ -59,6 +59,8 @@ header {
       .contactBlock {
         display: flex;
         flex-direction: column;
+        max-width: 294px;
+        width: 100%;
         gap: 12px;
         animation: disappear linear;
         animation-timeline: scroll(y);

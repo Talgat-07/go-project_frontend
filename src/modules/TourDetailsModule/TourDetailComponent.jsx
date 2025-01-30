@@ -1,16 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { TourDetailApi } from './api/TourDetailApi';
-import { Loader } from '@/ui/Loader/Loader';
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
+import { Loader } from '@/ui';
+import { MultiContainer } from '@/ui';
 import styles from './TourDetailComponent.module.scss';
-import { Typography } from '@/ui/Typography/Typography';
-import { Cards } from './components/Cards/Cards';
-import { Slider } from '@/ui/Slider/Slider';
-import { InfoBlock } from './components/InfoBlock/InfoBlock';
-import { Hero } from './components/Hero/Hero';
-import { Heading } from '@/ui/Heading/Heading';
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
+import { Cards, SwitchTables } from './components';
+import { Slider } from '@/ui';
+import { InfoBlock } from './components';
+import { Hero } from './components';
+import { Heading } from '@/ui';
+import { SwitchButton } from '@/ui';
 
 export const TourDetailComponent = () => {
   const { id } = useParams();
@@ -37,6 +36,7 @@ export const TourDetailComponent = () => {
         <Cards item={cardData} />
         <InfoBlock item={infoData} />
         <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
+        <SwitchTables />
       </MultiContainer>
       <div className={styles.sliderBlock}>
         <Heading text="Фото отчет с прошлых туров" />

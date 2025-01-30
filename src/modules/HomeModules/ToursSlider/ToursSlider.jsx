@@ -1,11 +1,11 @@
 import styles from './ToursSlider.module.scss';
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import { Link } from 'react-router-dom';
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
-import { Heading } from '@/ui/Heading/Heading';
+import { MultiContainer } from '@/ui';
+import { Heading } from '@/ui';
 import { PATH } from '@/utils/constants/constants';
-import { Slider } from '@/ui/Slider/Slider';
-import { TourCard } from '@/ui/TourCard/TourCard';
+import { Slider } from '@/ui';
+import { TourCard } from '@/ui';
 import { ToursSliderApi } from './api/ToursSliderApi';
 import { useEffect } from 'react';
 import { Airplane } from '@/app/assets/icons/Airplane';

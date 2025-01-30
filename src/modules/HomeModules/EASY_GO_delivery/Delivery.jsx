@@ -1,9 +1,9 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './Delivery.module.scss';
 import { useEG_Delicery } from './api/HomePageDeliveryApi';
 import { useEffect } from 'react';
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
-import { Heading } from '@/ui/Heading/Heading';
+import { SwitchButton } from '@/ui';
+import { Heading } from '@/ui';
 
 export const Delivery = () => {
   const { deliveryData, deliveryRequest } = useEG_Delicery();

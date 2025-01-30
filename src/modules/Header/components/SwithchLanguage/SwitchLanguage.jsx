@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import { useState } from 'react';
 import styles from './SwitchLanguage.module.scss';
 import i18n from '@/utils/i18n/i18n';

@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './NotFound.module.scss';
 import { BackArrow } from '@/app/assets/icons/BackArrow';
 import { Link } from 'react-router-dom';
