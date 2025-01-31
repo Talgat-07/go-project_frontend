@@ -10,8 +10,8 @@ export const Socials = ({ data }) => {
       {data.map((item) => {
         const socials = [
           { icon: <WhappIcon className={styles.icon} />, link: `${item.partners_whatsapp}` },
-          { icon: <TgIcon className={styles.icon} />, link: `${item.telegram_link}` },
           { icon: <TtIcon className={styles.icon} />, link: `${item.tiktok_link}` },
+          { icon: <TgIcon className={styles.icon} />, link: `${item.telegram_link}` },
         ];
 
         return (
