@@ -11,6 +11,7 @@ import { Hero } from './components'
 import { Heading } from '@/ui'
 import { SwitchButton } from '@/ui'
 import { Breadcrumbs } from '@/ui'
+import bg from '@/app/assets/images/tourDetail.png'
 
 export const TourDetailComponent = () => {
   const { id } = useParams()
@@ -38,8 +39,13 @@ export const TourDetailComponent = () => {
         <Hero item={heroData} />
         <Cards item={cardData} />
         <InfoBlock item={infoData} />
-        <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
-        <TabBar item={table}/>
+        <TabBar item={table} />
+        <div className={styles.buttonBlock}>
+          <div className={styles.bg}>
+            <img src={bg} alt='bg' />
+          </div>
+          <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
+        </div>
       </MultiContainer>
       <div className={styles.sliderBlock}>
         <Heading text="Фото отчет с прошлых туров" />
