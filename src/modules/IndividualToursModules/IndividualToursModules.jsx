@@ -1,15 +1,19 @@
-import { useEffect } from 'react'
-import { individualToursApi } from './api/IndividualToursApi'
-import { PageIntroductionPart } from '@/ui/PageIntroductionPart/PageIntroductionPart'
+import { useEffect } from 'react';
+import { individualToursApi } from './api/IndividualToursApi';
+import { PageIntroductionPart } from '@/ui/PageIntroductionPart/PageIntroductionPart';
+import { Loader } from '@/ui';
 
 export const IndividualToursModules = () => {
-  const { individualToursData, individualToursRequest } = individualToursApi()
+  const { individualToursData, individualToursRequest, isLoading } =
+    individualToursApi();
 
   useEffect(() => {
-    individualToursRequest()
-  }, [individualToursRequest])
+    individualToursRequest();
+  }, [individualToursRequest]);
 
-  console.log(individualToursData)
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -24,5 +28,5 @@ export const IndividualToursModules = () => {
         maxWidth={208}
       />
     </>
-  )
-}
+  );
+};

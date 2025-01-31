@@ -1,6 +1,6 @@
-import DeliveryModule from '@/modules/DeliveryModules/DeliveryModule';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Breadcrumbs } from '@/ui';
+import { DeliveryModule } from '@/modules/DeliveryModules/DeliveryModule';
 
 export const Delivery = () => {
   return (
