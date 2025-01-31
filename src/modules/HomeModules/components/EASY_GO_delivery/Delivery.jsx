@@ -1,6 +1,6 @@
 import { Typography } from '@/ui';
 import styles from './Delivery.module.scss';
-import { useEG_Delicery } from './api/HomePageDeliveryApi';
+import { useEG_Delicery } from '../../api/HomePageDeliveryApi';
 import { useEffect } from 'react';
 import { SwitchButton } from '@/ui';
 import { Heading } from '@/ui';

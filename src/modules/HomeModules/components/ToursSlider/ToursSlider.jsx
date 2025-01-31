@@ -6,7 +6,7 @@ import { Heading } from '@/ui';
 import { PATH } from '@/utils/constants/constants';
 import { Slider } from '@/ui';
 import { TourCard } from '@/ui';
-import { ToursSliderApi } from './api/ToursSliderApi';
+import { ToursSliderApi } from '../../api/ToursSliderApi';
 import { useEffect } from 'react';
 import { Airplane } from '@/app/assets/icons/Airplane';
 import { Wallet } from '@/app/assets/icons/Wallet';

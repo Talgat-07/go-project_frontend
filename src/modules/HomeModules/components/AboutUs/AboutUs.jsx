@@ -1,5 +1,5 @@
 import styles from './AboutUs.module.scss'
-import { AboutUsAPI } from './api/AboutUsApi'
+import { AboutUsAPI } from '../../api/AboutUsApi'
 import { useEffect } from 'react'
 import { Info } from './components/Info/Info'
 import { Facts } from './components/Facts/Facts'

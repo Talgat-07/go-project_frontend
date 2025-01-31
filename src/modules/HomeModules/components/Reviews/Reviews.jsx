@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { ReviewsApi } from './api/ReviewsApi'
+import { ReviewsApi } from '../../api/ReviewsApi'
 import { Heading } from '@/ui'
 import styles from './Reviews.module.scss'
 import stylesCard from '@/ui/ReviewCard/ReviewCard.module.scss'

@@ -1,11 +1,11 @@
 import styles from './Banner.module.scss'
-import { BannerApi } from './api/BannerApi'
+import { BannerApi } from '../../api/BannerApi'
 import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination, Zoom } from 'swiper/modules'
-import { Content } from './ui/Content'
+import { Content } from './components/Content'
 
 export const Banner = () => {
   const { bannerData, bannerRequest } = BannerApi()
