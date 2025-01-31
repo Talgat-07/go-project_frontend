@@ -6,6 +6,7 @@ export const PATH = {
   tourDetail: '/tours/:id',
   visaSupport: '/visa-support/:id',
   delivery: '/delivery',
+  individualTours: '/individual-tours',
   notFound: '*',
 }
 

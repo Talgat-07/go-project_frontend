@@ -4,70 +4,99 @@ import { Heading } from '@/ui/Heading/Heading'
 import { Slider } from '@/ui/Slider/Slider'
 import { Typography } from '@/ui/Typography/Typography'
 import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { DeliveryAirplane } from '@/app/assets/icons/DeliveryAirplane'
+import { SharedTextList } from '@/ui/SharedTextList/SharedTextList'
 import { CloudIcon } from '@/app/assets/icons/CloudIcon'
-import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup'
 import { AirplanePath } from '@/app/assets/icons/AirplanePath'
 import { Airplane } from '@/app/assets/icons/Airplane'
-import { RightAirPath } from '@/app/assets/icons/RightAirPath'
-import { SharedTextList } from '@/ui/SharedTextList/SharedTextList'
 import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck'
+import { RightAirPath } from '@/app/assets/icons/RightAirPath'
+import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup'
 
-export const PageIntroductionPart = ({ data }) => {
-  if (!data.length) {
-    return null
-  }
+export const PageIntroductionPart = ({
+  data = [],
+  title,
+  subtitle,
+  airDelivery,
+  cargoDelivery,
+  imagesArray = [],
+  easyGoLink,
+  costAndProcess,
+  individualTours = false,
+  btnText,
+  individualIntro,
+  deliveryTours = false,
+  maxWidth,
+}) => {
+  if (!data.length) return null
+
+  const switchButton = (
+    <SwitchButton
+      fontSize='fs16'
+      maxWidth={maxWidth}
+      text={btnText}
+      className={`${styles.button} ${deliveryTours ? styles.delivery : ''} ${
+        individualTours ? styles.individualTours : ''
+      }`}
+    >
+      {deliveryTours && <InsideBtnTruck className={styles.airIcon} />}
+    </SwitchButton>
+  )
 
   return (
     <MultiContainer>
-      <section className={styles.introSection}>
-        <CloudIcon className={styles.cloud} />
-        <AirplanePath className={styles.path} />
-        <Airplane className={styles.airplane} color={'#FF572233'} />
-        <RightAirPath className={styles.RightPath} />
-        <Airplane className={styles.RightAirplane} color={'#FF572233'} />
-        <Heading text={data[0]?.title} />
-        <SharedTextList data={data} />
-        <Slider
-          className={styles.slider}
-          data={data[0]?.images}
-          slidesPerView={5}
-          loop={true}
-          spaceBetween={20}
-          renderItem={(item) => (
-            <div className={styles.image}>
-              <img src={item.image} alt='delivery image' />
-            </div>
-          )}
-        />
-        <div className={styles.linkerZone}>
-          <Typography
-            useParser
-            variant='fs24'
-            color={'#000000'}
-            className={styles.description}
-          >
-            {data[0]?.description}
-          </Typography>
-          <AirplaneGroup className={styles.airplanes} />
-          {data[0]?.easy_go_url && (
-            <a
-              href={data[0]?.easy_go_url}
-              target='_blank'
-              rel='noopener noreferrer'
+      <div className={styles.divisionOfTwoPages}>
+        <section className={styles.introSection}>
+          <CloudIcon className={styles.cloud} />
+          <AirplanePath className={styles.path} />
+          <Airplane className={styles.airplane} color='#FF572233' />
+          <RightAirPath className={styles.RightPath} />
+          <Airplane className={styles.RightAirplane} color='#FF572233' />
+          <Heading text={title} />
+          <SharedTextList
+            deliveryTours={deliveryTours}
+            subtitle={subtitle}
+            individualIntro={individualIntro}
+            cargoDelivery={cargoDelivery}
+            airDelivery={airDelivery}
+          />
+          <Slider
+            className={styles.slider}
+            data={imagesArray}
+            slidesPerView={5}
+            loop
+            spaceBetween={20}
+            renderItem={({ image }) => (
+              <div className={styles.image}>
+                <img src={image} alt='delivery image' />
+              </div>
+            )}
+          />
+          <div className={styles.linkerZone}>
+            <Typography
+              useParser
+              variant='fs24'
+              color='#000000'
+              className={styles.description}
             >
-              <SwitchButton
-                fontSize={'fs16'}
-                maxWidth={250}
-                text={'Переходи на Easy Go'}
-                className={styles.button}
-              >
-                <InsideBtnTruck className={styles.airIcon} />
-              </SwitchButton>
-            </a>
-          )}
-        </div>
-      </section>
+              Выбирайте подходящий вам вариант, а мы доставим вашу посылку в
+              целости и сохранности.
+            </Typography>
+            <AirplaneGroup className={styles.airplanes} />
+            {deliveryTours && easyGoLink ? (
+              <a href={easyGoLink} target='_blank' rel='noopener noreferrer'>
+                {switchButton}
+              </a>
+            ) : (
+              individualTours && switchButton
+            )}
+          </div>
+        </section>
+        <section className={styles.costAndProcess}>
+          <Typography useParser variant='fs24'>
+            {costAndProcess}
+          </Typography>
+        </section>
+      </div>
     </MultiContainer>
   )
 }

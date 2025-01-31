@@ -1,5 +1,5 @@
+import { DeliveryModule } from '@/modules/DeliveryModules/DeliveryModule'
 import styles from './Delivery.module.scss'
-import DeliveryModule from '@/modules/DeliveryModules/DeliveryModule'
 
 export const Delivery = () => {
   return (

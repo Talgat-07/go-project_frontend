@@ -9,6 +9,7 @@ import { Delivery } from '@/pages/Delivery/Delivery'
 import { PATH } from '@/utils/constants/constants'
 import { Loader } from '@/ui/Loader/Loader'
 import { ServerError } from '@/pages/ServerError/ServerError'
+import { IndividualToursPage } from '@/pages/IndividualToursPage/IndividualToursPage'
 
 const router = createBrowserRouter(
   [
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
         { path: PATH.tourDetail, element: <TourDetail /> },
         { path: PATH.visaSupport, element: <VisaSupport /> },
         { path: PATH.delivery, element: <Delivery /> },
+        { path: PATH.individualTours, element: <IndividualToursPage /> },
       ],
     },
     { path: PATH.notFound, element: <NotFound /> },
