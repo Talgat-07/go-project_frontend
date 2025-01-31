@@ -1,13 +1,18 @@
-import { useEffect } from 'react'
-import { DeliveryApi } from './api/DeliveryApi'
-import { CostBlock } from '@/ui/ProcessAndCost/CostBlock'
-import { PageIntroductionPart } from '@/ui/PageIntroductionPart/PageIntroductionPart'
+import { useEffect } from 'react';
+import { DeliveryApi } from './api/DeliveryApi';
+import { PageIntroductionPart } from '@/ui';
+import { Loader } from '@/ui';
 
 export const DeliveryModule = () => {
-  const { deliveryData, deliveryRequest } = DeliveryApi()
+  const { deliveryData, deliveryRequest, isLoading } = DeliveryApi();
+
   useEffect(() => {
-    deliveryRequest()
-  }, [deliveryRequest])
+    deliveryRequest();
+  }, [deliveryRequest]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -25,5 +30,5 @@ export const DeliveryModule = () => {
         btnText={'Переходи на Easy Go'}
       />
     </>
-  )
-}
+  );
+};

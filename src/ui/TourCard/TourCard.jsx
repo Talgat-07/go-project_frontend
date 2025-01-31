@@ -45,7 +45,7 @@ export const TourCard = ({ item }) => {
         style={{ background: tourCardColors[item.background_color] }}
       >
         <Typography className={styles.title} variant='fs24' weight='fw7'>
-          {item.description}
+          {item.title}
         </Typography>
         <Typography weight='fw5' className={styles.date}>
           {item?.mini_info_frames[0]?.tour_date}
@@ -54,7 +54,7 @@ export const TourCard = ({ item }) => {
           <Typography weight='fw7'>
             {item?.mini_info_frames[0]?.price}
           </Typography>
-          <Link to={`/tours/${item.id}`} className={styles.btnLink}>
+          <Link to={`/tours/${item.id}`} className={styles.btnLink} target="_top">
             <SwitchButton maxWidth='165px' className={styles.btn}>
               Подробнее
             </SwitchButton>

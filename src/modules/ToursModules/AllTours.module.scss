@@ -1,0 +1,32 @@
+.allTours {
+  position: relative;
+
+  .filters {
+    margin: 60px 0 45px;
+    width: 100%;
+    display: flex;
+    gap: 32px;
+  }
+
+  .tours {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .btn {
+    margin: 48px auto 0;
+    height: 41px;
+    gap: 0;
+  }
+
+  .plane {
+    position: absolute;
+    top: 25px;
+  }
+
+  .plane:nth-of-type(2) {
+    right: 100px;
+    transform: rotateY(180deg);
+  }
+}

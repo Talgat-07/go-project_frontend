@@ -1,42 +1,51 @@
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { TourDetailApi } from './api/TourDetailApi';
-import { Loader } from '@/ui/Loader/Loader';
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
-import styles from './TourDetailComponent.module.scss';
-import { Typography } from '@/ui/Typography/Typography';
-import { Cards } from './components/Cards/Cards';
-import { Slider } from '@/ui/Slider/Slider';
-import { InfoBlock } from './components/InfoBlock/InfoBlock';
-import { Hero } from './components/Hero/Hero';
-import { Heading } from '@/ui/Heading/Heading';
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { TourDetailApi } from './api/TourDetailApi'
+import { Loader } from '@/ui'
+import { MultiContainer } from '@/ui'
+import styles from './TourDetailComponent.module.scss'
+import { Cards, TabBar } from './components'
+import { Slider } from '@/ui'
+import { InfoBlock } from './components'
+import { Hero } from './components'
+import { Heading } from '@/ui'
+import { SwitchButton } from '@/ui'
+import { Breadcrumbs } from '@/ui'
+import bg from '@/app/assets/images/tourDetail.png'
 
 export const TourDetailComponent = () => {
-  const { id } = useParams();
-  const { tourDetailData, tourDetailRequest, isLoading } = TourDetailApi();
+  const { id } = useParams()
+  const { tourDetailData, tourDetailRequest, isLoading } = TourDetailApi()
 
   useEffect(() => {
     if (id) {
-      tourDetailRequest(id);
+      tourDetailRequest(id)
     }
-  }, [id, tourDetailRequest]);
+  }, [id, tourDetailRequest])
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader />
   }
 
-  const cardData = tourDetailData?.mini_info_frames[0];
-  const infoData = tourDetailData?.why_visit_frame[0];
-  const heroData = tourDetailData?.tour_banner[0];
+  const cardData = tourDetailData?.mini_info_frames[0]
+  const infoData = tourDetailData?.why_visit_frame[0]
+  const heroData = tourDetailData?.tour_banner[0]
+  const table = tourDetailData?.table
 
   return (
     <>
+      <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={heroData?.title} />
       <MultiContainer className={styles.container}>
         <Hero item={heroData} />
         <Cards item={cardData} />
         <InfoBlock item={infoData} />
-        <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
+        <TabBar item={table} />
+        <div className={styles.buttonBlock}>
+          <div className={styles.bg}>
+            <img src={bg} alt='bg' />
+          </div>
+          <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
+        </div>
       </MultiContainer>
       <div className={styles.sliderBlock}>
         <Heading text="Фото отчет с прошлых туров" />
@@ -54,5 +63,5 @@ export const TourDetailComponent = () => {
         />
       </div>
     </>
-  );
-};
+  )
+}

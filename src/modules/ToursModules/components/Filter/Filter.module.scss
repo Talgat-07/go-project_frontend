@@ -1,0 +1,64 @@
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+
+  &Btn {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: var(--onlyBlack);
+    border: 1px solid var(--onlyBlack);
+    box-shadow: 0 2px 4px #00000081;
+
+    .arrow {
+      transition: 300ms;
+
+      &.rotate {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &Menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 5px;
+    box-shadow: 0 2px 4px #00000081;
+  }
+
+  &Item {
+    height: 45px;
+    display: flex;
+    gap: 16px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+      background: #D4E4FA;
+    }
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

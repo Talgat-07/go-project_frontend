@@ -1,8 +1,6 @@
-import { Typography } from '@/ui/Typography/Typography';
-import styles from './Copyright.module.scss';
-import { GeeksLogo } from '@/app/assets/icons/GeeksLogo';
-import { Link } from 'react-router-dom';
-import { geeksLink } from '@/utils/constants/constants';
+import styles from './Copyright.module.scss'
+import { GeeksLogo } from '@/app/assets/icons/GeeksLogo'
+import { geeksLink } from '@/utils/constants/constants'
 
 export const Copyright = () => {
   return (
@@ -12,13 +10,13 @@ export const Copyright = () => {
         target='_blank'
         className={styles.contentSection}
       >
-        <Typography variant='h4' className={styles.title}>
+        <p className={styles.title}>
           Made by GeeksPro
-        </Typography>
+        </p>
         <div className={styles.logo}>
           <GeeksLogo />
         </div>
       </a>
     </div>
-  );
-};
+  )
+}

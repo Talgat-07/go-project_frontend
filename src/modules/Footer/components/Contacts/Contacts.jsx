@@ -1,4 +1,4 @@
-import { Typography } from '@/ui/Typography/Typography';
+import { Typography } from '@/ui';
 import styles from './Contacts.module.scss';
 
 export const Contacts = ({ data }) => {

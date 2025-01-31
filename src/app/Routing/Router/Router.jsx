@@ -1,24 +1,31 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from '../Layout/Layout'
-import Home from '@/pages/home/home'
-import { NotFound } from '@/pages/NotFound/NotFound'
-import { Tours } from '@/pages/Tours/Tours'
-import { TourDetail } from '@/pages/TourDetail/TourDetail'
-import { VisaSupport } from '@/pages/VisaSupport/VisaSupport'
-import { Delivery } from '@/pages/Delivery/Delivery'
-import { PATH } from '@/utils/constants/constants'
-import { Loader } from '@/ui/Loader/Loader'
-import { ServerError } from '@/pages/ServerError/ServerError'
-import { IndividualToursPage } from '@/pages/IndividualToursPage/IndividualToursPage'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { loadComponent } from '@/utils/helpers/helpers';
+import { PATH } from '@/utils/constants/constants';
+import { Loader } from '@/ui';
+const Layout = loadComponent(
+  () => import('@/app/Routing/Layout/Layout'),
+  'Layout',
+);
+const HomePage = loadComponent(() => import('@/pages'), 'HomePage');
+// const NotFound = loadComponent(() => import("@/pages"), "NotFound");
+const Tours = loadComponent(() => import('@/pages'), 'Tours');
+const TourDetail = loadComponent(() => import('@/pages'), 'TourDetail');
+const VisaSupport = loadComponent(() => import('@/pages'), 'VisaSupport');
+const Delivery = loadComponent(() => import('@/pages'), 'Delivery');
+const ServerError = loadComponent(() => import('@/pages'), 'ServerError');
+const IndividualToursPage = loadComponent(
+  () => import('@/pages'),
+  'IndividualToursPage',
+);
 
 const router = createBrowserRouter(
   [
     {
-      path: '/',
+      path: PATH.home,
       element: <Layout />,
       errorElement: <ServerError />,
       children: [
-        { index: true, element: <Home /> },
+        { index: true, element: <HomePage /> },
         { path: PATH.tours, element: <Tours /> },
         { path: PATH.tourDetail, element: <TourDetail /> },
         { path: PATH.visaSupport, element: <VisaSupport /> },
@@ -26,7 +33,7 @@ const router = createBrowserRouter(
         { path: PATH.individualTours, element: <IndividualToursPage /> },
       ],
     },
-    { path: PATH.notFound, element: <NotFound /> },
+    { path: PATH.notFound, element: <ServerError /> },
   ],
   {
     future: {
@@ -38,7 +45,7 @@ const router = createBrowserRouter(
       v7_skipActionStatusRevalidation: true,
     },
   },
-)
+);
 
 const AppRouter = () => {
   return (
@@ -47,7 +54,7 @@ const AppRouter = () => {
       future={{ v7_startTransition: true }}
       router={router}
     />
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

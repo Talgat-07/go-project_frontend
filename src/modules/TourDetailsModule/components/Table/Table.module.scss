@@ -1,0 +1,33 @@
+.tableContainer {
+  overflow-x: auto;
+  max-width: 100%;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #BEBEBE;
+
+    tr {
+      td {
+        padding: 20px 14px;
+        border-bottom: 1px solid #BEBEBE;
+        text-align: left;
+      }
+
+      .key {
+        width: 33%;
+        background: #FCFCFC;
+        align-content: flex-start;
+
+        p {
+          display: flex;
+          top: 0;
+        }
+      }
+
+      .value {
+        width: 67%;
+      }
+    }
+  }
+}

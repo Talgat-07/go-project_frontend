@@ -10,6 +10,20 @@ export const PATH = {
   notFound: '*',
 }
 
+export const breadcrumbs = [
+  { key: "home", label: "home" },
+  { key: "tours", label: "header.tours" },
+  { key: "tourDetail", label: "header.tours", route: PATH.tours },
+  {
+    key: "visaSupport",
+    label: "header.visas"
+  },
+  {
+    key: "delivery",
+    label: "header.delivery",
+  },
+];
+
 export const geeksLink = 'https://geeks.kg/geeks-pro'
 
 export const tourCardColors = {

@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .tabBar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+
+    .tabButton {
+      padding: 10px 15px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      border: 1px solid #A1A1A1;
+      border-radius: 8px;
+      width: 100%;
+    }
+    
+    .active {
+      color: #FF6600;
+      border: 3px solid #FF6600;
+    }
+  }
+
+  .tabContent {
+    padding: 22px;
+    background-color: #F3F3F3;
+    border-radius: 15px;
+  }
+}

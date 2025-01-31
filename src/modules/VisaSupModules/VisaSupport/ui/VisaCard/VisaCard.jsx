@@ -1,5 +1,5 @@
-import { Typography } from '@/ui/Typography/Typography'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { Typography } from '@/ui'
+import { SwitchButton } from '@/ui'
 import styles from './VisaCard.module.scss'
 import { SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'

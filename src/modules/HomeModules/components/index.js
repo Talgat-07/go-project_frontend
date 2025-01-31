@@ -1,0 +1,6 @@
+export { Delivery } from './DeliveryBlock/Delivery'
+export { ToursSlider } from './ToursSlider/ToursSlider'
+export { AboutUs } from './AboutUs/AboutUs'
+export { Reviews } from './Reviews/Reviews'
+export { Partners } from './Partners/Partners'
+export { Banner } from './Banner/Banner'

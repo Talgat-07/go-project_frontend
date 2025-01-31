@@ -1,23 +1,25 @@
-import { Outlet, useLocation } from 'react-router-dom'
-import { ScrollButton } from '@/ui/ScrollButton/ScrollButton'
+import { Outlet } from 'react-router-dom'
+import { ScrollButton } from '@/ui'
 import { Footer } from '@/modules/Footer/Footer'
-import { NotFound } from '@/pages/NotFound/NotFound'
 import { Suspense } from 'react'
-import { Loader } from '@/ui/Loader/Loader'
+import { Loader } from '@/ui'
 import { Header } from '@/modules/Header/Header'
 import styles from './Layout.module.scss'
-import { Breadcrumbs } from '@/ui/Breadcrumbs/Breadcrumbs'
 import { RequestForm } from '@/modules/RequestForm/RequestForm'
+import { ContactsStorage } from '@/app/Storage/Storage'
+import { useEffect } from 'react'
 
 export const Layout = () => {
-  let path = useLocation()
+  const { contactsData, contactsRequest, smData, smRequest } = ContactsStorage()
 
-  if (path.pathname === '/*') return <NotFound />
+  useEffect(() => {
+    contactsRequest()
+    smRequest()
+  }, [contactsRequest, smRequest])
 
   return (
     <div className={styles.wrapper}>
-      <Header />
-      <Breadcrumbs />
+      <Header contactsData={contactsData} />
       <div className={styles.content}>
         <RequestForm />
         <ScrollButton />
@@ -25,8 +27,7 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </div>
-      <Footer />
+      <Footer contactsData={contactsData} smData={smData} />
     </div>
   )
 }
-export default Layout
