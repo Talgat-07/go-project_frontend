@@ -10,17 +10,10 @@ import { SwitchLanguage } from "./components/SwithchLanguage/SwitchLanguage"
 import { PATH } from "@/utils/constants/constants"
 import { Link, useLocation } from "react-router-dom"
 import { useForm } from '@/utils/hooks/useForm'
-import { ContactsStorage } from "@/app/Storage/Storage"
-import { useEffect } from "react"
 
-export const Header = () => {
+export const Header = ({ contactsData }) => {
   const location = useLocation()
   const isHomePage = location.pathname === PATH.home
-  const { contactsData, contactsRequest } = ContactsStorage()
-
-  useEffect(() => {
-    contactsRequest()
-  }, [contactsRequest])
 
   const { formShow } = useForm()
 

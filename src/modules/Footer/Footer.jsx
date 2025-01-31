@@ -1,20 +1,13 @@
-import styles from './Footer.module.scss';
-import { Logo } from '@/app/assets/icons/Logo';
-import { Link } from 'react-router-dom';
-import { ContactsStorage } from '@/app/Storage/Storage';
-import { useEffect } from 'react';
-import { Contacts } from './components/Contacts/Contacts';
-import { Socials } from './components/Socials/Socials';
-import { PageNavigation } from './components/PageNavigation/PageNavigation';
-import { Copyright } from './components/Copyright/Copyright';
-import { PATH } from '@/utils/constants/constants';
+import styles from './Footer.module.scss'
+import { Logo } from '@/app/assets/icons/Logo'
+import { Link } from 'react-router-dom'
+import { Contacts } from './components/Contacts/Contacts'
+import { Socials } from './components/Socials/Socials'
+import { PageNavigation } from './components/PageNavigation/PageNavigation'
+import { Copyright } from './components/Copyright/Copyright'
+import { PATH } from '@/utils/constants/constants'
 
-export const Footer = () => {
-  const { contactsData, contactsRequest, smData, smRequest } = ContactsStorage();
-
-  useEffect(() => {
-    contactsRequest(), smRequest();
-  }, [contactsRequest, smRequest]);
+export const Footer = ({ contactsData, smData }) => {
 
   return (
     <footer className={styles.footer}>
@@ -27,10 +20,10 @@ export const Footer = () => {
             <PageNavigation />
             <Contacts data={contactsData} />
           </div>
-          <Socials data={smData} />
+          <Socials data={smData} contactsData={contactsData} />
         </section>
       </div>
       <Copyright />
     </footer>
-  );
-};
+  )
+}

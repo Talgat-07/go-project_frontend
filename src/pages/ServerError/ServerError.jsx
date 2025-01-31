@@ -1,24 +1,31 @@
-import { Typography } from '@/ui';
-import styles from './ServerError.module.scss';
-import { BackArrow } from '@/app/assets/icons/BackArrow';
-import { Link } from 'react-router-dom';
-import { PATH } from '@/utils/constants/constants';
+import { Typography } from '@/ui'
+import styles from './ServerError.module.scss'
+import { useState } from 'react'
 
 export const ServerError = () => {
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleReload = () => {
+    setIsLoading(true)
+    window.location.reload()
+  }
+
   return (
     <section className={styles.notFoundSection}>
       <Typography variant='h1' className={styles.errorCode} color="#fff">
-      OOPS
+        OOPS
       </Typography>
       <Typography variant='h2' className={styles.errorMessage} color="#fff">
-      У нас временные технические неполадки.
+        У нас временные технические неполадки.
       </Typography>
-      <Link to={PATH.home}>
-        <BackArrow />
+      <button onClick={handleReload} className={isLoading ? styles.loading : styles.reloadButton}>
+        {isLoading && (
+          <div className={styles.loader}></div>
+        )}
         <Typography variant='fs24' weight='fw5' color="#fff">
-          На главную
+          Перезагрузить
         </Typography>
-      </Link>
+      </button>
     </section>
-  );
-};
+  )
+}

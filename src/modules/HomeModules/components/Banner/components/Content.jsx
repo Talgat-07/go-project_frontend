@@ -1,7 +1,8 @@
-import { Typography } from '@/ui';
-import styles from './Content.module.scss';
-import { SwitchButton } from '@/ui';
-import { MultiContainer } from '@/ui';
+import { Typography } from '@/ui'
+import styles from './Content.module.scss'
+import { SwitchButton } from '@/ui'
+import { MultiContainer } from '@/ui'
+import { Link } from 'react-router-dom'
 
 export const Content = ({ slide }) => {
   return (
@@ -12,15 +13,17 @@ export const Content = ({ slide }) => {
       </div>
       <MultiContainer className={styles.frame}>
         <Typography className={styles.title} variant='h1' weight='fw6'>
-        {slide.description}
+          {slide.title}
         </Typography>
         <Typography className={styles.description} truncate={100}>
           {slide.description}
         </Typography>
-        <SwitchButton maxWidth='195px' padding='14px 45px'>
-          Подробнее
-        </SwitchButton>
+        <Link to={`/tours/${slide.id}`} className={styles.btnLink} target="_top">
+          <SwitchButton maxWidth='195px' padding='14px 45px'>
+            Подробнее
+          </SwitchButton>
+        </Link>
       </MultiContainer>
     </section>
-  );
-};
+  )
+}
