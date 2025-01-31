@@ -1,3 +1,4 @@
+export { DayTab } from './DayTab/DayTab'
 export { TabBar } from './TabBar/TabBar'
 export { InfoBlock } from './InfoBlock/InfoBlock'
 export { Hero } from './Hero/Hero'

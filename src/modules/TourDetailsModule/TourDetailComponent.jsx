@@ -29,6 +29,7 @@ export const TourDetailComponent = () => {
   const cardData = tourDetailData?.mini_info_frames[0]
   const infoData = tourDetailData?.why_visit_frame[0]
   const heroData = tourDetailData?.tour_banner[0]
+  const table = tourDetailData?.table
 
   return (
     <>
@@ -38,7 +39,7 @@ export const TourDetailComponent = () => {
         <Cards item={cardData} />
         <InfoBlock item={infoData} />
         <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
-        <TabBar />
+        <TabBar item={table}/>
       </MultiContainer>
       <div className={styles.sliderBlock}>
         <Heading text="Фото отчет с прошлых туров" />

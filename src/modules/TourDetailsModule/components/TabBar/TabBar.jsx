@@ -1,17 +1,49 @@
-import { useState } from "react";
-import styles from "./TabBar.module.scss";
+import { useState } from "react"
+import styles from "./TabBar.module.scss"
 import { Typography } from "@/ui"
+import { Table } from "../Table/Table"
+import { DayTab } from "../DayTab/DayTab"
 
-export const TabBar = () => {
-  const [activeTab, setActiveTab] = useState(0);
+export const TabBar = ({ item = {} }) => {
+  const [activeTab, setActiveTab] = useState(0)
 
   const tabs = [
-    { id: 0, label: "Общее", content: "Общее" },
-    { id: 1, label: "Размещение", content: "Размещение" },
-    { id: 2, label: "Программа тура", content: "Программа тура" },
-    { id: 3, label: "В пакет включено", content: "В пакет включено" },
-    { id: 4, label: "Дополнительно", content: "Дополнительно" },
-  ];
+    {
+      id: 0,
+      label: "Общее",
+      content: item?.general?.map(({ title, description }) => (
+        { key: title, value: description }
+      )) || []
+    },
+    {
+      id: 1,
+      label: "Размещение",
+      content: item?.placement?.map(({ title, description }) => (
+        { key: title, value: description }
+      )) || []
+    },
+    {
+      id: 2,
+      label: "Программа тура",
+      content: item?.tour_program?.map(({ day, date, description }) => (
+        { day: day, date, description }
+      )) || []
+    },
+    {
+      id: 3,
+      label: "В пакет включено",
+      content: item?.conditions?.map(({ title, description }) => (
+        { key: title, value: description }
+      )) || []
+    },
+    {
+      id: 4,
+      label: "Дополнительно",
+      content: item?.additional?.map(({ title, description }) => (
+        { key: title, value: description }
+      )) || []
+    },
+  ]
 
   return (
     <div className={styles.container}>
@@ -27,8 +59,12 @@ export const TabBar = () => {
         ))}
       </div>
       <div className={styles.tabContent}>
-        {tabs[activeTab].content}
+      {activeTab === 2 ? (
+          <DayTab data={tabs[activeTab].content} />
+        ) : (
+          tabs[activeTab].content.length > 0 && <Table data={tabs[activeTab].content} />
+        )}
       </div>
     </div>
-  );
+  )
 }
