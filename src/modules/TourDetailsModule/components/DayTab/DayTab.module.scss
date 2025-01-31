@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .tabBar {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+
+    .tabButton {
+      background: transparent;
+      cursor: pointer;
+      padding-bottom: 7px;
+    }
+    
+    .active {
+      border-bottom: 3px solid #FF6600;
+    }
+  }
+}
