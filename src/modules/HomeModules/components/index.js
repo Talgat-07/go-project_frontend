@@ -1,4 +1,4 @@
-export { Delivery } from './EASY_GO_delivery/Delivery'
+export { Delivery } from './DeliveryBlock/Delivery'
 export { ToursSlider } from './ToursSlider/ToursSlider'
 export { AboutUs } from './AboutUs/AboutUs'
 export { Reviews } from './Reviews/Reviews'

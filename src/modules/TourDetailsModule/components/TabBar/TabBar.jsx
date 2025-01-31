@@ -54,7 +54,7 @@ export const TabBar = ({ item = {} }) => {
             className={`${styles.tabButton} ${activeTab === tab.id ? styles.active : ""}`}
             onClick={() => setActiveTab(tab.id)}
           >
-            <Typography variant="fs16">{tab.label}</Typography>
+            <Typography weight="fw5" variant="fs18">{tab.label}</Typography>
           </button>
         ))}
       </div>

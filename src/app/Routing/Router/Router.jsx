@@ -5,7 +5,7 @@ import { Loader } from '@/ui'
 
 const Layout = loadComponent(() => import("@/app/Routing/Layout/Layout"), "Layout");
 const HomePage = loadComponent(() => import("@/pages"), "HomePage");
-const NotFound = loadComponent(() => import("@/pages"), "NotFound");
+// const NotFound = loadComponent(() => import("@/pages"), "NotFound");
 const Tours = loadComponent(() => import("@/pages"), "Tours");
 const TourDetail = loadComponent(() => import("@/pages"), "TourDetail");
 const VisaSupport = loadComponent(() => import("@/pages"), "VisaSupport");
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
         { path: PATH.delivery, element: <Delivery /> },
       ],
     },
-    { path: PATH.notFound, element: <NotFound /> },
+    { path: PATH.notFound, element: <ServerError/> },
   ],
   {
     future: {

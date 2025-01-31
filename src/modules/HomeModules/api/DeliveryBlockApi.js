@@ -3,7 +3,7 @@ import { create } from 'zustand'
 
 const endpoint = 'easy_go/delivery_easy_go/'
 
-export const useEG_Delicery = create((set) => ({
+export const DeliveryBlockApi = create((set) => ({
   deliveryData: [],
   deliveryRequest: async () => {
     const response = await requester.get(endpoint)

@@ -1,19 +1,21 @@
-import { Typography } from '@/ui';
-import styles from './Delivery.module.scss';
-import { useEG_Delicery } from '../../api/HomePageDeliveryApi';
-import { useEffect } from 'react';
-import { SwitchButton } from '@/ui';
-import { Heading } from '@/ui';
+import { Typography } from '@/ui'
+import styles from './Delivery.module.scss'
+import { DeliveryBlockApi } from '../../api/DeliveryBlockApi'
+import { useEffect } from 'react'
+import { SwitchButton } from '@/ui'
+import { Heading } from '@/ui'
+import { Link } from 'react-router-dom'
+import { PATH } from '@/utils/constants/constants'
 
 export const Delivery = () => {
-  const { deliveryData, deliveryRequest } = useEG_Delicery();
+  const { deliveryData, deliveryRequest } = DeliveryBlockApi()
 
   useEffect(() => {
-    deliveryRequest();
-  }, [deliveryRequest]);
+    deliveryRequest()
+  }, [deliveryRequest])
 
   if (!deliveryData.length) {
-    return null;
+    return null
   }
 
   return (
@@ -32,14 +34,14 @@ export const Delivery = () => {
             <Typography variant='h3' weight='fw4' className={styles.desc}>
               {item.description}
             </Typography>
-            <SwitchButton
-              maxWidth='195px'
-            >
-              Подробнее
-            </SwitchButton>
+            <Link to={PATH.delivery} target='_top'>
+              <SwitchButton maxWidth='195px'>
+                Подробнее
+              </SwitchButton>
+            </Link>
           </div>
         </div>
       ))}
     </section>
-  );
-};
+  )
+}

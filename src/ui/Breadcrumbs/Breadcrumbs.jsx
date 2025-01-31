@@ -22,13 +22,13 @@ export const Breadcrumbs = ({ breadcrumbKey, thirdElement }) => {
             <li key={index}>
               {breadcrumb.route ? (
                 <NavLink className={styles.link} to={breadcrumb.route}>
-                  <Typography truncate={50} variant="fs16">
+                  <Typography truncate={50} variant="fs16" weight="fw5">
                     {breadcrumb.text}
                   </Typography>
                   {index < breadcrumbs.length - 1 && <BreadcrumbsArrow />}
                 </NavLink>
               ) : (
-                <Typography truncate={50} variant="fs16" color="#FF6600">
+                <Typography truncate={50} variant="fs16" color="#FF6600" weight="fw5">
                   {breadcrumb.text}
                 </Typography>
               )}
