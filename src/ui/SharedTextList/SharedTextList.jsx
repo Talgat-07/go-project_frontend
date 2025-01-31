@@ -1,7 +1,7 @@
-import { DeliveryAirplane } from '@/app/assets/icons/DeliveryAirplane'
-import { DeliveryCar } from '@/app/assets/icons/DeliveryCar'
-import { Typography } from '@/ui/Typography/Typography'
-import styles from './SharedTextList.module.scss'
+import { DeliveryAirplane } from '@/app/assets/icons/DeliveryAirplane';
+import { DeliveryCar } from '@/app/assets/icons/DeliveryCar';
+import { Typography } from '@/ui/Typography/Typography';
+import styles from './SharedTextList.module.scss';
 
 export const SharedTextList = ({
   subtitle,
@@ -44,9 +44,11 @@ export const SharedTextList = ({
         </div>
       ))
     ) : (
-      <Typography useParser variant='fs24' color='#000000'>
-        {individualIntro}
-      </Typography>
+      <div className={styles.smallCard}>
+        <Typography useParser variant='fs24' color='#000000'>
+          {individualIntro}
+        </Typography>
+      </div>
     )}
   </div>
-)
+);

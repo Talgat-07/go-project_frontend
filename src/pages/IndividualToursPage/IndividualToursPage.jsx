@@ -15,7 +15,7 @@ export const IndividualToursPage = () => {
         </Helmet>
       </HelmetProvider>
       <main>
-        <Breadcrumbs breadcrumbKey='delivery' />
+        <Breadcrumbs breadcrumbKey='individualTours' />
         <IndividualToursModules />
       </main>
     </>

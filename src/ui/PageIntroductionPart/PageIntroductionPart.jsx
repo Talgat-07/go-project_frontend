@@ -1,16 +1,17 @@
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
-import styles from './PageIntroductionPart.module.scss'
-import { Heading } from '@/ui/Heading/Heading'
-import { Slider } from '@/ui/Slider/Slider'
-import { Typography } from '@/ui/Typography/Typography'
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
-import { SharedTextList } from '@/ui/SharedTextList/SharedTextList'
-import { CloudIcon } from '@/app/assets/icons/CloudIcon'
-import { AirplanePath } from '@/app/assets/icons/AirplanePath'
-import { Airplane } from '@/app/assets/icons/Airplane'
-import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck'
-import { RightAirPath } from '@/app/assets/icons/RightAirPath'
-import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup'
+import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
+import styles from './PageIntroductionPart.module.scss';
+import { Heading } from '@/ui/Heading/Heading';
+import { Slider } from '@/ui/Slider/Slider';
+import { Typography } from '@/ui/Typography/Typography';
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
+import { SharedTextList } from '@/ui/SharedTextList/SharedTextList';
+import { CloudIcon } from '@/app/assets/icons/CloudIcon';
+import { AirplanePath } from '@/app/assets/icons/AirplanePath';
+import { Airplane } from '@/app/assets/icons/Airplane';
+import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck';
+import { RightAirPath } from '@/app/assets/icons/RightAirPath';
+import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup';
+import { CostBlock } from '..';
 
 export const PageIntroductionPart = ({
   data = [],
@@ -27,7 +28,7 @@ export const PageIntroductionPart = ({
   deliveryTours = false,
   maxWidth,
 }) => {
-  if (!data.length) return null
+  if (!data.length) return null;
 
   const switchButton = (
     <SwitchButton
@@ -40,7 +41,7 @@ export const PageIntroductionPart = ({
     >
       {deliveryTours && <InsideBtnTruck className={styles.airIcon} />}
     </SwitchButton>
-  )
+  );
 
   return (
     <MultiContainer>
@@ -83,7 +84,12 @@ export const PageIntroductionPart = ({
             </Typography>
             <AirplaneGroup className={styles.airplanes} />
             {deliveryTours && easyGoLink ? (
-              <a href={easyGoLink} target='_blank' rel='noopener noreferrer'>
+              <a
+                className={styles.linker}
+                href={easyGoLink}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 {switchButton}
               </a>
             ) : (
@@ -92,11 +98,9 @@ export const PageIntroductionPart = ({
           </div>
         </section>
         <section className={styles.costAndProcess}>
-          <Typography useParser variant='fs24'>
-            {costAndProcess}
-          </Typography>
+          <CostBlock processAndCost={costAndProcess} />
         </section>
       </div>
     </MultiContainer>
-  )
-}
+  );
+};

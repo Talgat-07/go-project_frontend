@@ -1,4 +1,4 @@
-export const BASE_URL = import.meta.env.VITE_API_URL
+export const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const PATH = {
   home: '/',
@@ -8,23 +8,27 @@ export const PATH = {
   delivery: '/delivery',
   individualTours: '/individual-tours',
   notFound: '*',
-}
+};
 
 export const breadcrumbs = [
-  { key: "home", label: "home" },
-  { key: "tours", label: "header.tours" },
-  { key: "tourDetail", label: "header.tours", route: PATH.tours },
+  { key: 'home', label: 'home' },
+  { key: 'tours', label: 'header.tours' },
+  { key: 'tourDetail', label: 'header.tours', route: PATH.tours },
   {
-    key: "visaSupport",
-    label: "header.visas"
+    key: 'visaSupport',
+    label: 'header.visas',
   },
   {
-    key: "delivery",
-    label: "header.delivery",
+    key: 'delivery',
+    label: 'header.delivery',
+  },
+  {
+    key: 'individualTours',
+    label: 'header.individualTours',
   },
 ];
 
-export const geeksLink = 'https://geeks.kg/geeks-pro'
+export const geeksLink = 'https://geeks.kg/geeks-pro';
 
 export const tourCardColors = {
   Оранжевый:
@@ -33,7 +37,7 @@ export const tourCardColors = {
     'linear-gradient(126deg, rgba(168, 227, 199, 0.86) 0%, rgba(144.11, 194.72, 170.70, 0.86) 7%, rgba(0, 0, 0, 0.86) 100%)',
   Черный:
     'linear-gradient(126deg, rgba(49.51, 47.37, 47.37, 0.86) 21%, rgba(0, 0, 0, 0.86) 100%)',
-}
+};
 
 export const costDeadlineData = [
   {
@@ -86,4 +90,4 @@ export const costDeadlineData = [
       },
     ],
   },
-]
+];
