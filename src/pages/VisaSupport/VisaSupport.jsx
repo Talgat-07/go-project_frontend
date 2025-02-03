@@ -1,4 +1,4 @@
-import { CurrentVIsa } from '@/modules/VisaSupModules/CurrentVisa/CurrentVIsa'
+import { VisaSupDetails } from '@/modules/VisaSupModules/VisaSupDetails'
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import { Breadcrumbs } from '@/ui';
 
@@ -16,7 +16,7 @@ export const VisaSupport = () => {
       </HelmetProvider>
       <main>
         <Breadcrumbs breadcrumbKey="visaSupport"/>
-        <CurrentVIsa />
+        <VisaSupDetails />
       </main>
     </>
   );

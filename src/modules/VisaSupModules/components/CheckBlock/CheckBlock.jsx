@@ -10,7 +10,7 @@ import { LeftPlane } from '@/app/assets/icons/worldMapPlaneDesign/LeftPlane'
 import { gsap } from 'gsap'
 import { useEffect } from 'react'
 
-export const CheckBlock = () => {
+export const CheckBlock = ({ item }) => {
   const data = [
     {
       id: 1,
@@ -31,7 +31,6 @@ export const CheckBlock = () => {
   ]
 
   useEffect(() => {
-    // parallax animation
     gsap.fromTo(
       `.${styles.world}`,
       { opacity: 0, y: 100 },

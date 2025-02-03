@@ -7,6 +7,9 @@ import { useEffect } from 'react'
 gsap.registerPlugin(ScrollTrigger)
 
 export const InfoFrame = ({ moreInfo }) => {
+
+  
+
   useEffect(() => {
     const articles = document.querySelectorAll(`.${styles.infoBlocks}`)
 

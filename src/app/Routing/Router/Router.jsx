@@ -13,10 +13,7 @@ const TourDetail = loadComponent(() => import('@/pages'), 'TourDetail');
 const VisaSupport = loadComponent(() => import('@/pages'), 'VisaSupport');
 const Delivery = loadComponent(() => import('@/pages'), 'Delivery');
 const ServerError = loadComponent(() => import('@/pages'), 'ServerError');
-const IndividualToursPage = loadComponent(
-  () => import('@/pages'),
-  'IndividualToursPage',
-);
+const IndividualToursPage = loadComponent(() => import('@/pages'), 'IndividualToursPage');
 
 const router = createBrowserRouter(
   [

@@ -1,18 +1,18 @@
 import styles from './Banner.module.scss'
-import { BannerApi } from '../../api/BannerApi'
 import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination, Zoom } from 'swiper/modules'
 import { Content } from './components/Content'
+import { ToursSliderApi } from '../../api/ToursSliderApi'
 
 export const Banner = () => {
-  const { bannerData, bannerRequest } = BannerApi()
+  const { toursData, toursRequest } = ToursSliderApi()
 
   useEffect(() => {
-    bannerRequest()
-  }, [bannerRequest])
+    toursRequest()
+  }, [toursRequest])
 
   return (
     <Swiper
@@ -32,7 +32,7 @@ export const Banner = () => {
         disableOnInteraction: false,
       }}
     >
-      {bannerData.map((item) => (
+      {toursData.map((item) => (
         <SwiperSlide key={item.id}>
           <Content slide={item} />
         </SwiperSlide>
