@@ -1,16 +1,16 @@
 import { create } from 'zustand'
 import { requester } from '@/utils/requester/requester.js'
 
-export const useAllTours = create((set) => ({
-  toursData: [],
+export const useCountries = create((set) => ({
+  countriesData: [],
   loading: false,
   error: null,
 
-  fetchAllTours: async () => {
+  fetchCountries: async () => {
     set({ loading: true, error: null })
     try {
-      const response = await requester.get('tours/all-tours/')
-      set({ toursData: response.data, loading: false })
+      const response = await requester.get('tours/countries/')
+      set({ countriesData: response.data, loading: false })
     } catch (err) {
       set({ error: error.message || 'Fetch err', loading: false })
     }

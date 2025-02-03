@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react'
-import { MultiContainer, TourCard, Heading, SwitchButton } from '@/ui'
+import { MultiContainer, TourCard, Heading, SwitchButton, Loader, Typography } from '@/ui'
 import { Filter } from './components/Filter/Filter.jsx'
 import { useAllTours } from './api/ToursApi.js'
+import { useCountries } from './api/CountriesApi.js'
+import { useTourTypes } from './api/TourTypesApi.js'
 import { ToursPlane } from '@/app/assets/icons/ToursPlane.jsx'
 import styles from './AllTours.module.scss'
 
 export const AllTours = () => {
-  const {
-    countriesData,
-    fetchCountries,
-    tourTypesData,
-    fetchTourTypes,
-    toursData,
-    fetchAllTours,
-  } = useAllTours()
+  const { toursData, loading: loadingTours, fetchAllTours } = useAllTours()
+  const { countriesData, loading: loadingCountries, fetchCountries } = useCountries()
+  const { tourTypesData, loading: loadingTypes, fetchTourTypes } = useTourTypes()
   const [filters, setFilters] = useState({
     country: '',
     city: [],
@@ -56,6 +53,8 @@ export const AllTours = () => {
     setFilteredTours(filtered)
     setDisplayTours(displayToursCount)
   }, [toursData, filters])
+
+  if (loadingTours || loadingCountries || loadingTypes) return <Loader />
 
   const handleFilterChange = (field, value) => {
     setFilters(prevFilters => ({ ...prevFilters, [field]: value }))
@@ -116,7 +115,7 @@ export const AllTours = () => {
           )}
         </>
       ) : (
-        <div>No tours available</div>
+        <Typography weight='fw5' color='#FF6600'>К сожалению, туры не найдены.</Typography>
       )}
     </MultiContainer>
   )
