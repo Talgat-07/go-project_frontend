@@ -7,7 +7,7 @@ const Layout = loadComponent(
   'Layout',
 );
 const HomePage = loadComponent(() => import('@/pages'), 'HomePage');
-// const NotFound = loadComponent(() => import("@/pages"), "NotFound");
+const NotFound = loadComponent(() => import("@/pages"), "NotFound");
 const Tours = loadComponent(() => import('@/pages'), 'Tours');
 const TourDetail = loadComponent(() => import('@/pages'), 'TourDetail');
 const VisaSupport = loadComponent(() => import('@/pages'), 'VisaSupport');
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
         { path: PATH.individualTours, element: <IndividualToursPage /> },
       ],
     },
-    { path: PATH.notFound, element: <ServerError /> },
+    { path: PATH.notFound, element: <NotFound /> },
   ],
   {
     future: {
