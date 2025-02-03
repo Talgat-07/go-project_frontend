@@ -12,7 +12,7 @@ export const InfoBlock = ({ item }) => {
         <Typography variant="h4" color="#FF6600" weight="fw6">
           {item?.title}
         </Typography>
-        <div className={styles.description}>
+        <div useParser className={styles.description}>
           {/* {parse(item?.description)} */}
           {item?.description}
         </div>

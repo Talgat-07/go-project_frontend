@@ -4,6 +4,10 @@
   gap: 50px;
 }
 
+.flexReverse {
+  flex-direction: row-reverse;
+}
+
 .infoBlocks {
   display: flex;
   gap: 78px;

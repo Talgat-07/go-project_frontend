@@ -12,7 +12,7 @@ export const Table = ({ data }) => {
                 <Typography variant="fs20" weight="fw5" color="#FF6600">{row.key}</Typography>
               </td>
               <td className={styles.value}>
-                <Typography variant="fs20" weight="fw4">{row.value}</Typography>
+                <Typography useParser variant="fs20" weight="fw4">{row.value}</Typography>
               </td>
             </tr>
           ))}

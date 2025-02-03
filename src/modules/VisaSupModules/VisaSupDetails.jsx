@@ -3,7 +3,7 @@ import { VisaSupDetailsApi } from './api/VisaSupDetailsApi'
 import styles from './VisaSupDetails.module.scss'
 import { useParams } from 'react-router-dom'
 import { CheckBlock } from './components/CheckBlock/CheckBlock'
-// import { InfoFrame } from './components/InfoFrame/InfoFrame'
+import { InfoFrame } from './components/InfoFrame/InfoFrame'
 import { EndSection } from './components/EndSection/EndSection'
 import { useEffect } from 'react'
 import { Loader } from '@/ui'
@@ -29,7 +29,7 @@ export const VisaSupDetails = () => {
     <MultiContainer className={styles.visaPage}>
       <Heading text={topPart?.title} className={styles.title} />
       <CheckBlock item={topPart} />
-      {/* <InfoFrame moreInfo={visaData} /> */}
+      <InfoFrame moreInfo={visaData?.images || []} />
       <EndSection />
     </MultiContainer>
   )
