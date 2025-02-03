@@ -20,6 +20,8 @@
       padding: 6px 12px;
       border-radius: 4px;
       border: 1px solid #c2c2c2;
+      width: 100%;
+      max-width: 363px;
     }
     & textarea {
       padding: 6px 12px;
@@ -58,26 +60,107 @@
       display: flex;
       align-items: center;
       justify-content: start;
-      gap: 5px;
+
+      /* Стили для label, который теперь работает как элемент управления */
       .checkbox {
-        appearance: none; /* Remove default styling */
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background: rgb(201, 201, 201);
-        border-radius: 2px;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      /* Скрываем стандартный чекбокс */
+      .checkboxInput {
+        display: none;
+      }
+
+      /* Визуальная часть кастомного чекбокса */
+      .checkboxCustom {
+        width: 14px;
+        height: 14px;
+        border-radius: 2px; /* Округлые углы для чекбокса */
+        background-color: rgb(201, 201, 201); /* Цвет фона чекбокса */
+        border: none;
         position: relative;
-        cursor: pointer;
-        border: none;
+        transition: background-color 0.3s ease; /* Плавный переход фона */
       }
-      .checkbox:checked {
-        background: var(--mediumOrange);
-        border: none;
+
+      /* Когда чекбокс активен (выбран) */
+      .checkboxInput:checked + .checkboxCustom {
+        background-color: var(
+          --mediumOrange
+        ); /* Цвет фона при активированном чекбоксе */
+        border-color: var(
+          --mediumOrange
+        ); /* Цвет бордера при активированном чекбоксе */
       }
+
+      /* Галочка внутри кастомного чекбокса */
+      .checkboxInput:checked + .checkboxCustom::after {
+        content: '\2713'; /* Юникод для галочки */
+        font-size: 10px; /* Размер галочки */
+        color: white; /* Белая галочка */
+        position: absolute;
+        top: 0px; /* Позиционирование галочки по оси Y */
+        left: 3.5px; /* Позиционирование галочки по оси X */
+      }
+
+      /* Стили для label с текстом */
       .checkboxLabel {
-        cursor: pointer;
+        font-size: 12px; /* Размер шрифта для текста */
         font-weight: 400;
+      }
+
+      .checkboxLabel {
         font-size: 12px;
+        display: flex;
+        align-items: center;
+        cursor: pointer; /* Указатель на весь блок */
       }
     }
+  }
+
+  .inputTitle {
+    display: flex;
+    align-items: center;
+    & p {
+      color: #424242;
+      font-weight: 400;
+    }
+    .asterisk {
+      margin-bottom: 9px;
+      margin-left: -1px;
+    }
+  }
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  & button {
+    margin: auto;
+  }
+}
+
+.acceptModalBg {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c0c0ce8;
+  .acceptModal {
+    width: 470px;
+    padding: 20px 53px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: var(--onlyWhite);
+    transition: 0.3s;
   }
 }
