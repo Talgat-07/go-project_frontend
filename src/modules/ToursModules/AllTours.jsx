@@ -66,6 +66,7 @@ export const AllTours = () => {
 
   return (
     <MultiContainer className={styles.allTours}>
+      <div className={styles.circleBg} />
       <Heading text='Все туры' />
       <ToursPlane className={styles.plane} />
       <ToursPlane className={styles.plane} />

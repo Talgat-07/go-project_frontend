@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SwitchButton } from '../SwitchButton/SwitchButton'
-import { Typography } from '../Typography/Typography'
+import { SwitchButton, Typography } from '@/ui'
 import { tourCardColors } from '@/utils/constants/constants.js'
 import { FireIcon } from '@/app/assets/icons/FireIcon'
 import { SaleIcon } from '@/app/assets/icons/SaleIcon'
@@ -54,7 +53,7 @@ export const TourCard = ({ item }) => {
           <Typography weight='fw7'>
             {item?.mini_info_frames[0]?.price}
           </Typography>
-          <Link to={`/tours/${item.id}`} className={styles.btnLink} target="_top">
+          <Link to={`/tours/${item.id}`} className={styles.btnLink} target='_top'>
             <SwitchButton maxWidth='165px' className={styles.btn}>
               Подробнее
             </SwitchButton>
