@@ -1,15 +1,25 @@
-import { SwitchButton } from '@/ui'
-import styles from './HomeForm.module.scss'
-import { useForm } from '@/utils/hooks/useForm'
-import { RxCross2 } from 'react-icons/rx'
-import { Typography } from '@/ui'
+import { SwitchButton } from '@/ui';
+import styles from './HomeForm.module.scss';
+import { useForm } from '@/utils/hooks/useForm';
+import { RxCross2 } from 'react-icons/rx';
+import { Typography } from '@/ui';
+import { useState } from 'react';
 
 export const HomeForm = () => {
-  const { form, formHide, formShow } = useForm()
+  const { form, formHide } = useForm();
+  const [isSubmit, setSubmit] = useState(false);
+
+  const onSubmit = (event) => {
+    // preventDefault - заглушка
+    // event.preventDefault();
+    setSubmit(true);
+  };
 
   return (
     <>
-      {form && (
+      {isSubmit ? (
+        <p>accept</p>
+      ) : form ? (
         <section className={styles.formBg}>
           <form className={styles.form}>
             <article className={styles.titleBlock}>
@@ -43,10 +53,14 @@ export const HomeForm = () => {
                 Я принимаю условия пользовательского соглашения
               </label>
             </article>
-            <SwitchButton className={styles.sendBtn}>Отправить</SwitchButton>
+            <SwitchButton className={styles.sendBtn} onClick={onSubmit}>
+              Отправить
+            </SwitchButton>
           </form>
         </section>
+      ) : (
+        false
       )}
     </>
-  )
-}
+  );
+};
