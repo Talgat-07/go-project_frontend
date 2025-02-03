@@ -5,7 +5,7 @@ import { Partners } from '@/modules/HomeModules/components'
 import { ToursSlider } from '@/modules/HomeModules/components'
 import { Reviews } from '@/modules/HomeModules/components'
 import styles from './HomeModules.module.scss'
-import { VisaSupport } from '@/modules/VisaSupModules/VisaSupport/VisaSupport'
+import { VisaSupport } from '@/modules/HomeModules/components/VisaSupport/VisaSupport'
 
 export const HomeModules = () => {
   return (

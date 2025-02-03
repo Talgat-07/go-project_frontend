@@ -7,16 +7,13 @@ const Layout = loadComponent(
   'Layout',
 );
 const HomePage = loadComponent(() => import('@/pages'), 'HomePage');
-// const NotFound = loadComponent(() => import("@/pages"), "NotFound");
+const NotFound = loadComponent(() => import("@/pages"), "NotFound");
 const Tours = loadComponent(() => import('@/pages'), 'Tours');
 const TourDetail = loadComponent(() => import('@/pages'), 'TourDetail');
 const VisaSupport = loadComponent(() => import('@/pages'), 'VisaSupport');
 const Delivery = loadComponent(() => import('@/pages'), 'Delivery');
 const ServerError = loadComponent(() => import('@/pages'), 'ServerError');
-const IndividualToursPage = loadComponent(
-  () => import('@/pages'),
-  'IndividualToursPage',
-);
+const IndividualToursPage = loadComponent(() => import('@/pages'), 'IndividualToursPage');
 
 const router = createBrowserRouter(
   [
@@ -33,7 +30,7 @@ const router = createBrowserRouter(
         { path: PATH.individualTours, element: <IndividualToursPage /> },
       ],
     },
-    { path: PATH.notFound, element: <ServerError /> },
+    { path: PATH.notFound, element: <NotFound /> },
   ],
   {
     future: {
