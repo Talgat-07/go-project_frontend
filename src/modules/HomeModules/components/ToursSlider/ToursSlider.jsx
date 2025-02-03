@@ -45,7 +45,7 @@ export const ToursSlider = () => {
         />
       </div>
       <MultiContainer>
-        <Link to={PATH.individualTours}>
+        <Link to={PATH.individualTours} target='_top'>
           <div className={styles.individualTour}>
             <Wallet />
             <Typography color='#FF6600' weight='fw5' variant='fs20'>
