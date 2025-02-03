@@ -29,7 +29,7 @@ export const ToursSlider = () => {
         <Heading text='Туры' />
         <div className={styles.moreLink}>
           <Link to={PATH.tours}>
-            <Typography variant='fs24' weight="fw6" color='#FA7335'>
+            <Typography variant='fs24' weight='fw6' color='#FA7335'>
               Все туры
             </Typography>
             <Airplane className={styles.airplane} />
@@ -45,12 +45,14 @@ export const ToursSlider = () => {
         />
       </div>
       <MultiContainer>
-        <div className={styles.individualTour}>
-          <Wallet />
-          <Typography color="#FF6600" weight="fw5" variant="fs20" >
-            Рассчитать индивидуальный тур
-          </Typography>
-        </div>
+        <Link to={PATH.individualTours}>
+          <div className={styles.individualTour}>
+            <Wallet />
+            <Typography color='#FF6600' weight='fw5' variant='fs20'>
+              Рассчитать индивидуальный тур
+            </Typography>
+          </div>
+        </Link>
       </MultiContainer>
     </div>
   );
