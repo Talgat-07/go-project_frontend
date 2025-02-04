@@ -72,9 +72,8 @@
     }
 
     .description {
-      height: fit-content;
+      height: 120px;
       line-height: 20px;
-      display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow-y: scroll;
