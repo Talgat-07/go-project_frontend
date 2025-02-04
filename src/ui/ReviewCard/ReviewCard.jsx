@@ -1,6 +1,6 @@
-import { Typography } from '../Typography/Typography'
-import { MdPlayArrow } from 'react-icons/md'
-import styles from './ReviewCard.module.scss'
+import { Typography } from '../Typography/Typography';
+import { MdPlayArrow } from 'react-icons/md';
+import styles from './ReviewCard.module.scss';
 
 export const ReviewCard = ({ item }) => {
   return (
@@ -10,10 +10,10 @@ export const ReviewCard = ({ item }) => {
           {item.title}
         </Typography>
         <Typography variant='fs16' color='#3C3C43D9' weight='fw5'>
-          Бизнес тур
+          {item.tour_type}
         </Typography>
-        <Typography variant='fs16' className={styles.description}>
-          {item.text}
+        <Typography variant='fs16' className={styles.description} useParser>
+          {item.description}
         </Typography>
       </div>
       <div className={styles.imgBlock}>
@@ -27,5 +27,5 @@ export const ReviewCard = ({ item }) => {
         </a>
       </div>
     </article>
-  )
-}
+  );
+};
