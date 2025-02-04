@@ -17,11 +17,14 @@
     background: var(--onlyWhite);
     transition: 0.3s;
     & input {
-      padding: 6px 12px;
+      height: 32px;
       border-radius: 4px;
       border: 1px solid #c2c2c2;
       width: 100%;
       max-width: 363px;
+    }
+    & input[type='text'] {
+      padding: 6px 12px;
     }
     & textarea {
       padding: 6px 12px;
@@ -39,6 +42,7 @@
       align-items: center;
       position: relative;
       width: 100%;
+      user-select: none;
       .title {
         font-size: 24px;
         font-weight: 600;
@@ -60,6 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: start;
+      user-select: none;
 
       /* Стили для label, который теперь работает как элемент управления */
       .checkbox {
@@ -78,8 +83,8 @@
       .checkboxCustom {
         width: 14px;
         height: 14px;
-        border-radius: 2px; /* Округлые углы для чекбокса */
-        background-color: rgb(201, 201, 201); /* Цвет фона чекбокса */
+        border-radius: 2px;
+        background: rgb(201, 201, 201);
         border: none;
         position: relative;
         transition: background-color 0.3s ease; /* Плавный переход фона */
@@ -98,16 +103,16 @@
       /* Галочка внутри кастомного чекбокса */
       .checkboxInput:checked + .checkboxCustom::after {
         content: '\2713'; /* Юникод для галочки */
-        font-size: 10px; /* Размер галочки */
-        color: white; /* Белая галочка */
+        font-size: 10px;
+        color: white;
         position: absolute;
-        top: 0px; /* Позиционирование галочки по оси Y */
-        left: 3.5px; /* Позиционирование галочки по оси X */
+        top: 0px;
+        left: 3.5px;
       }
 
       /* Стили для label с текстом */
       .checkboxLabel {
-        font-size: 12px; /* Размер шрифта для текста */
+        font-size: 12px;
         font-weight: 400;
       }
 
@@ -146,7 +151,7 @@
 
 .acceptModalBg {
   position: fixed;
-  z-index: 9999;
+  z-index: 99999;
   width: 100%;
   height: 100%;
   display: flex;
@@ -162,5 +167,74 @@
     gap: 25px;
     background: var(--onlyWhite);
     transition: 0.3s;
+    user-select: none;
+    text-align: center;
+    .acceptCross {
+      margin-left: auto;
+    }
+    .acceptTitle {
+      font-weight: 600;
+      color: #00a91b;
+    }
+  }
+}
+
+.error {
+  border: 2px solid red !important;
+  border-radius: 4px;
+}
+
+.confPolicy_errorMessage {
+  color: red;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  max-width: 340px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+// animation check mark
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+  margin: auto;
+}
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #00a91b;
+  animation: prixClipFix 2s linear;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
 }
