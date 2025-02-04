@@ -17,7 +17,6 @@ export const ToursSlider = () => {
   useEffect(() => {
     toursRequest();
   }, [toursRequest]);
-  console.log(toursData.length);
 
   if (!toursData || !toursData.length) {
     return null;
@@ -28,8 +27,8 @@ export const ToursSlider = () => {
       <MultiContainer>
         <Heading text='Туры' />
         <div className={styles.moreLink}>
-          <Link to={PATH.tours}>
-            <Typography variant='fs24' weight="fw6" color='#FA7335'>
+          <Link to={PATH.tours} target='_top'>
+            <Typography variant='fs24' weight='fw6' color='#FA7335'>
               Все туры
             </Typography>
             <Airplane className={styles.airplane} />
@@ -45,12 +44,14 @@ export const ToursSlider = () => {
         />
       </div>
       <MultiContainer>
-        <div className={styles.individualTour}>
-          <Wallet />
-          <Typography color="#FF6600" weight="fw5" variant="fs20" >
-            Рассчитать индивидуальный тур
-          </Typography>
-        </div>
+        <Link to={PATH.individualTours} target='_top'>
+          <div className={styles.individualTour}>
+            <Wallet />
+            <Typography color='#FF6600' weight='fw5' variant='fs20'>
+              Рассчитать индивидуальный тур
+            </Typography>
+          </div>
+        </Link>
       </MultiContainer>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Typography } from "@/ui";
 import styles from "./InfoBlock.module.scss";
-// import parse from "html-react-parser";
+import { getPlainText } from "@/utils/helpers/helpers";
 
 export const InfoBlock = ({ item }) => {
   return (
@@ -12,10 +12,9 @@ export const InfoBlock = ({ item }) => {
         <Typography variant="h4" color="#FF6600" weight="fw6">
           {item?.title}
         </Typography>
-        <div className={styles.description}>
-          {/* {parse(item?.description)} */}
-          {item?.description}
-        </div>
+        <Typography variant="fs24" weight="fw5" className={styles.description}>
+          {getPlainText(item?.description)}
+        </Typography>
       </div>
     </div>
   );

@@ -34,9 +34,9 @@ export const TourDetailComponent = () => {
 
   return (
     <>
-      <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={heroData?.title} />
+      <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={tourDetailData?.title} />
       <MultiContainer className={styles.container}>
-        <Hero item={heroData} />
+        <Hero item={heroData} title={tourDetailData?.title} />
         <Cards item={cardData} />
         <InfoBlock item={infoData} />
         <TabBar item={table} />

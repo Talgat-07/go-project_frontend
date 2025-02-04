@@ -1,22 +1,49 @@
 import styles from './Banner.module.scss'
-import { BannerApi } from '../../api/BannerApi'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination, Zoom } from 'swiper/modules'
 import { Content } from './components/Content'
+import { ToursSliderApi } from '../../api/ToursSliderApi'
 
 export const Banner = () => {
-  const { bannerData, bannerRequest } = BannerApi()
+  const { toursData, toursRequest } = ToursSliderApi()
+
+  const swiperRef = useRef(null)
+
+  const customStyles = `
+    .custom-swiper .swiper-pagination-bullet {
+      width: 18px;
+      height: 18px;
+      border-radius: 100%;
+      background: #c3bebe;
+      opacity: 0.72;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background: #fff;
+      opacity: 1;
+      width: 20px;
+      height: 20px;
+    }
+  `
+
+  const styleSheet = document.createElement('style')
+  styleSheet.type = 'text/css'
+  styleSheet.innerText = customStyles
+  document.head.appendChild(styleSheet)
 
   useEffect(() => {
-    bannerRequest()
-  }, [bannerRequest])
+    toursRequest()
+  }, [toursRequest])
 
   return (
     <Swiper
-      className={styles.slider}
+      ref={swiperRef}
+      className={`${styles.slider} custom-swiper`}
       modules={[Pagination, Autoplay, Zoom]}
       pagination={{
         clickable: true,
@@ -25,14 +52,14 @@ export const Banner = () => {
         crossFade: true,
       }}
       loop={true}
-      speed={1000}
+      speed={1150}
       easing={'ease-in-out'}
       autoplay={{
         delay: 13000,
         disableOnInteraction: false,
       }}
     >
-      {bannerData.map((item) => (
+      {toursData.map((item) => (
         <SwiperSlide key={item.id}>
           <Content slide={item} />
         </SwiperSlide>
