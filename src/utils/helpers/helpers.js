@@ -56,3 +56,8 @@ export const generateBreadcrumbs = (key, thirdElement = null, t) => {
 
   return baseBreadcrumbs
 }
+
+export const getPlainText = (htmlString) => {
+  const doc = new DOMParser().parseFromString(htmlString, "text/html")
+  return doc.body.textContent || ""
+}
