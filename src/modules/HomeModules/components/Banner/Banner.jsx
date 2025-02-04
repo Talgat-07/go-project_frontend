@@ -14,16 +14,20 @@ export const Banner = () => {
 
   const customStyles = `
     .custom-swiper .swiper-pagination-bullet {
-      width: 25px;
-      height: 25px;
+      width: 18px;
+      height: 18px;
       border-radius: 100%;
       background: #c3bebe;
       opacity: 0.72;
+      align-items: center;
+      justify-content: center;
     }
 
     .custom-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
       background: #fff;
       opacity: 1;
+      width: 20px;
+      height: 20px;
     }
   `
 
