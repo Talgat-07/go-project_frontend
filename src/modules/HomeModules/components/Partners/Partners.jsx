@@ -21,7 +21,7 @@ export const Partners = () => {
   }, [partnersRequest])
 
   const swiperSettings = {
-    slidesPerView: 6,
+    slidesPerView: partnersData.length < 6 ? partnersData.length : 6,
     spaceBetween: 88,
     loop: true,
     speed: 4000,
