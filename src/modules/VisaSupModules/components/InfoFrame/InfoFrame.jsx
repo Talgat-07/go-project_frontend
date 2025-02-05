@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 gsap.registerPlugin(ScrollTrigger)
 
 export const InfoFrame = ({ moreInfo }) => {
+
   useEffect(() => {
     const articles = document.querySelectorAll(`.${styles.infoBlocks}`)
 
@@ -18,7 +19,6 @@ export const InfoFrame = ({ moreInfo }) => {
           x: 0,
           opacity: 1,
           duration: 1,
-          // animation delay
           delay: index * 0.2,
           scrollTrigger: {
             trigger: article,
@@ -33,42 +33,10 @@ export const InfoFrame = ({ moreInfo }) => {
 
   return (
     <section className={styles.infoSection}>
-      {moreInfo.images.slice(0, 1).map((item) => (
-        <article key={item.id} className={styles.infoBlocks}>
+      {moreInfo.map((item, index) => (
+        <article key={item.id} className={`${styles.infoBlocks} ${index % 2 !== 0 ? styles.flexReverse : ''}`}>
           <div className={styles.img}>
             <img src={item.image} loading='lazy' alt='bg image' />
-          </div>
-          <div>
-            <Typography
-              variant='fs20'
-              useParser={true}
-              className={styles.description}
-            >
-              {item.description}
-            </Typography>
-          </div>
-        </article>
-      ))}
-      {moreInfo.images.slice(1, 2).map((item) => (
-        <article key={item.id} className={styles.infoBlocks}>
-          <div>
-            <Typography
-              variant='fs20'
-              useParser={true}
-              className={styles.description}
-            >
-              {item.description}
-            </Typography>
-          </div>
-          <div className={styles.img}>
-            <img src={item.image} alt='bg image' />
-          </div>
-        </article>
-      ))}
-      {moreInfo.images.slice(0, 1).map((item) => (
-        <article key={item.id} className={styles.infoBlocks}>
-          <div className={styles.img}>
-            <img src={item.image} alt='bg image' />
           </div>
           <div>
             <Typography

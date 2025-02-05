@@ -18,11 +18,11 @@ export const VisaCard = ({ item }) => {
           <Typography className={styles.description}>
             {item.description}
           </Typography>
-          <SwitchButton maxWidth='auto'>
-            <Link to={`/visa-support/${item.id}`} target='_top'>
+          <Link to={`/visa-page/${item.id}`} target='_top'>
+            <SwitchButton maxWidth='auto'>
               Подробнее
-            </Link>
-          </SwitchButton>
+            </SwitchButton>
+          </Link>
         </div>
       </article>
     </SwiperSlide>

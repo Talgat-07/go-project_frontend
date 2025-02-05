@@ -17,7 +17,6 @@ export const ToursSlider = () => {
   useEffect(() => {
     toursRequest();
   }, [toursRequest]);
-  console.log(toursData.length);
 
   if (!toursData || !toursData.length) {
     return null;
@@ -28,7 +27,7 @@ export const ToursSlider = () => {
       <MultiContainer>
         <Heading text='Туры' />
         <div className={styles.moreLink}>
-          <Link to={PATH.tours}>
+          <Link to={PATH.tours} target='_top'>
             <Typography variant='fs24' weight='fw6' color='#FA7335'>
               Все туры
             </Typography>
