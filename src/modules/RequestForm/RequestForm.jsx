@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router-dom'
-import { HomeForm } from './components/HomeForm/HomeForm'
+import { useLocation } from 'react-router-dom';
+import { HomeForm } from './components/HomeForm/HomeForm';
+import { PagesForm } from './components/PagesForm/PagesForm';
 
 export const RequestForm = () => {
-  let navigation = useLocation()
+  let navigation = useLocation();
 
-  if (navigation.pathname === '/') return <HomeForm />
+  if (navigation.pathname === '/') return <HomeForm />;
 
-  return //PagesForm
-}
+  return <PagesForm />;
+};

@@ -2,17 +2,22 @@
   position: relative;
 
   .circleBg {
-    width: 30%;
-    height: 30%;
+    width: 22%;
+    height: 22%;
     position: fixed;
     top: 60%;
     left: 50%;
     z-index: -1;
-    background: #FF5722;
+    background: transparent;
     opacity: 0.5;
     filter: blur(200px);
     border-radius: 50%;
     transform: translate(-50%, -50%);
+    transition: 600ms;
+
+    &.show {
+      background: #FF5722;
+    }
   }
 
   .filters {

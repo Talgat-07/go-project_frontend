@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import liveReload from 'vite-plugin-live-reload'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import liveReload from 'vite-plugin-live-reload';
 
 export default defineConfig({
   plugins: [react(), liveReload(['src/**/*'])],
@@ -14,10 +14,13 @@ export default defineConfig({
       utils: '/src/utils',
     },
   },
+  optimizeDeps: {
+    include: ['react-icons'],
+  },
   // test: {
   //   globals: true,
   //   environment: 'jsdom',
   //   setupFiles: './tests/runTests.js',
   // },
   // server: { hmr: true },
-})
+});

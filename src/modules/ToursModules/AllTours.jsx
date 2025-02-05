@@ -4,6 +4,7 @@ import { Filter } from './components/Filter/Filter.jsx'
 import { useAllTours } from './api/ToursApi.js'
 import { useCountries } from './api/CountriesApi.js'
 import { useTourTypes } from './api/TourTypesApi.js'
+import { ToursNotFound } from './components/ToursNotFound/ToursNotFound.jsx'
 import { ToursPlane } from '@/app/assets/icons/ToursPlane.jsx'
 import styles from './AllTours.module.scss'
 
@@ -18,7 +19,7 @@ export const AllTours = () => {
     category: [],
   })
   const [filteredTours, setFilteredTours] = useState([])
-  const displayToursCount = 18
+  const displayToursCount = 9
   const [displayTours, setDisplayTours] = useState(displayToursCount)
 
   useEffect(() => {
@@ -64,9 +65,18 @@ export const AllTours = () => {
     setDisplayTours((prevVisible) => prevVisible + displayToursCount)
   }
 
+  const handleReset = () => {
+    setFilters({
+      country: '',
+      city: [],
+      type: '',
+      category: [],
+    })
+  }
+
   return (
     <MultiContainer className={styles.allTours}>
-      <div className={styles.circleBg} />
+      <div className={`${styles.circleBg} ${filteredTours.length > 0 ? '' : styles.show}`} />
       <Heading text='Все туры' />
       <ToursPlane className={styles.plane} />
       <ToursPlane className={styles.plane} />
@@ -116,7 +126,7 @@ export const AllTours = () => {
           )}
         </>
       ) : (
-        <Typography weight='fw5' color='#FF6600'>К сожалению, туры не найдены.</Typography>
+        <ToursNotFound handleReset={handleReset} />
       )}
     </MultiContainer>
   )

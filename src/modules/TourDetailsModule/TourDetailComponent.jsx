@@ -12,10 +12,13 @@ import { Heading } from '@/ui'
 import { SwitchButton } from '@/ui'
 import { Breadcrumbs } from '@/ui'
 import bg from '@/app/assets/images/tourDetail.png'
+import { useModalStore } from '@/utils/hooks/useModalStore'
+import { FormModal } from './components/Form/Form'
 
 export const TourDetailComponent = () => {
   const { id } = useParams()
   const { tourDetailData, tourDetailRequest, isLoading } = TourDetailApi()
+  const { openModal } = useModalStore()
 
   useEffect(() => {
     if (id) {
@@ -44,7 +47,10 @@ export const TourDetailComponent = () => {
           <div className={styles.bg}>
             <img src={bg} alt='bg' />
           </div>
-          <SwitchButton className={styles.button} maxWidth='208px'>Заказать тур</SwitchButton>
+          <SwitchButton onClick={openModal} className={styles.button} maxWidth='208px'>
+            Заказать тур
+          </SwitchButton>
+          <FormModal themeTitle={tourDetailData?.title} />
         </div>
       </MultiContainer>
       <div className={styles.sliderBlock}>
