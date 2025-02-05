@@ -1,5 +1,6 @@
 import React from "react"
 import { breadcrumbs } from "@/utils/constants/constants"
+import * as yup from 'yup'
 
 export const loadComponent = (path, componentName) => {
   return React.lazy(() =>
@@ -60,4 +61,21 @@ export const generateBreadcrumbs = (key, thirdElement = null, t) => {
 export const getPlainText = (htmlString) => {
   const doc = new DOMParser().parseFromString(htmlString, "text/html")
   return doc.body.textContent || ""
+}
+
+export const validationSchema = yup.object({
+  name: yup.string().trim().required('Введите имя'),
+  phone: yup
+    .string()
+    .trim()
+    .matches(/^\+?[0-9\s\-()]{7,15}$/, 'Некорректный номер телефона')
+    .required('Введите номер телефона'),
+  message: yup.string().max(200, 'Максимум 200 символов'),
+  policy: yup.boolean().oneOf([true], 'Необходимо согласие с политикой'),
+})
+
+export const handlePhoneChange = (e, setFieldValue) => {
+  const { value } = e.target
+  const formattedValue = value.replace(/[^0-9+\s\-()]/g, '').slice(0, 13)
+  setFieldValue('phone', formattedValue)
 }

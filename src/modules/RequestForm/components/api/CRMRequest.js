@@ -1,7 +1,7 @@
 import { requester } from '@/utils/requester/requester';
 import { create } from 'zustand';
 
-const endpoint = 'https://goproject.site/api/v1/core/send-to-amocrm/';
+const endpoint = 'core/send-to-amocrm/';
 
 export const CRMRequest = create((set) => ({
   data: null,
