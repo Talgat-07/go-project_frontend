@@ -98,7 +98,7 @@ export const HomeModules = () => {
         delay: 1.5,
         scrollTrigger: {
           trigger: `.reviews`,
-          start: 'top -205%',
+          start: 'top -203%',
           end: 'bottom -90%',
           scrub: 2.5,
           once: true,
@@ -116,7 +116,7 @@ export const HomeModules = () => {
         delay: 0.5,
         scrollTrigger: {
           trigger: `.partners`,
-          start: 'top -242%',
+          start: 'top -240%',
           end: 'bottom -90%',
           scrub: 2.5,
           once: true,
