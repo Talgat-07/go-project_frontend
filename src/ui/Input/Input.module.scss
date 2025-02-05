@@ -1,0 +1,143 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .label {
+    margin-bottom: 4px;
+
+    .obvious {
+      color: red;
+    }
+  }
+
+  .input {
+    background: #f8f8f8;
+    border-radius: 4px;
+    padding: 10px 12px;
+    width: 100%;
+    border: 1px solid #c2c2c2;
+  }
+
+  .textarea {
+    background: #f8f8f8;
+    border-radius: 4px;
+    padding: 10px 12px;
+    width: 100%;
+    border: 1px solid #c2c2c2;
+    height: 107px;
+  }
+
+  .helperTextBlock {
+    margin-top: 8px;
+  }
+}
+
+.inputBlock {
+  @extend .inputContainer;
+}
+
+.selectorBlock {
+  @extend .inputContainer;
+
+  .inputWithDropdown {
+    position: relative;
+
+    .arrowIcon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      right: 16px;
+      top: 22px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .open {
+      transform: rotate(-180deg);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2px;
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 24px;
+    gap: 16px;
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        p {
+          color: #003585;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .inputContainer {
+    .label {
+      margin-bottom: 10px;
+    }
+
+    .input {
+      padding: 12px;
+    }
+
+    .helperTextBlock {
+      margin-top: 5px;
+    }
+  }
+
+  .selectorBlock {
+    .inputWithDropdown {
+      .arrowIcon {
+        top: 18px;
+      }
+    }
+
+    ul {
+      border-radius: 16px;
+      padding: 16px;
+      gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .inputContainer {
+    .label {
+      margin-bottom: 4px;
+    }
+
+    .input {
+      padding: 14px;
+    }
+
+    .helperTextBlock {
+      margin-top: 4px;
+    }
+  }
+
+  .selectorBlock {
+    .inputWithDropdown {
+      .arrowIcon {
+        top: 20px;
+      }
+    }
+
+    ul {
+      border-radius: 10px;
+      padding: 10px;
+      gap: 6px;
+    }
+  }
+}
