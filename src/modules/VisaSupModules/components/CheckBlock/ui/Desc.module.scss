@@ -1,0 +1,10 @@
+.checkFrameContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .checkFrame {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
