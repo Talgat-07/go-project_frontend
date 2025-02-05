@@ -2,9 +2,9 @@ import { Typography } from '../Typography/Typography';
 import { MdPlayArrow } from 'react-icons/md';
 import styles from './ReviewCard.module.scss';
 
-export const ReviewCard = ({ item }) => {
+export const ReviewCard = ({ item, onClick }) => {
   return (
-    <article className={styles.reviewFrame}>
+    <article className={styles.reviewFrame} onClick={onClick}>
       <div className={styles.info}>
         <Typography variant='h3' className={styles.title}>
           {item.title}

@@ -8,5 +8,11 @@
   .checkbox {
     display: flex;
     gap: 4px;
+
+    input[type="checkbox"] {
+      accent-color: #FF6600;
+      color: white;
+      cursor: pointer;
+    }
   }
 }

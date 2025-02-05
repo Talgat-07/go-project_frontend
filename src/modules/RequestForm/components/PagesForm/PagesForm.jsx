@@ -1,5 +1,5 @@
 import { SwitchButton } from '@/ui';
-import styles from './HomeForm.module.scss';
+import styles from './PagesForm.module.scss';
 import { useForm } from '@/utils/hooks/useForm';
 import { RxCross2 } from 'react-icons/rx';
 import { Typography } from '@/ui';
@@ -14,6 +14,7 @@ import { AcceptModal } from '../ui/AcceptModal';
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Обязательное поле'),
   phone: Yup.string().required('Обязательное поле'),
+  theme: Yup.string().required('бязательное поле'),
   message: Yup.string().required('Обязательное поле'),
   confPolicy: Yup.bool().oneOf(
     [true],
@@ -21,7 +22,7 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-export const HomeForm = () => {
+export const PagesForm = () => {
   const { form, formHide } = useForm();
   const [isSubmit, setSubmit] = useState(false);
   // начальное состояние валидации
@@ -156,6 +157,26 @@ export const HomeForm = () => {
                 }`}
                 value={values.phone}
                 onChange={handlePhoneChange}
+              />
+            </article>
+            <article className={styles.inputContainer}>
+              <div className={styles.inputTitle}>
+                <Typography variant='fs16'>Тема</Typography>
+                <RiAsterisk
+                  color='red'
+                  size={'10px'}
+                  className={styles.asterisk}
+                />
+              </div>
+              <input
+                type='text'
+                name='theme'
+                placeholder='Тема'
+                className={`${styles.theme} ${
+                  errors.theme ? styles.error : ''
+                }`}
+                value={values.theme}
+                onChange={handleChange}
               />
             </article>
             <article className={styles.inputContainer}>

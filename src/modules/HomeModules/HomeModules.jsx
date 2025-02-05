@@ -1,11 +1,11 @@
-import { Banner } from '@/modules/HomeModules/components'
-import { AboutUs } from '@/modules/HomeModules/components'
-import { Delivery } from '@/modules/HomeModules/components'
-import { Partners } from '@/modules/HomeModules/components'
-import { ToursSlider } from '@/modules/HomeModules/components'
-import { Reviews } from '@/modules/HomeModules/components'
-import styles from './HomeModules.module.scss'
-import { VisaSupport } from '@/modules/HomeModules/components/VisaSupport/VisaSupport'
+import { Banner } from '@/modules/HomeModules/components';
+import { AboutUs } from '@/modules/HomeModules/components';
+import { Delivery } from '@/modules/HomeModules/components';
+import { Partners } from '@/modules/HomeModules/components';
+import { ToursSlider } from '@/modules/HomeModules/components';
+import { Reviews } from '@/modules/HomeModules/components';
+import { VisaSupport } from '@/modules/HomeModules/components/VisaSupport/VisaSupport';
+import styles from './HomeModules.module.scss';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -23,10 +23,10 @@ export const HomeModules = () => {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 0.2,
+        delay: 1.5,
         scrollTrigger: {
           trigger: `.toursSlider`,
-          start: 'top 70%',
+          start: 'top 72%',
           end: 'bottom 90%',
           scrub: 2.5,
           once: true,
@@ -41,10 +41,10 @@ export const HomeModules = () => {
         opacity: 1,
         x: 0,
         duration: 1,
-        delay: 0.8,
+        delay: 0.5,
         scrollTrigger: {
           trigger: `.aboutUs`,
-          start: 'top 5%',
+          start: 'top 2%',
           end: 'bottom 90%',
           scrub: 2.5,
           once: true,
@@ -59,10 +59,10 @@ export const HomeModules = () => {
         opacity: 1,
         scale: 1,
         duration: 1,
-        delay: 0.6,
+        delay: 4.5,
         scrollTrigger: {
           trigger: `.visaSupport`,
-          start: 'top -65%',
+          start: 'top -80%',
           end: 'bottom 9%',
           scrub: 2.5,
           once: true,
@@ -77,10 +77,10 @@ export const HomeModules = () => {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 0.8,
+        delay: 4,
         scrollTrigger: {
           trigger: `.delivery`,
-          start: 'top -79%',
+          start: 'top -113%',
           end: 'bottom 90%',
           scrub: 2.5,
           once: true,
@@ -90,15 +90,15 @@ export const HomeModules = () => {
 
     gsap.fromTo(
       `.reviews`,
-      { opacity: 0, x: 100 },
+      { opacity: 0, x: -100 },
       {
         opacity: 1,
         x: 0,
         duration: 1,
-        delay: 3.5,
+        delay: 1.5,
         scrollTrigger: {
           trigger: `.reviews`,
-          start: 'top -173%',
+          start: 'top -205%',
           end: 'bottom -90%',
           scrub: 2.5,
           once: true,
@@ -113,11 +113,11 @@ export const HomeModules = () => {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 0.2,
+        delay: 0.5,
         scrollTrigger: {
           trigger: `.partners`,
-          start: 'top -198%',
-          end: 'bottom -130%',
+          start: 'top -242%',
+          end: 'bottom -90%',
           scrub: 2.5,
           once: true,
         },
@@ -130,25 +130,24 @@ export const HomeModules = () => {
       <div className={styles.yellowCircle}>&nbsp;</div>
       <div className={styles.orangeCircle}>&nbsp;</div>
       <Banner />
-      <section ref={(el) => (sections.current[0] = el)} className='toursSlider'>
+      <section ref={(e) => (sections.current[0] = e)} className='toursSlider'>
         <ToursSlider />
       </section>
-      <section ref={(el) => (sections.current[1] = el)} className='aboutUs'>
+      <section ref={(e) => (sections.current[1] = e)} className='aboutUs'>
         <AboutUs />
       </section>
-      <section ref={(el) => (sections.current[2] = el)} className='visaSupport'>
+      <section ref={(e) => (sections.current[2] = e)} className='visaSupport'>
         <VisaSupport />
       </section>
-      <section ref={(el) => (sections.current[3] = el)} className='delivery'>
+      <section ref={(e) => (sections.current[3] = e)} className='delivery'>
         <Delivery />
       </section>
-      <section ref={(el) => (sections.current[4] = el)} className='reviews'>
+      <section ref={(e) => (sections.current[4] = e)} className='reviews'>
         <Reviews />
       </section>
-      <section ref={(el) => (sections.current[5] = el)} className='partners'>
+      <section ref={(e) => (sections.current[5] = e)} className='partners'>
         <Partners />
       </section>
     </main>
   );
 };
-

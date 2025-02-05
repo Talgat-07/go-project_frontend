@@ -1,42 +1,36 @@
-import React, { useState, useEffect } from 'react'
-import { Input, SwitchButton, Modal, Typography  } from '@/ui'
-import { postFormData } from './api/PostFormData'
+import React, { useEffect } from 'react'
+import { useFormik } from 'formik'
+import { SwitchButton, Modal, Typography } from '@/ui'
+import { usePostFormData } from './api/PostFormData'
 import { useModalStore } from '@/utils/hooks/useModalStore'
+import { validationSchema } from '@/utils/helpers/helpers'
 import styles from './Form.module.scss'
+import { FormFields } from './components/FormFields/FormFields'
+import { SuccessMes } from './components/SuccessMes/SuccessMes'
 
 export const FormModal = ({ themeTitle }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    theme: themeTitle || '',
-    message: '',
-    policy: false,
-  })
-
-  const { fetchRequest } = postFormData()
+  const { fetchRequest, isSuccess, resetSuccess, isLoading } = usePostFormData()
   const { isOpen, closeModal } = useModalStore()
 
-  const handleChange = event => {
-    const { name, value, type, checked } = event.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }))
-  }
-
-  const handleSubmit = async event => {
-    event.preventDefault()
-    await fetchRequest(formData)
-    closeModal()
-  }
-
-  useEffect(() => {
-    console.log(formData)
-  }, [formData])
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      phone: '',
+      theme: themeTitle || '',
+      message: '',
+      policy: false,
+    },
+    validationSchema,
+    onSubmit: async values => {
+      await fetchRequest(values)
+      formik.resetForm()
+      closeModal()
+    }
+  })
 
   useEffect(() => {
     if (isOpen) {
-      setFormData(prev => ({
+      formik.setValues(prev => ({
         ...prev,
         theme: themeTitle || '',
       }))
@@ -44,53 +38,38 @@ export const FormModal = ({ themeTitle }) => {
   }, [isOpen, themeTitle])
 
   return (
-    <Modal isOpen={isOpen} onClose={closeModal}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <Typography variant="fs24" weight="fw6" color="#FF6600">Задать вопрос</Typography>
-        <Input
-          label="Имя"
-          placeholder="Имя"
-          onChange={handleChange}
-          value={formData.name}
-          name="name"
-          maxLength={50}
-        />
-        <Input
-          label="Телефон"
-          placeholder="Телефон"
-          onChange={handleChange}
-          value={formData.phone}
-          name="phone"
-          maxLength={50}
-        />
-        <Input
-          label="Тема"
-          placeholder="Тема"
-          onChange={handleChange}
-          value={formData.theme}
-          name="theme"
-          maxLength={50}
-        />
-        <Input
-          label="Сообщение"
-          placeholder="Сообщение"
-          onChange={handleChange}
-          value={formData.message}
-          name="message"
-          maxLength={200}
-          textarea
-        />
-        <label className={styles.checkbox}>
-          <input
-            type="checkbox"
-            name="policy"
-            checked={formData.policy}
-            onChange={handleChange}
-          />
-          <Typography variant="fs14">Я согласен с политикой конфиденциальности</Typography>
-        </label>
-        <SwitchButton maxWidth="191px" type="submit">Отправить</SwitchButton>
-      </form> 
-    </Modal>
+    <>
+      {isSuccess ? (
+        <Modal isOpen={isSuccess} onClose={resetSuccess}>
+          <SuccessMes />
+        </Modal>
+      ) : (
+        <Modal isOpen={isOpen} onClose={closeModal}>
+          <form className={styles.form} onSubmit={formik.handleSubmit}>
+            <Typography variant="fs24" weight="fw6" color="#FF6600">
+              Задать вопрос
+            </Typography>
+            <FormFields formik={formik} />
+            <label className={styles.checkbox}>
+              <input
+                type="checkbox"
+                name="policy"
+                checked={formik.values.policy}
+                onChange={formik.handleChange}
+              />
+              <Typography
+                variant="fs14"
+                color={formik.touched.policy && formik.errors.policy && "red"}
+              >
+                Я согласен с политикой конфиденциальности
+              </Typography>
+            </label>
+            <SwitchButton maxWidth="191px" type="submit" disabled={isLoading}>
+              {isLoading ? 'Отправка...' : 'Отправить'}
+            </SwitchButton>
+          </form>
+        </Modal>
+      )}
+    </>
   )
 }
