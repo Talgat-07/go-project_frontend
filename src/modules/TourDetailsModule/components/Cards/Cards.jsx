@@ -1,46 +1,55 @@
-import { Date } from "@/app/assets/icons/tourData/Date";
-import styles from "./Cards.module.scss";
-import { Typography } from "@/ui";
+import { Date } from "@/app/assets/icons/tourData/Date"
+import styles from "./Cards.module.scss"
+import { Typography } from "@/ui"
+import { VisaType } from "@/app/assets/icons/tourData/VisaType"
+import { Price } from "@/app/assets/icons/tourData/Price"
+import { Cities } from "@/app/assets/icons/tourData/Cities"
+import { InProgramm } from "@/app/assets/icons/tourData/InProgramm"
+import { Hotels } from "@/app/assets/icons/tourData/Hotels"
+import { useTranslation } from "react-i18next"
 
 export const Cards = ({ item }) => {
+  const { t } = useTranslation()
 
   const data = [
     {
-      title: 'Даты тура',
+      title: t("tourData.date"),
       description: item?.tour_date,
       icon: <Date />
     },
     {
-      title: 'Тип визы',
+      title: t("tourData.visaType"),
       description: item?.visa_type,
-      icon: <Date />
+      icon: <VisaType />
     },
     {
-      title: 'Цена',
+      title: t("tourData.price"),
       description: item?.price,
-      icon: <Date />
+      icon: <Price />
     },
     {
-      title: 'Города',
+      title: t("tourData.cities"),
       description: item?.cities,
-      icon: <Date />
+      icon: <Cities />
     },
     {
-      title: 'В программе',
+      title: t("tourData.inProgram"),
       description: item?.program,
-      icon: <Date />
+      icon: <InProgramm />
     },
     {
-      title: 'Отели',
+      title: t("tourData.hotels"),
       description: item?.hotels,
-      icon: <Date />
+      icon: <Hotels />
     },
-  ];
+  ]
   return (
     <div className={styles.cardsBlock}>
       {data.map((item, index) => (
         <div className={styles.card} key={index}>
-          {item.icon}
+          <div className={styles.icon}>
+            {item.icon}
+          </div>
           <div className={styles.texts}>
             <Typography variant='h4' weight='fw5'>
               {item.title}
@@ -52,5 +61,5 @@ export const Cards = ({ item }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}

@@ -5,8 +5,11 @@ import { FireIcon } from '@/app/assets/icons/FireIcon'
 import { SaleIcon } from '@/app/assets/icons/SaleIcon'
 import { ThumbIcon } from '@/app/assets/icons/ThumbIcon'
 import styles from './TourCard.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const TourCard = ({ item }) => {
+  const { t } = useTranslation()
+
   return (
     <div
       className={styles.card}
@@ -55,7 +58,7 @@ export const TourCard = ({ item }) => {
           </Typography>
           <Link to={`/tours/${item.id}`} className={styles.btnLink} target='_top'>
             <SwitchButton maxWidth='165px' className={styles.btn}>
-              Подробнее
+              {t("buttons.more")}
             </SwitchButton>
           </Link>
         </div>

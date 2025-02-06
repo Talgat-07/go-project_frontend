@@ -3,12 +3,14 @@ import { useFormik } from 'formik'
 import { SwitchButton, Modal, Typography } from '@/ui'
 import { usePostFormData } from './api/PostFormData'
 import { useModalStore } from '@/utils/hooks/useModalStore'
-import { validationSchema } from '@/utils/helpers/helpers'
+import { getValidationSchema } from '@/utils/helpers/helpers'
 import styles from './Form.module.scss'
 import { FormFields } from './components/FormFields/FormFields'
 import { SuccessMes } from './components/SuccessMes/SuccessMes'
+import { useTranslation } from 'react-i18next'
 
 export const FormModal = ({ themeTitle }) => {
+  const { t } = useTranslation()
   const { fetchRequest, isSuccess, resetSuccess, isLoading } = usePostFormData()
   const { isOpen, closeModal } = useModalStore()
 
@@ -20,12 +22,12 @@ export const FormModal = ({ themeTitle }) => {
       message: '',
       policy: false,
     },
-    validationSchema,
-    onSubmit: async values => {
+    validationSchema: getValidationSchema(t),
+    onSubmit: async (values) => {
       await fetchRequest(values)
       formik.resetForm()
       closeModal()
-    }
+    },
   })
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export const FormModal = ({ themeTitle }) => {
         <Modal isOpen={isOpen} onClose={closeModal}>
           <form className={styles.form} onSubmit={formik.handleSubmit}>
             <Typography variant="fs24" weight="fw6" color="#FF6600">
-              Задать вопрос
+              {t("form.askQuestion")}
             </Typography>
             <FormFields formik={formik} />
             <label className={styles.checkbox}>
@@ -61,11 +63,11 @@ export const FormModal = ({ themeTitle }) => {
                 variant="fs14"
                 color={formik.touched.policy && formik.errors.policy && "red"}
               >
-                Я согласен с политикой конфиденциальности
+                {t("form.policy")}
               </Typography>
             </label>
             <SwitchButton maxWidth="191px" type="submit" disabled={isLoading}>
-              {isLoading ? 'Отправка...' : 'Отправить'}
+              {isLoading ? t("buttons.sending") : t("buttons.send")}
             </SwitchButton>
           </form>
         </Modal>

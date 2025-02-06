@@ -3,42 +3,44 @@ import styles from "./TabBar.module.scss"
 import { Typography } from "@/ui"
 import { Table } from "../Table/Table"
 import { DayTab } from "../DayTab/DayTab"
+import { useTranslation } from "react-i18next"
 
 export const TabBar = ({ item = {} }) => {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState(0)
 
   const tabs = [
     {
       id: 0,
-      label: "Общее",
+      label: t("tableTabs.general"),
       content: item?.general?.map(({ title, description }) => (
         { key: title, value: description }
       )) || []
     },
     {
       id: 1,
-      label: "Размещение",
+      label: t("tableTabs.placement"),
       content: item?.placement?.map(({ title, description }) => (
         { key: title, value: description }
       )) || []
     },
     {
       id: 2,
-      label: "Программа тура",
+      label: t("tableTabs.tourProgram"),
       content: item?.tour_program?.map(({ day, date, description }) => (
         { day: day, date, description }
       )) || []
     },
     {
       id: 3,
-      label: "В пакет включено",
+      label: t("tableTabs.conditions"),
       content: item?.conditions?.map(({ title, description }) => (
         { key: title, value: description }
       )) || []
     },
     {
       id: 4,
-      label: "Дополнительно",
+      label: t("tableTabs.additonal"),
       content: item?.additional?.map(({ title, description }) => (
         { key: title, value: description }
       )) || []
@@ -59,7 +61,7 @@ export const TabBar = ({ item = {} }) => {
         ))}
       </div>
       <div className={styles.tabContent}>
-      {activeTab === 2 ? (
+        {activeTab === 2 ? (
           <DayTab data={tabs[activeTab].content} />
         ) : (
           tabs[activeTab].content.length > 0 && <Table data={tabs[activeTab].content} />

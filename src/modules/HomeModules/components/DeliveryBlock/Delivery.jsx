@@ -6,8 +6,10 @@ import { SwitchButton } from '@/ui'
 import { Heading } from '@/ui'
 import { Link } from 'react-router-dom'
 import { PATH } from '@/utils/constants/constants'
+import { useTranslation } from 'react-i18next'
 
 export const Delivery = () => {
+  const { t } = useTranslation()
   const { deliveryData, deliveryRequest } = DeliveryBlockApi()
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export const Delivery = () => {
 
   return (
     <section className={styles.deliverySection}>
-      <Heading text="Доставка Easy Go" />
+      <Heading text={t("headings.deliveryEasyGo")} />
       {deliveryData.map((item) => (
         <div className={styles.deliveryBanner} key={item.id}>
           <div className={styles.img}>
@@ -36,7 +38,7 @@ export const Delivery = () => {
             </Typography>
             <Link to={PATH.delivery} target='_top'>
               <SwitchButton maxWidth='195px'>
-                Подробнее
+                {t("buttons.more")}
               </SwitchButton>
             </Link>
           </div>

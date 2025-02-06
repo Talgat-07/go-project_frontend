@@ -3,8 +3,11 @@ import { SwitchButton } from '@/ui'
 import styles from './VisaCard.module.scss'
 import { SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const VisaCard = ({ item }) => {
+  const { t } = useTranslation()
+
   return (
     <SwiperSlide className={styles.block}>
       <div className={styles.bgImg}>
@@ -20,7 +23,7 @@ export const VisaCard = ({ item }) => {
           </Typography>
           <Link to={`/visa-page/${item.id}`} target='_top'>
             <SwitchButton maxWidth='auto'>
-              Подробнее
+              {t("buttons.more")}
             </SwitchButton>
           </Link>
         </div>

@@ -56,7 +56,6 @@ export const HomeForm = () => {
       ...prevValues,
       [name]: value,
     }));
-    // Убираем ошибку для текущего поля при вводе
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: undefined,

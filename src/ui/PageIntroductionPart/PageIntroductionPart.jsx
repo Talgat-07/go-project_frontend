@@ -1,17 +1,20 @@
-import { MultiContainer } from '@/ui/Multicontainer/Multicontainer';
-import styles from './PageIntroductionPart.module.scss';
-import { Heading } from '@/ui/Heading/Heading';
-import { Slider } from '@/ui/Slider/Slider';
-import { Typography } from '@/ui/Typography/Typography';
-import { SwitchButton } from '@/ui/SwitchButton/SwitchButton';
-import { SharedTextList } from '@/ui/SharedTextList/SharedTextList';
-import { CloudIcon } from '@/app/assets/icons/CloudIcon';
-import { AirplanePath } from '@/app/assets/icons/AirplanePath';
-import { Airplane } from '@/app/assets/icons/Airplane';
-import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck';
-import { RightAirPath } from '@/app/assets/icons/RightAirPath';
-import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup';
-import { CostBlock } from '..';
+import { MultiContainer } from '@/ui/Multicontainer/Multicontainer'
+import styles from './PageIntroductionPart.module.scss'
+import { Heading } from '@/ui/Heading/Heading'
+import { Slider } from '@/ui/Slider/Slider'
+import { Typography } from '@/ui/Typography/Typography'
+import { SwitchButton } from '@/ui/SwitchButton/SwitchButton'
+import { SharedTextList } from '@/ui/SharedTextList/SharedTextList'
+import { CloudIcon } from '@/app/assets/icons/CloudIcon'
+import { AirplanePath } from '@/app/assets/icons/AirplanePath'
+import { Airplane } from '@/app/assets/icons/Airplane'
+import { InsideBtnTruck } from '@/app/assets/icons/InsideBtnTruck'
+import { RightAirPath } from '@/app/assets/icons/RightAirPath'
+import { AirplaneGroup } from '@/app/assets/icons/AirplaneGroup'
+import { useModalStore } from '@/utils/hooks/useModalStore'
+import { CostBlock } from '..'
+import { FormModal } from '../Form/Form'
+import { useTranslation } from 'react-i18next'
 
 export const PageIntroductionPart = ({
   data = [],
@@ -28,20 +31,22 @@ export const PageIntroductionPart = ({
   deliveryTours = false,
   maxWidth,
 }) => {
-  if (!data.length) return null;
+  const { t } = useTranslation()
+  const { openModal } = useModalStore()
+  if (!data.length) return null
 
   const switchButton = (
     <SwitchButton
       fontSize='fs16'
       maxWidth={maxWidth}
       text={btnText}
-      className={`${styles.button} ${deliveryTours ? styles.delivery : ''} ${
-        individualTours ? styles.individualTours : ''
-      }`}
+      onClick={openModal}
+      className={`${styles.button} ${deliveryTours ? styles.delivery : ''} ${individualTours ? styles.individualTours : ''
+        }`}
     >
       {deliveryTours && <InsideBtnTruck className={styles.airIcon} />}
     </SwitchButton>
-  );
+  )
 
   return (
     <MultiContainer>
@@ -79,8 +84,7 @@ export const PageIntroductionPart = ({
               color='#000000'
               className={styles.description}
             >
-              Выбирайте подходящий вам вариант, а мы доставим вашу посылку в
-              целости и сохранности.
+              {t("indTourPage.infoText")}
             </Typography>
             <AirplaneGroup className={styles.airplanes} />
             {deliveryTours && easyGoLink ? (
@@ -101,6 +105,7 @@ export const PageIntroductionPart = ({
           <CostBlock processAndCost={costAndProcess} />
         </section>
       </div>
+      <FormModal themeTitle={title} />
     </MultiContainer>
-  );
-};
+  )
+}
