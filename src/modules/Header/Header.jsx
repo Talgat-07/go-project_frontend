@@ -10,17 +10,14 @@ import { SwitchLanguage } from './components/SwithchLanguage/SwitchLanguage';
 import { PATH } from '@/utils/constants/constants';
 import { Link, useLocation } from 'react-router-dom';
 import { useForm } from '@/utils/hooks/useForm';
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next'
 
 export const Header = ({ contactsData }) => {
+  const { t } = useTranslation()
   const location = useLocation();
   const isHomePage = location.pathname === PATH.home;
 
   const { formShow } = useForm();
-
-  // useEffect(() => {
-  //   formShow();
-  // }, []);
 
   const textColor = isHomePage ? '#fff' : '#000';
 
@@ -59,7 +56,7 @@ export const Header = ({ contactsData }) => {
             </Link>
             <div className={styles.activeBlock}>
               <SwitchButton maxWidth='208px' onClick={formShow}>
-                Задать вопрос
+                {t("buttons.askQuestion")}
               </SwitchButton>
               <SwitchLanguage color={textColor} />
             </div>

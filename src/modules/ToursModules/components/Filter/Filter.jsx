@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { useOutsideClick } from '@/utils/hooks/useOutsideClick.js'
 import { FilterArrow } from '@/app/assets/icons/FilterArrow.jsx'
 import styles from './Filter.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const Filter = (props) => {
+  const { t } = useTranslation()
   const {
     label,
     options = [],
@@ -18,13 +20,13 @@ export const Filter = (props) => {
     setIsOpen(prev => !prev)
   }
   const singleOptions = !multiple
-    ? [{ id: 'all', name: 'Выбрать все' }, ...options]
+    ? [{ id: 'all', name: t("filter.chooseAll") }, ...options]
     : options
 
   const filterText = () => {
     if (multiple) {
       if (!value.length) return label
-      return `Выбрано: ${value.length}`
+      return `${t("filter.selected")} ${value.length}`
     } else {
       return value || label
     }

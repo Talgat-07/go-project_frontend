@@ -2,10 +2,93 @@
   "header": {
     "tours": "Tours",
     "visas": "Visas",
-    "delivery": "Delivery",
-    "aboutUs": "About us",
+    "delivery": "Product Delivery",
+    "aboutUs": "About Us",
     "reviews": "Reviews",
-    "individualTours": "Individual tour"
+    "individualTours": "Individual Tour"
   },
-  "home": "Home"
+  "home": "Home Page",
+  "buttons": {
+    "askQuestion": "Ask a Question",
+    "more": "Learn More",
+    "calcilateIndTour": "Calculate Individual Tour",
+    "writeOnWA": "Write on WhatsApp",
+    "orderTour": "Order a Tour",
+    "orderVisa": "Order a Visa",
+    "send": "Send",
+    "switchToEasyGo": "Switch to Easy Go",
+    "allTours": "All Tours",
+    "showMore": "Show More",
+    "sending": "Sending..."
+  },
+  "footer": {
+    "address": "Address: ",
+    "phone": "Phone: "
+  },
+  "headings": {
+    "facts": "Go Project - Facts About Us",
+    "deliveryEasyGo": "Easy Go Delivery",
+    "ourPartners": "Our Partners",
+    "visaSupport": "Visa Support - Visa Go",
+    "photoReport": "Photo Report from Past Tours",
+    "indTour": "Individual Tour"
+  },
+  "partners": {
+    "text1": "Want to become part of our partner team?",
+    "text2": "Write to us, and we’ll discuss cooperation opportunities!"
+  },
+  "tourData": {
+    "date": "Tour Dates",
+    "visaType": "Visa Type",
+    "price": "Price",
+    "cities": "Cities",
+    "inProgram": "Included in the Program",
+    "hotels": "Hotels"
+  },
+  "tableTabs": {
+    "general": "General",
+    "placement": "Accommodation",
+    "tourProgram": "Tour Program",
+    "conditions": "Included in the Package",
+    "additonal": "Additional"
+  },
+  "filter": {
+    "country": "Country",
+    "city": "City",
+    "type": "Type",
+    "category": "Category",
+    "chooseAll": "Select All",
+    "selected": "Selected: ",
+    "notFound": "Couldn't find the right tour? Try removing some filters.",
+    "resetFilters": "Reset Filters"
+  },
+  "visaPage": {
+    "expertHelp": "Our Expert Assistance",
+    "infoText": "Expand your business network and make new connections. See a wide range of Chinese products and evaluate them."
+  },
+  "indTourPage": {
+    "infoText": "Choose the option that suits you best, and we will ensure safe delivery of your package."
+  },
+  "errorPage": {
+    "notFound": "Oops! It looks like we can't find this page.",
+    "toMain": "Go to Home",
+    "techProblems": "We are experiencing temporary technical issues.",
+    "reload": "Reload"
+  },
+  "form": {
+    "askQuestion": "Ask a Question",
+    "policy": "I agree with the Privacy Policy",
+    "name": "Name",
+    "phone": "Phone",
+    "message": "Message",
+    "theme": "Theme",
+    "namePlaceholder": "How should we address you?",
+    "messagePlaceholder": "Enter your message",
+    "success": "Successfully Sent"
+  },
+  "validation": {
+    "enterName": "Enter your name",
+    "invalidPhone": "Invalid phone number",
+    "maxSymbols": "Maximum 200 characters"
+  }
 }

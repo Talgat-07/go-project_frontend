@@ -1,17 +1,19 @@
-import { useEffect } from 'react';
-import { DeliveryApi } from './api/DeliveryApi';
-import { PageIntroductionPart } from '@/ui';
-import { Loader } from '@/ui';
+import { useEffect } from 'react'
+import { DeliveryApi } from './api/DeliveryApi'
+import { PageIntroductionPart } from '@/ui'
+import { Loader } from '@/ui'
+import { useTranslation } from 'react-i18next'
 
 export const DeliveryModule = () => {
-  const { deliveryData, deliveryRequest, isLoading } = DeliveryApi();
+  const { t } = useTranslation()
+  const { deliveryData, deliveryRequest, isLoading } = DeliveryApi()
 
   useEffect(() => {
-    deliveryRequest();
-  }, [deliveryRequest]);
+    deliveryRequest()
+  }, [deliveryRequest])
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader />
   }
 
   return (
@@ -27,8 +29,8 @@ export const DeliveryModule = () => {
         data={deliveryData}
         deliveryTours={true}
         maxWidth={250}
-        btnText={'Переходи на Easy Go'}
+        btnText={t("buttons.switchToEasyGo")}
       />
     </>
-  );
-};
+  )
+}

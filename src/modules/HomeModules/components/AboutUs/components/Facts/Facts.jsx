@@ -2,11 +2,14 @@ import { Typography } from '@/ui';
 import styles from './Facts.module.scss';
 import { Heading } from '@/ui';
 import { MultiContainer } from '@/ui';
+import { useTranslation } from 'react-i18next'
 
 export const Facts = ({ facts }) => {
+  const {t} = useTranslation()
+
   return (
     <MultiContainer>
-      <Heading text="Go project факты о нас" />
+      <Heading text={t("headings.facts")} />
       <section className={styles.factsSection}>
         <article className={styles.divideLine}>
           <div className={styles.line}>&nbsp;</div>

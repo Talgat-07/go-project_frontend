@@ -19,8 +19,8 @@ export const Slider = (props) => {
 
   const swiperRef = useRef(null)
 
-  const isLoopEnabled = loop && data.length > slidesPerView // Disable loop if slides are fewer than slidesPerView
-  const isCenteredEnabled = centeredSlides && data.length > slidesPerView // Disable centered slides in the same case
+  const isLoopEnabled = loop && data.length > slidesPerView 
+  const isCenteredEnabled = centeredSlides && data.length > slidesPerView
   const areButtonsDisabled = data.length <= slidesPerView
 
   const swiperSettings = {

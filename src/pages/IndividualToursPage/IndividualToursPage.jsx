@@ -1,13 +1,15 @@
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Breadcrumbs } from '@/ui';
-import { IndividualToursModules } from '@/modules/IndividualToursModules/IndividualToursModules';
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { Breadcrumbs } from '@/ui'
+import { IndividualToursModules } from '@/modules/IndividualToursModules/IndividualToursModules'
+import { useTranslation } from 'react-i18next'
 
 export const IndividualToursPage = () => {
+  const { t } = useTranslation()
   return (
     <>
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
-          <title>Индивидуальный тур</title>
+          <title>{t("headings.indTour")}</title>
           <meta name='description' content='' />
           <meta name='keywords' content='' />
           <meta property='og:title' content='Индивидуальный тур' />
@@ -19,5 +21,5 @@ export const IndividualToursPage = () => {
         <IndividualToursModules />
       </main>
     </>
-  );
-};
+  )
+}

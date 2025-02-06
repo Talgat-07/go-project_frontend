@@ -3,8 +3,11 @@ import styles from './Content.module.scss'
 import { SwitchButton } from '@/ui'
 import { MultiContainer } from '@/ui'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const Content = ({ slide }) => {
+  const {t} = useTranslation()
+
   return (
     <section className={styles.banner}>
       <div className={styles.img}>
@@ -20,7 +23,7 @@ export const Content = ({ slide }) => {
         </Typography>
         <Link to={`/tours/${slide.id}`} className={styles.btnLink} target="_top">
           <SwitchButton maxWidth='195px' padding='14px 45px'>
-            Подробнее
+            {t("buttons.more")}
           </SwitchButton>
         </Link>
       </MultiContainer>

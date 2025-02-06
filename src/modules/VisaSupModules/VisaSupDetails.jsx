@@ -30,7 +30,7 @@ export const VisaSupDetails = () => {
       <Heading text={titleKey.title} className={styles.title} />
       <CheckBlock mainContent={visaData.visa_go || []} />
       <InfoFrame moreInfo={visaData.images || []} />
-      <EndSection />
+      <EndSection themeTitle={titleKey.title}/>
     </MultiContainer>
   );
 };

@@ -63,16 +63,17 @@ export const getPlainText = (htmlString) => {
   return doc.body.textContent || ""
 }
 
-export const validationSchema = yup.object({
-  name: yup.string().trim().required('Введите имя'),
-  phone: yup
-    .string()
-    .trim()
-    .matches(/^\+?[0-9\s\-()]{7,15}$/, 'Некорректный номер телефона')
-    .required('Введите номер телефона'),
-  message: yup.string().max(200, 'Максимум 200 символов'),
-  policy: yup.boolean().oneOf([true], 'Необходимо согласие с политикой'),
-})
+export const getValidationSchema = (t) =>
+  yup.object({
+    name: yup.string().trim().required(t('validation.enterName')),
+    phone: yup
+      .string()
+      .trim()
+      .matches(/^\+?[0-9\s\-()]{7,15}$/, t('validation.invalidPhone'))
+      .required(t('validation.enterName')),
+    message: yup.string().max(200, t('validation.maxSymbols')),
+  })
+
 
 export const handlePhoneChange = (e, setFieldValue) => {
   const { value } = e.target

@@ -8,8 +8,10 @@ import globe from '@/app/assets/images/visaSupBg.png'
 import left from '@/app/assets/images/leftAirplane.png'
 import right from '@/app/assets/images/rightAirplane.png'
 import center from '@/app/assets/images/centerAirplane.png'
+import { useTranslation } from 'react-i18next'
 
 export const VisaSupport = () => {
+  const { t } = useTranslation()
   const { visaData, visaRequest } = VisaSupportApi()
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export const VisaSupport = () => {
           </div>
         </div>
       </div>
-      <Heading text='Визовая поддержка - Visa Go' />
+      <Heading text={t("headings.visaSupport")} />
       <div className={styles.cards}>
         <Slider
           data={visaData}
