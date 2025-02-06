@@ -5,10 +5,10 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination, Zoom } from 'swiper/modules'
 import { Content } from './components/Content'
-import { ToursSliderApi } from '../../api/ToursSliderApi'
+import { BannerTuorsApi } from '../../api/BannerToursApi'
 
 export const Banner = () => {
-  const { toursData, toursRequest } = ToursSliderApi()
+  const { toursData, toursRequest } = BannerTuorsApi()
 
   const swiperRef = useRef(null)
 
