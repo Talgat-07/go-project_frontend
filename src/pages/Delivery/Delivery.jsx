@@ -11,7 +11,7 @@ export const Delivery = () => {
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
           <title>{t("header.delivery")}</title>
-          <meta name='description' content='' />
+          <meta name='description' content={t("header.delivery")} />
           <meta name='keywords' content='' />
           <meta property='og:title' content='Доставка товаров' />
           <meta property='og:description' content='Доставка товаров' />

@@ -15,6 +15,7 @@ import bg from '@/app/assets/images/tourDetail.png'
 import { useModalStore } from '@/utils/hooks/useModalStore'
 import { FormModal } from '../../ui/Form/Form'
 import { useTranslation } from 'react-i18next'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 export const TourDetailComponent = () => {
   const { t } = useTranslation()
@@ -39,6 +40,15 @@ export const TourDetailComponent = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet prioritizeSeoTags>
+          <title>{tourDetailData?.title}</title>
+          <meta name='description' content={t("header.delivery")} />
+          <meta name='keywords' content='' />
+          <meta property='og:title' content='Доставка товаров' />
+          <meta property='og:description' content='Доставка товаров' />
+        </Helmet>
+      </HelmetProvider>
       <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={tourDetailData?.title} />
       <MultiContainer className={styles.container}>
         <Hero item={heroData} title={tourDetailData?.title} />
