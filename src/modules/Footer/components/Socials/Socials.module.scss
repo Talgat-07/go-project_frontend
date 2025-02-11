@@ -17,19 +17,19 @@
 
   .iconsContainer {
     display: flex;
-    gap: 10px;
+    gap: 13px;
     align-items: center;
 
     a {
       &:hover {
         .icon g path {
-          fill: #9E3917;
+          fill: #9e3917;
         }
       }
 
       &:hover {
         .icon path {
-          fill: #9E3917;
+          fill: #9e3917;
         }
       }
     }
