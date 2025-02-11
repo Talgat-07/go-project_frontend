@@ -2,10 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { loadComponent } from '@/utils/helpers/helpers';
 import { PATH } from '@/utils/constants/constants';
 import { Loader } from '@/ui';
-const Layout = loadComponent(
-  () => import('@/app/Routing/Layout/Layout'),
-  'Layout',
-);
+const Layout = loadComponent(() => import('@/app/Routing/Layout/Layout'), 'Layout');
 const HomePage = loadComponent(() => import('@/pages'), 'HomePage');
 const NotFound = loadComponent(() => import("@/pages"), "NotFound");
 const Tours = loadComponent(() => import('@/pages'), 'Tours');

@@ -1,7 +1,7 @@
 import { requester } from '@/utils/requester/requester'
 import { create } from 'zustand'
 
-const endpoint = 'tours/main-tours/'
+const endpoint = 'tours/start-block/'
 
 export const BannerTuorsApi = create((set) => ({
   toursData: [],
