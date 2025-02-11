@@ -43,10 +43,10 @@ export const TourDetailComponent = () => {
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
           <title>{tourDetailData?.title}</title>
-          <meta name='description' content={t("header.delivery")} />
-          <meta name='keywords' content='' />
-          <meta property='og:title' content='Доставка товаров' />
-          <meta property='og:description' content='Доставка товаров' />
+          <meta name='description' content={tourDetailData?.title} />
+          <meta name='keywords' content={tourDetailData?.title} />
+          <meta property='og:title' content={tourDetailData?.title} />
+          <meta property='og:description' content={tourDetailData?.title} />
         </Helmet>
       </HelmetProvider>
       <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={tourDetailData?.title} />
