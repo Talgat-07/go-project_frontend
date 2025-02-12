@@ -60,8 +60,17 @@ export const AllTours = () => {
   if (loadingTours || loadingCountries || loadingTypes) return <Loader />
 
   const handleFilterChange = (field, value) => {
-    setFilters(prevFilters => ({ ...prevFilters, [field]: value }))
+    setFilters(prevFilters => {
+      if (field === 'country') {
+        return { ...prevFilters, country: value, city: [] }
+      }
+      return { ...prevFilters, [field]: value }
+    })
   }
+
+  const availableCities = filters.country
+    ? countriesData.find(country => country.name === filters.country)?.cities || []
+    : countriesData.flatMap(country => country.cities)
 
   const handleShowMore = () => {
     setDisplayTours((prevVisible) => prevVisible + displayToursCount)
@@ -79,34 +88,34 @@ export const AllTours = () => {
   return (
     <MultiContainer className={styles.allTours}>
       <div className={`${styles.circleBg} ${filteredTours.length > 0 ? '' : styles.show}`} />
-      <Heading text={t("buttons.allTours")} />
+      <Heading text={t('buttons.allTours')} />
       <ToursPlane className={styles.plane} />
       <ToursPlane className={styles.plane} />
       <div className={styles.filters}>
         <Filter
-          label={t("filter.country")}
+          label={t('filter.country')}
           options={countriesData}
           field='country'
           value={filters.country}
           onChange={handleFilterChange}
         />
         <Filter
-          label={t("filter.city")}
-          options={countriesData.flatMap(country => country.cities)}
+          label={t('filter.city')}
+          options={availableCities}
           field='city'
           value={filters.city}
           onChange={handleFilterChange}
           multiple
         />
         <Filter
-          label={t("filter.type")}
+          label={t('filter.type')}
           options={tourTypesData}
           field='type'
           value={filters.type}
           onChange={handleFilterChange}
         />
         <Filter
-          label={t("filter.category")}
+          label={t('filter.category')}
           options={tourTypesData.flatMap(type => type.categories)}
           field='category'
           value={filters.category}
@@ -123,7 +132,7 @@ export const AllTours = () => {
           </div>
           {displayTours < filteredTours.length && (
             <SwitchButton maxWidth='230px' className={styles.btn} onClick={handleShowMore}>
-              {t("buttons.showMore")}
+              {t('buttons.showMore')}
             </SwitchButton>
           )}
         </>

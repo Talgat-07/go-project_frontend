@@ -17,24 +17,28 @@ export const TourCard = ({ item }) => {
     >
       {item.new && (
         <div className={`${styles.tagNew} ${styles.flex}`}>
-          <Typography weight='fw7' color='white'>NEW</Typography>
+          <Typography weight='fw6' color='white'>NEW</Typography>
         </div>
       )}
-      {item.discount !== 0 && (
-        <div className={`${styles.tagDiscount} ${styles.flex}`}>
-          <Typography variant='fs14' weight='fw7' color='red'>-{item.discount}%</Typography>
-        </div>
-      )}
+      <div className={`${styles.price} ${styles.flex}`}>
+        <Typography
+          variant='fs14'
+          weight='fw7'
+          color='red'
+        >
+          {item?.mini_info_frames[0]?.price}
+        </Typography>
+      </div>
       {item.icons === 'fire' && (
         <div className={`${styles.tagFire} ${styles.flex}`}>
           <FireIcon />
-          <Typography variant='fs22' weight='fw6' color='white'>О! СКИДКА</Typography>
+          <Typography variant='fs22' weight='fw6' color='white'>СКИДКА {item.discount}%</Typography>
         </div>
       )}
       {item.icons === 'thumb_up' && (
         <div className={`${styles.tagThumb} ${styles.flex}`}>
           <ThumbIcon />
-          <Typography variant='fs20' weight='fw4' color='white'>ЛУЧШАЯ СКИДКА</Typography>
+          <Typography variant='fs20' weight='fw6' color='white'>ПОПУЛЯРНОЕ</Typography>
         </div>
       )}
       {item.icons === 'tag' && (
@@ -46,22 +50,20 @@ export const TourCard = ({ item }) => {
         className={styles.cardContent}
         style={{ background: tourCardColors[item.background_color] }}
       >
-        <Typography className={styles.title} variant='fs24' weight='fw7'>
+        <Typography className={styles.title} variant='fs24' weight='fw6'>
           {item.title}
         </Typography>
-        <Typography weight='fw5' className={styles.date}>
-          {item?.mini_info_frames[0]?.tour_date}
+        <Typography weight='fw5'>
+          {item.day_count} дней
         </Typography>
-        <div className={styles.price}>
-          <Typography weight='fw7'>
-            {item?.mini_info_frames[0]?.price}
-          </Typography>
-          <Link to={`/tours/${item.id}`} className={styles.btnLink} target='_top'>
-            <SwitchButton maxWidth='165px' className={styles.btn}>
-              {t("buttons.more")}
-            </SwitchButton>
-          </Link>
-        </div>
+        <Typography variant='fs14' weight='fw4'>
+          с {item.start_date} по {item.end_date}
+        </Typography>
+        <Link to={`/tours/${item.slug}`} className={styles.btnLink} target='_top'>
+          <SwitchButton maxWidth='165px' className={styles.btn}>
+            {t('buttons.more')}
+          </SwitchButton>
+        </Link>
       </div>
     </div>
   )
