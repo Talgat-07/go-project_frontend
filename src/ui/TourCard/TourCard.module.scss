@@ -1,7 +1,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  min-height: 381px;
+  max-width: 400px;
+  height: 381px;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
@@ -19,25 +20,29 @@
     height: 22px;
     background: #200CB4;
     border-radius: 16px;
+  }
 
+  .price {
+    width: fit-content;
+    height: 21px;
+    padding: 3.5px 12px;
+    background: #fff;
+    border-radius: 8px;
+  }
+
+  .tagNew, .price {
     p {
       font-size: 12px;
     }
   }
 
-  .tagDiscount {
-    width: 53px;
-    height: 18px;
-    background: #fff;
-    border-radius: 8px;
-  }
-
   .tagFire {
     position: absolute;
     right: 0;
-    min-width: 190px;
+    min-width: 197px;
     height: 44px;
-    background: #FF0000;
+    padding: 8px 5px;
+    background: #2CE348;
     border-radius: 11px;
     gap: 7px;
   }
@@ -47,48 +52,42 @@
     right: 0;
     min-width: 232px;
     height: 38px;
-    background: #AF4DFD;
+    padding: 8px 21px;
+    background: #01DCD6;
     border-radius: 9px;
-    gap: 7px;
+    gap: 15px;
   }
 
   .tagSale {
     position: absolute;
-    right: 0;
-    margin: -20px;
+    right: 10px;
   }
 
   &Content {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 121px;
     border-radius: 10px 10px 5px 5px;
     color: #fff;
-    padding: 9px 25px 17px;
+    padding: 5px 10px 12px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    gap: 5px;
 
     .title {
+      height: 54px;
       display: -webkit-box;
-      -webkit-line-clamp: 1;
-      line-clamp: 1;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .date {
-      max-width: 150px;
-    }
-
-    .price {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
     .btn {
+      width: 100%;
       height: 35px;
       gap: 0;
       border-radius: 6px;
@@ -96,7 +95,10 @@
     }
 
     .btnLink {
-      margin-left: auto;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 12px 10px;
     }
   }
 }
