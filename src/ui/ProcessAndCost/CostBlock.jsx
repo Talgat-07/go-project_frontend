@@ -4,6 +4,8 @@ import { CloudIcon } from '@/app/assets/icons/CloudIcon';
 import { Typography } from '..';
 
 export const CostBlock = ({ processAndCost }) => {
+  console.log(processAndCost);
+
   return (
     <MultiContainer>
       <section className={styles.costProcSection}>
