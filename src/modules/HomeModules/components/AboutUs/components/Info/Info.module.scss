@@ -4,19 +4,19 @@
 
   .content {
     display: flex;
-    gap: 22px;
+    gap: 12px;
     align-items: center;
 
     .img {
       display: flex;
-      max-width: 610px;
+      max-width: 620px;
       width: 100%;
       overflow: hidden;
 
       img {
-        max-width: 610px;
+        max-width: 620px;
         width: 100%;
-        aspect-ratio: 610/487;
+        aspect-ratio: 620/487;
         object-fit: cover;
         border-radius: 15px;
       }

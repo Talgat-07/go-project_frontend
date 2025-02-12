@@ -1,8 +1,10 @@
 import { Typography } from '@/ui'
 import styles from './ServerError.module.scss'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const ServerError = () => {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
 
   const handleReload = () => {
@@ -16,14 +18,14 @@ export const ServerError = () => {
         OOPS
       </Typography>
       <Typography variant='h2' className={styles.errorMessage} color="#fff">
-        У нас временные технические неполадки.
+        {t("errorPage.techProblems")}
       </Typography>
       <button onClick={handleReload} className={isLoading ? styles.loading : styles.reloadButton}>
         {isLoading && (
           <div className={styles.loader}></div>
         )}
         <Typography variant='fs24' weight='fw5' color="#fff">
-          Перезагрузить
+          {t("errorPage.reload")}
         </Typography>
       </button>
     </section>

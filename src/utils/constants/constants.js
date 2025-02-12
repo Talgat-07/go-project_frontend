@@ -14,18 +14,9 @@ export const breadcrumbs = [
   { key: 'home', label: 'home' },
   { key: 'tours', label: 'header.tours' },
   { key: 'tourDetail', label: 'header.tours', route: PATH.tours },
-  {
-    key: 'visaSupport',
-    label: 'header.visas',
-  },
-  {
-    key: 'delivery',
-    label: 'header.delivery',
-  },
-  {
-    key: 'individualTours',
-    label: 'header.individualTours',
-  },
+  { key: 'visaSupport', label: 'header.visas', route: PATH.home },
+  { key: 'delivery', label: 'header.delivery' },
+  { key: 'individualTours', label: 'header.individualTours' },
 ];
 
 export const geeksLink = 'https://geeks.kg/geeks-pro';

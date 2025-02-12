@@ -1,14 +1,17 @@
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Breadcrumbs } from '@/ui';
-import { DeliveryModule } from '@/modules/DeliveryModules/DeliveryModule';
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { Breadcrumbs } from '@/ui'
+import { DeliveryModule } from '@/modules/DeliveryModules/DeliveryModule'
+import { useTranslation } from 'react-i18next'
 
 export const Delivery = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
-          <title>Доставка товаров</title>
-          <meta name='description' content='' />
+          <title>{t("header.delivery")}</title>
+          <meta name='description' content={t("header.delivery")} />
           <meta name='keywords' content='' />
           <meta property='og:title' content='Доставка товаров' />
           <meta property='og:description' content='Доставка товаров' />
@@ -19,5 +22,5 @@ export const Delivery = () => {
         <DeliveryModule />
       </main>
     </>
-  );
-};
+  )
+}

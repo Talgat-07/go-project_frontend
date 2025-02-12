@@ -7,8 +7,10 @@ import { useTourTypes } from './api/TourTypesApi.js'
 import { ToursNotFound } from './components/ToursNotFound/ToursNotFound.jsx'
 import { ToursPlane } from '@/app/assets/icons/ToursPlane.jsx'
 import styles from './AllTours.module.scss'
+import { useTranslation } from 'react-i18next'
 
 export const AllTours = () => {
+  const { t } = useTranslation()
   const { toursData, loading: loadingTours, fetchAllTours } = useAllTours()
   const { countriesData, loading: loadingCountries, fetchCountries } = useCountries()
   const { tourTypesData, loading: loadingTypes, fetchTourTypes } = useTourTypes()
@@ -58,8 +60,17 @@ export const AllTours = () => {
   if (loadingTours || loadingCountries || loadingTypes) return <Loader />
 
   const handleFilterChange = (field, value) => {
-    setFilters(prevFilters => ({ ...prevFilters, [field]: value }))
+    setFilters(prevFilters => {
+      if (field === 'country') {
+        return { ...prevFilters, country: value, city: [] }
+      }
+      return { ...prevFilters, [field]: value }
+    })
   }
+
+  const availableCities = filters.country
+    ? countriesData.find(country => country.name === filters.country)?.cities || []
+    : countriesData.flatMap(country => country.cities)
 
   const handleShowMore = () => {
     setDisplayTours((prevVisible) => prevVisible + displayToursCount)
@@ -77,34 +88,34 @@ export const AllTours = () => {
   return (
     <MultiContainer className={styles.allTours}>
       <div className={`${styles.circleBg} ${filteredTours.length > 0 ? '' : styles.show}`} />
-      <Heading text='Все туры' />
+      <Heading text={t('buttons.allTours')} />
       <ToursPlane className={styles.plane} />
       <ToursPlane className={styles.plane} />
       <div className={styles.filters}>
         <Filter
-          label='Страна'
+          label={t('filter.country')}
           options={countriesData}
           field='country'
           value={filters.country}
           onChange={handleFilterChange}
         />
         <Filter
-          label='Город'
-          options={countriesData.flatMap(country => country.cities)}
+          label={t('filter.city')}
+          options={availableCities}
           field='city'
           value={filters.city}
           onChange={handleFilterChange}
           multiple
         />
         <Filter
-          label='Тип'
+          label={t('filter.type')}
           options={tourTypesData}
           field='type'
           value={filters.type}
           onChange={handleFilterChange}
         />
         <Filter
-          label='Категория'
+          label={t('filter.category')}
           options={tourTypesData.flatMap(type => type.categories)}
           field='category'
           value={filters.category}
@@ -121,7 +132,7 @@ export const AllTours = () => {
           </div>
           {displayTours < filteredTours.length && (
             <SwitchButton maxWidth='230px' className={styles.btn} onClick={handleShowMore}>
-              Показать еще
+              {t('buttons.showMore')}
             </SwitchButton>
           )}
         </>

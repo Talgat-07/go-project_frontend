@@ -7,6 +7,7 @@ import 'swiper/css';
 
 export const ReviewSlider = ({ reviewsData = [] }) => {
   const swiperRef = useRef(null);
+
   const swiperSettings = {
     slidesPerView: 3,
     centeredSlides: true,
@@ -16,6 +17,7 @@ export const ReviewSlider = ({ reviewsData = [] }) => {
     speed: 600,
     slidesPerGroup: 1,
     watchSlidesProgress: true,
+    initialSlide: 2,
     onSwiper: (swiper) => {
       swiperRef.current = swiper;
     },

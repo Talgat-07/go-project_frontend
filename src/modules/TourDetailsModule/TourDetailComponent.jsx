@@ -13,9 +13,12 @@ import { SwitchButton } from '@/ui'
 import { Breadcrumbs } from '@/ui'
 import bg from '@/app/assets/images/tourDetail.png'
 import { useModalStore } from '@/utils/hooks/useModalStore'
-import { FormModal } from './components/Form/Form'
+import { FormModal } from '../../ui/Form/Form'
+import { useTranslation } from 'react-i18next'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 export const TourDetailComponent = () => {
+  const { t } = useTranslation()
   const { id } = useParams()
   const { tourDetailData, tourDetailRequest, isLoading } = TourDetailApi()
   const { openModal } = useModalStore()
@@ -37,6 +40,15 @@ export const TourDetailComponent = () => {
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet prioritizeSeoTags>
+          <title>{tourDetailData?.title}</title>
+          <meta name='description' content={tourDetailData?.title} />
+          <meta name='keywords' content={tourDetailData?.title} />
+          <meta property='og:title' content={tourDetailData?.title} />
+          <meta property='og:description' content={tourDetailData?.title} />
+        </Helmet>
+      </HelmetProvider>
       <Breadcrumbs breadcrumbKey="tourDetail" thirdElement={tourDetailData?.title} />
       <MultiContainer className={styles.container}>
         <Hero item={heroData} title={tourDetailData?.title} />
@@ -48,13 +60,13 @@ export const TourDetailComponent = () => {
             <img src={bg} alt='bg' />
           </div>
           <SwitchButton onClick={openModal} className={styles.button} maxWidth='208px'>
-            Заказать тур
+            {t("buttons.orderTour")}
           </SwitchButton>
           <FormModal themeTitle={tourDetailData?.title} />
         </div>
       </MultiContainer>
       <div className={styles.sliderBlock}>
-        <Heading text="Фото отчет с прошлых туров" />
+        <Heading text={t("headings.photoReport")} />
         <Slider
           className={styles.slider}
           data={tourDetailData?.photo_report}

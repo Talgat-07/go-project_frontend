@@ -10,29 +10,26 @@ import { SwitchLanguage } from './components/SwithchLanguage/SwitchLanguage';
 import { PATH } from '@/utils/constants/constants';
 import { Link, useLocation } from 'react-router-dom';
 import { useForm } from '@/utils/hooks/useForm';
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next'
 
 export const Header = ({ contactsData }) => {
+  const { t } = useTranslation()
   const location = useLocation();
   const isHomePage = location.pathname === PATH.home;
 
   const { formShow } = useForm();
-
-  // useEffect(() => {
-  //   formShow();
-  // }, []);
 
   const textColor = isHomePage ? '#fff' : '#000';
 
   const contacts = [
     {
       icon: <FaWhatsapp size={'24px'} style={{ color: textColor }} />,
-      text: contactsData[0]?.phone_number || '+996(700)777 777',
-      link: `tel: ${contactsData[0]?.phone_number || '+996(700)777 777'}`,
+      text: contactsData[0]?.phone_number || '',
+      link: `tel: ${contactsData[0]?.phone_number || '7'}`,
     },
     {
       icon: <SlLocationPin size={'24px'} style={{ color: textColor }} />,
-      text: contactsData[0]?.company_address || 'ул. Жукеева - Пудовкина 44/1',
+      text: contactsData[0]?.company_address || '',
       link: contactsData[0]?.map_link || '',
     },
   ];
@@ -59,7 +56,7 @@ export const Header = ({ contactsData }) => {
             </Link>
             <div className={styles.activeBlock}>
               <SwitchButton maxWidth='208px' onClick={formShow}>
-                Задать вопрос
+                {t("buttons.askQuestion")}
               </SwitchButton>
               <SwitchLanguage color={textColor} />
             </div>
